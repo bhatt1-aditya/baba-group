@@ -229,7 +229,7 @@ const Home = () => {
             >
               Premium Home Building Materials
             </motion.p>
-            <motion.div
+            {/* <motion.div
               className="flex items-center bg-white/15 text-black rounded-full overflow-hidden max-w-lg mx-auto px-4 py-2 shadow-md"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -244,7 +244,7 @@ const Home = () => {
               <div className="h-10 w-10 p-1 bg-white flex justify-center items-center rounded-full cursor-pointer">
                 <FaSearch className="text-gray-500 text-lg" />
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
       </section>

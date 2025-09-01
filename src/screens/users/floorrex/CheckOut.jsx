@@ -82,7 +82,7 @@ import image4 from "../../../Assets/wallex/about/sidebar.png";
 const products = [
   { id: 1, name: "COREFLEXX", image: image1 },
   { id: 2, name: "WALLEXX", image: image2 },
-  { id: 3, name: "FLOOREXX", image: image3 },
+  { id: 3, name: "BABA-QUARTZ", image: image3 },
   { id: 4, name: "CRISTALLOO", image: image4 },
 ];
 

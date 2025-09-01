@@ -10,6 +10,8 @@ const features = [
   { icon: Link, text: "HOMAG line German Technology" },
   { icon: Users, text: "Representatives available worldwide" },
   { icon: Globe, text: "20+Countries Supply chain" },
+  { icon: Globe, text: "20+Countries Supply chain" },
+  { icon: Globe, text: "20+Countries Supply chain" },
 ];
 
 export default function WallexxProducts() {

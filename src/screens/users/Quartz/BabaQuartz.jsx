@@ -41,8 +41,8 @@ const BabaQuartz = () => {
           <div className="absolute inset-y-0 left-2/3 transform -translate-x-1/2 w-px bg-orange-500"></div>
 
           {/* Additional Horizontal Lines */}
-          <div className="absolute top-1/3 left-0 w-full h-px bg-orange-500"></div>
-          <div className="absolute top-2/3 left-0 w-full h-px bg-orange-500"></div>
+          {/* <div className="absolute top-1/3 left-0 w-full h-px bg-orange-500"></div> */}
+          {/* <div className="absolute top-2/3 left-0 w-full h-px bg-orange-500"></div> */}
         </div>
       </div>
     </div>

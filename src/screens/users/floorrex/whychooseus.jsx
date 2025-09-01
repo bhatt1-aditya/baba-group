@@ -24,6 +24,7 @@ export default function FloorrexPage() {
             <Feature icon={<Wrench className="w-5 h-5" />} text="HOMAG line German Technology" />
             <Feature icon={<Clock className="w-5 h-5" />} text="Since 2 decades" />
             <Feature icon={<Globe className="w-5 h-5" />} text="20+Countries Supply chain" />
+            <Feature icon={<Globe className="w-5 h-5" />} text="20+Countries Supply chain" />
           </div>
         </div>
 
@@ -37,12 +38,12 @@ export default function FloorrexPage() {
       </section>
 
       {/* Stone Polymer Composite */}
-      <section className="px-6 md:px-20 py-10">
+      <section className="px-6 md:px-20 py-120">
         <div className="relative bg-white shadow-lg rounded-2xl overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="Living Room"
-            className="w-full h-80 object-cover"
+            className="w-full h-96 object-cover"
           />
           <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-6 text-white text-left">
             <h3 className="text-2xl font-bold uppercase">STONE POLYMER COMPOSITE</h3>

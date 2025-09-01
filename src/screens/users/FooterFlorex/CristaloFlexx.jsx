@@ -9,6 +9,7 @@ import Hero from "./Hero";
 import Map from "./Map";
 import OtherProducts from "./OtherProducts";
 import StonePolymerComposite from "./StonePolymerComposite";
+import Whychooseus from "./Whychooseus";
 
 const CristaloFlexx = () => {
   return (
@@ -23,6 +24,7 @@ const CristaloFlexx = () => {
     <StonePolymerComposite/>
     {/* <CristaloFlexx/> */}
     <About/>
+    <Whychooseus/>
     <CreatingBeautifulSpaces/>
     <Faqs/>
    </div>

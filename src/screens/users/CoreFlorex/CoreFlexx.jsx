@@ -11,6 +11,7 @@ import CheckOut from './CheckOut'
 import AwardsProjectsEvents from './AwardsProjectsEvents'
 import { Info } from 'lucide-react'
 // import Info from './info'
+import Whychooseus from './whychooseus'
 
 
 const CoreFlexx = () => {
@@ -22,6 +23,7 @@ const CoreFlexx = () => {
         {/* <Info/> */}
         <BestSeller/>
         <CoreFlexxProducts/>
+        <Whychooseus/>
         <Inspirations/>
         <Choose/>
         <About/>

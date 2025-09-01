@@ -36,6 +36,11 @@ const AwardsSection = () => {
             alt="Award 5"
             className="rounded-2xl shadow-lg w-72 h-72 object-cover"
           />
+          <img
+            src="/images/award5.jpg"
+            alt="Award 5"
+            className="rounded-2xl shadow-lg w-72 h-72 object-cover"
+          />
         </div>
       </div>
     </section>

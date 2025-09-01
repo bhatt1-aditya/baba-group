@@ -1,9 +1,9 @@
 import React from "react";
-import { ShieldCheck, Droplets, Bug, Timer } from "lucide-react"; // using lucide-react icons (replace with custom SVG if needed)
+import { ShieldCheck, Droplets, Bug, Timer } from "lucide-react"; // using lucide-react icons
 
 export default function StonePolymerComposite() {
   return (
-    <div className="bg-black text-white py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-between">
+    <div className="bg-black text-white py-16 px-8 md:px-20 flex flex-col md:flex-row items-center justify-between">
       
       {/* Left Section - Text */}
       <div className="md:w-1/2 mb-12 md:mb-0">
@@ -21,31 +21,33 @@ export default function StonePolymerComposite() {
       </div>
 
       {/* Right Section - Icons */}
-      <div className="grid grid-cols-2 gap-10 md:gap-16">
-        {/* Durability */}
-        <div className="flex flex-col items-center text-center">
-          <ShieldCheck className="w-10 h-10 mb-3" />
-          <p className="text-xs uppercase tracking-widest">Ultimate Durability</p>
-        </div>
+      <div className="md:w-1/2 flex justify-center">
+        <div className="grid grid-cols-2 gap-10 md:gap-14">
+          {/* Durability */}
+          <div className="flex flex-col items-center text-center">
+            <ShieldCheck className="w-10 h-10 mb-3" />
+            <p className="text-xs uppercase tracking-widest">Ultimate Durability</p>
+          </div>
 
-        {/* Waterproof */}
-        <div className="flex flex-col items-center text-center">
-          <Droplets className="w-10 h-10 mb-3" />
-          <p className="text-xs uppercase tracking-widest">Waterproof</p>
-        </div>
+          {/* Waterproof */}
+          <div className="flex flex-col items-center text-center">
+            <Droplets className="w-10 h-10 mb-3" />
+            <p className="text-xs uppercase tracking-widest">Waterproof</p>
+          </div>
 
-        {/* Termite Resistant */}
-        <div className="flex flex-col items-center text-center">
-          <Bug className="w-10 h-10 mb-3" />
-          <p className="text-xs uppercase tracking-widest">Termite Resistant</p>
-        </div>
+          {/* Termite Resistant */}
+          <div className="flex flex-col items-center text-center">
+            <Bug className="w-10 h-10 mb-3" />
+            <p className="text-xs uppercase tracking-widest">Termite Resistant</p>
+          </div>
 
-        {/* Quick Installation */}
-        <div className="flex flex-col items-center text-center">
-          <Timer className="w-10 h-10 mb-3" />
-          <p className="text-xs uppercase tracking-widest">
-            Quick & Easy Installation
-          </p>
+          {/* Quick Installation */}
+          <div className="flex flex-col items-center text-center">
+            <Timer className="w-10 h-10 mb-3" />
+            <p className="text-xs uppercase tracking-widest">
+              Quick & Easy Installation
+            </p>
+          </div>
         </div>
       </div>
     </div>
