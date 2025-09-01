@@ -21,7 +21,7 @@ const CristaloFlexx = () => {
     {/* <Choose/> */}
     {/* <Inspirations/> */}
     <StonePolymerComposite/>
-    <CristaloFlexx/>
+    {/* <CristaloFlexx/> */}
     <About/>
     <CreatingBeautifulSpaces/>
     <Faqs/>
