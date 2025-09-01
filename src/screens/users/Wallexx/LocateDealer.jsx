@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import backgroundImage from "../../../Assets/core_flexx/dealer/home.png";
 import icon from "../../../Assets/core_flexx/dealer/icon.svg";
-
 // Counter target values
 const targetValues = {
   products: 100000,
@@ -126,18 +125,18 @@ const LocateDealer = () => {
             variants={fadeUp}
             custom={0.5}
           >
-            <p className="text-5xl font-serif mb-4" style={{  fontFamily: "Cinzel Decorative, serif"
+            <p className="md:text-5xl text-4xl font-serif mb-4" style={{  fontFamily: "Cinzel Decorative, serif"
 }}>
               LOCATE <br /> A DEALER
             </p>
-            <div className="px-8 py-6">
-              <img src={icon} alt="Locate Dealer Icon" className="mx-auto" />
+            <div className="px-8 md:py-6 py-4">
+              <img src={icon} alt="Locate Dealer Icon" className="mx-auto h-20 w-20 md:w-32 md:h-32" />
             </div>
           </motion.div>
 
           {/* Arrow Icon */}
           <motion.div
-            className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+            className="absolute md:bottom-6 left-1/2 transform -translate-x-1/2"
             variants={fadeUp}
             custom={0.7}
           >

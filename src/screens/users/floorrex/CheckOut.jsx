@@ -71,52 +71,64 @@
 
 
 import React from "react";
-import { FaRegArrowAltCircleRight } from "react-icons/fa";
-import image1 from "../../../Assets/Quartz/product1.png"
-import image2 from "../../../Assets/Quartz/collections1.png"
-import image3 from "../../../Assets/Quartz/collections2.png"
-import image4 from "../../../Assets/wallex/about/sidebar.png"
-// import image5 from "../../../Assets/Quartz/product2.png"
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa";
+import image1 from "../../../Assets/Quartz/product1.png";
+import image2 from "../../../Assets/Quartz/collections1.png";
+import image3 from "../../../Assets/Quartz/collections2.png";
+import image4 from "../../../Assets/wallex/about/sidebar.png";
+
 // Sample product data
 const products = [
   { id: 1, name: "COREFLEXX", image: image1 },
   { id: 2, name: "WALLEXX", image: image2 },
   { id: 3, name: "FLOOREXX", image: image3 },
   { id: 4, name: "CRISTALLOO", image: image4 },
-  // { id: 5, name: "Quartz", image: image5 },
 ];
 
 const CheckOut = () => {
   return (
-    <div className="bg-[#faf7f2] py-12 px-4">
+    <div className="bg-gradient-to-b from-[#faf7f2] to-white py-16 px-6">
       {/* Heading */}
-      <div className="text-center mb-10">
-        <p className="text-gray-700 tracking-wide mb-2">Checkout our</p>
-        <h2 className="text-3xl font-serif tracking-wider">OTHER PRODUCTS</h2>
+      <div className="text-center mb-12">
+        <p className="text-gray-500 tracking-wide uppercase text-sm mb-2">
+          Explore More
+        </p>
+        <h2 className="text-4xl md:text-5xl font-serif tracking-wider text-gray-900">
+          Other Products
+        </h2>
       </div>
 
       {/* Products Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-        {products.map((product) => (
-          <div
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        {products.map((product, index) => (
+          <motion.div
             key={product.id}
-            className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col items-center p-4 hover:shadow-lg transition"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+            whileHover={{ scale: 1.03 }}
+            className="relative group rounded-2xl overflow-hidden shadow-lg bg-white/70 backdrop-blur-md border border-gray-100 hover:shadow-2xl transition"
           >
             {/* Product Image */}
-            <div className="w-full aspect-square overflow-hidden rounded-xl">
+            <div className="aspect-square overflow-hidden">
               <img
                 src={product.image}
                 alt={product.name}
-                className=" object-cover"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
               />
             </div>
 
-            {/* Product Name */}
-            <h3 className="mt-4 text-base font-semibold tracking-wide">{product.name}</h3>
-
-            {/* Arrow Icon */}
-            <FaRegArrowAltCircleRight className="text-brown-300 text-xl mt-2 cursor-pointer hover:scale-110 transition" />
-          </div>
+            {/* Overlay on Hover */}
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <div className="flex flex-col items-center text-white">
+                <h3 className="text-lg font-semibold tracking-wide">
+                  {product.name}
+                </h3>
+                <FaArrowRight className="text-xl mt-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>

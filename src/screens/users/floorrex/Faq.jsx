@@ -17,14 +17,17 @@ const Faq = () => {
 
   return (
     <section className="bg-gray-50 py-16 md:px-6 lg:px-10 px-4">
-      <h2 className="text-center text-2xl md:text-3xl font-semibold mb-10 text-gray-800">
+      <h2 className="text-center text-3xl font-semibold mb-12 text-gray-800">
         FAQs
       </h2>
-      <div className="mx-auto space-y-4">
+      <div className="mx-auto max-w-2xl space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-gray-300">
+          <div
+            key={index}
+            className="border border-gray-200 rounded-xl shadow-sm bg-white"
+          >
             <button
-              className="flex justify-between items-center w-full py-4 text-left text-gray-700 focus:outline-none"
+              className="flex justify-between items-center w-full p-5 text-left text-gray-800 font-medium focus:outline-none"
               onClick={() => toggleFAQ(index)}
             >
               <span>{faq.question}</span>
@@ -34,9 +37,14 @@ const Faq = () => {
                 }`}
               />
             </button>
-            {openIndex === index && (
-              <p className="pb-4 text-gray-600">{faq.answer}</p>
-            )}
+
+            <div
+              className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                openIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <p className="px-5 pb-5 text-gray-600">{faq.answer}</p>
+            </div>
           </div>
         ))}
       </div>

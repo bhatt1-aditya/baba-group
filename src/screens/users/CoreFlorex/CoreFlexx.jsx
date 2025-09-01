@@ -8,6 +8,10 @@ import Inspirations from './Inspirations'
 import About from './About'
 import Faq from './Faq'
 import CheckOut from './CheckOut'
+import AwardsProjectsEvents from './AwardsProjectsEvents'
+import { Info } from 'lucide-react'
+// import Info from './info'
+
 
 const CoreFlexx = () => {
   return (
@@ -15,11 +19,13 @@ const CoreFlexx = () => {
         <Home/>
         {/* <Products/> */}
         <CheckOut/>
+        {/* <Info/> */}
         <BestSeller/>
         <CoreFlexxProducts/>
         <Inspirations/>
         <Choose/>
         <About/>
+        <AwardsProjectsEvents/>
         <Faq/>
     </div>
   )

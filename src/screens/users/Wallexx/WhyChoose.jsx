@@ -1,56 +1,77 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const WhyChoose = () => {
+const Wallexx = () => {
   return (
-    <div className="bg-[#044d42]">
-      <div className="py-12 md:mx-6 lg:mx-10 mx-4 bg-white  text-center rounded-2xl ">
-        <div className="p-10">
-          <div className="text-center mb-12   md:px-6 lg:px-10 px-4">
-            <p className="text-black text-sm tracking-wide">Why Choose</p>
-            <h2 className="text-3xl md:text-4xl uppercase font-serif tracking-wide text-black">
-              Wallex?
-            </h2>
-          </div>
+    <div className="w-full min-h-screen flex items-center justify-center  bg-teal-900">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative max-w-7xl w-full bg-white rounded-2xl shadow-lg md:mx-0 mx-4 p-16 text-center min-h-[600px]"
+      >
+        {/* Title Section */}
+        <motion.h3
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-lg text-gray-700 mb-1"
+        >
+          Why Choose
+        </motion.h3>
+        <motion.h2
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="text-3xl font-serif tracking-wide mb-10"
+        >
+          WALLEXX?
+        </motion.h2>
 
-          <div className="grid grid-cols-1 md:gap-8 gap-4 md:px-4 px-2 divide-y-2 max-w-7xl mx-auto">
-            <div className="flex md:flex-row flex-col justify-between items-center gap-10">
-              <div className="text-lg font-medium text-teal-500">
-                Soundproof
-              </div>
-              <div className="text-lg font-medium text-teal-500">
-                Safe & Better Air Quality
-              </div>
-              <div className="text-lg font-medium text-teal-500">Warranty</div>
-            </div>
+        {/* Content Grid */}
+        <div className="relative grid md:grid-cols-3 grid-cols-1 md:gap-y-20 gap-y-5 text-gray-900 font-light">
+          {/* First Row */}
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Soundproof
+          </motion.p>
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Safe & Better Air Quality
+          </motion.p>
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Warranty
+          </motion.p>
 
-            <div className="flex md:flex-row flex-col justify-between items-center">
-              <div className="text-lg font-medium text-teal-500 mt-8">
-                Endless Options
-              </div>
-              <div className="text-lg font-medium text-teal-500 mt-8 text-center">
-                Low Cost Installation
-              </div>
-              <div className="text-lg font-medium text-teal-500 mt-8">
-                Ultimate Durability
-              </div>
-            </div>
+          {/* Horizontal Line */}
+          <div className="absolute top-1/3 left-0 w-full h-px bg-gray-400"></div>
 
-            <div className="flex justify-between md:flex-row flex-col items-center">
-              <div className="text-lg font-medium text-teal-500 mt-8">
-                Termite Resistant
-              </div>
-              <div className="text-lg font-medium text-teal-500 mt-8">
-                Eco-friendly
-              </div>
-              <div className="text-lg font-medium text-teal-500 mt-8">
-                Waterproof
-              </div>
-            </div>
-          </div>
+          {/* Second Row */}
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Endless Options
+          </motion.p>
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Low Cost Installation
+          </motion.p>
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Ultimate Durability
+          </motion.p>
+
+          {/* Horizontal Line */}
+          <div className="absolute top-2/3 left-0 w-full h-px bg-gray-400"></div>
+
+          {/* Third Row */}
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Termite Resistant
+          </motion.p>
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Eco-friendly
+          </motion.p>
+          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
+            Waterproof
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
-export default WhyChoose;
+export default Wallexx;

@@ -146,7 +146,7 @@ const Galleria = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-800 via-gray-900 to-black overflow-hidden">
+    <div className="relative min-h-screen bg-gray-200 overflow-hidden">
 
       <div className="relative z-10 flex flex-col items-center py-12 px-4">
         {/* Modern Header */}
@@ -157,7 +157,7 @@ const Galleria = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-white mb-4"
+            className="text-5xl md:text-7xl font-bold text-black mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -171,7 +171,7 @@ const Galleria = () => {
             transition={{ duration: 1, delay: 0.6 }}
           />
           <motion.p 
-            className="text-white mt-6 text-lg max-w-2xl mx-auto"
+            className="text-gray-600 mt-6 text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.9 }}
@@ -313,14 +313,14 @@ const Galleria = () => {
           transition={{ duration: 1, delay: 1.2 }}
         >
           <motion.p 
-            className="uppercase text-gray-400 tracking-widest text-sm font-medium mb-2"
+            className="uppercase text-gray-600 tracking-widest text-sm font-medium mb-2"
             whileHover={{ color: "#3B82F6" }}
             transition={{ duration: 0.3 }}
           >
           Discover
           </motion.p>
           <motion.h2 
-            className="uppercase text-white tracking-wider text-2xl font-bold mb-6"
+            className="uppercase text-black tracking-wider text-2xl font-bold mb-6"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >

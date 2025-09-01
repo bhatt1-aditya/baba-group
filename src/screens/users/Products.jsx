@@ -33,6 +33,26 @@ const product = [
     delay: 0.6,
     image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
+     {
+    title: "Premium Marble Tiles",
+    category: "BATHROOMS",
+    description:
+      "Luxurious marble tiles with natural veining patterns, perfect for elegant bathrooms.",
+    position: "flex md:items-end items-center flex-col ",
+    animation: "fade-right",
+    delay: 0.8,
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    title: "Premium Marble Tiles",
+    category: "OUTDOOR SPACES",
+    description:
+      "Luxurious marble tiles with natural veining patterns, perfect for elegant outdoor spaces.",
+    position: "flex md:items-start items-center flex-col ",
+    animation: "fade-up",
+    delay: 1.0,
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+  },
 ];
 
 const Products = () => {
@@ -45,8 +65,7 @@ const Products = () => {
   // Create transforms for each card outside the map callback
   const card1Progress = useTransform(
     scrollYProgress,
-    [0, 0.25],
-    [0, 1]
+        [0.0, 0.25],  [0, 1]
   );
   const card1RotateY = useTransform(
     card1Progress,
@@ -66,8 +85,7 @@ const Products = () => {
 
   const card2Progress = useTransform(
     scrollYProgress,
-    [0.25, 0.5],
-    [0, 1]
+[0.2, 0.45], [0, 1]
   );
   const card2RotateY = useTransform(
     card2Progress,
@@ -87,8 +105,7 @@ const Products = () => {
 
   const card3Progress = useTransform(
     scrollYProgress,
-    [0.5, 0.75],
-    [0, 1]
+ [0.2, 0.45], [0, 1]
   );
   const card3RotateY = useTransform(
     card3Progress,
@@ -106,11 +123,53 @@ const Products = () => {
     [0.8, 1, 1]
   );
 
+  const card4Progress = useTransform(
+  scrollYProgress,
+   [0.4, 0.65], [0, 1]
+);
+const card4RotateY = useTransform(
+  card4Progress,
+  [0, 0.5, 1],
+  [180, 90, 0]
+);
+const card4Opacity = useTransform(
+  card4Progress,
+  [0, 0.4, 0.6, 1],
+  [0, 0, 1, 1]
+);
+const card4Scale = useTransform(
+  card4Progress,
+  [0, 0.5, 1],
+  [0.8, 1, 1]
+);
+
+const card5Progress = useTransform(
+  scrollYProgress,
+     [0.6, 0.85],  [0, 1]
+);
+const card5RotateY = useTransform(
+  card5Progress,
+  [0, 0.5, 1],
+  [180, 90, 0]
+);
+const card5Opacity = useTransform(
+  card5Progress,
+  [0, 0.4, 0.6, 1],
+  [0, 0, 1, 1]
+);
+const card5Scale = useTransform(
+  card5Progress,
+  [0, 0.5, 1],
+  [0.8, 1, 1]
+);
+
   // Array of transforms for each card
   const cardTransforms = [
     { rotateY: card1RotateY, opacity: card1Opacity, scale: card1Scale },
     { rotateY: card2RotateY, opacity: card2Opacity, scale: card2Scale },
     { rotateY: card3RotateY, opacity: card3Opacity, scale: card3Scale },
+    { rotateY: card4RotateY, opacity: card4Opacity, scale: card4Scale },
+    { rotateY: card5RotateY, opacity: card5Opacity, scale: card5Scale },
   ];
 
   useEffect(() => {
@@ -184,7 +243,7 @@ const Products = () => {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col justify-center gap-12 mt-16 md:px-6 lg:px-10 px-4 pb-10">
+      <div className="relative z-10 flex flex-col justify-center gap-12 my-16 md:px-6 lg:px-10 px-4 pb-10">
         {product.map((item, index) => {
           const transforms = cardTransforms[index];
 
