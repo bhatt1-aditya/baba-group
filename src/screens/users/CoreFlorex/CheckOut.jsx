@@ -88,7 +88,7 @@ const products = [
 
 const CheckOut = () => {
   return (
-    <div className="bg-gradient-to-b from-[#faf7f2] to-white py-16 px-6">
+    <div className="bg-gradient-to-b from-[#faf7f2] to-white py-16 md:px-6 px-4 xl:px-10">
       {/* Heading */}
       <div className="text-center mb-12">
         <p className="text-gray-500 tracking-wide uppercase text-sm mb-2">

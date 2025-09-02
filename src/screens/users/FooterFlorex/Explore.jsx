@@ -17,7 +17,7 @@ const Explore = () => {
   ];
 
   return (
-    <div className="text-white p-10 min-h-screen" style={{
+    <div className="text-white xl:p-10 md:p-6 p-4 min-h-screen" style={{
               fontFamily: "Poppins, sans-serif",
             }}>
       {/* Heading */}

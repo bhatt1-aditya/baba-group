@@ -9,7 +9,7 @@ export default function StonePolymerComposite() {
   ];
 
   return (
-    <div className="w-full bg-gray-50 text-gray-800 py-16 px-6 md:px-12 lg:px-20 text-center">
+    <div className="w-full bg-gray-50 text-gray-800 py-16 md:px-6 px-4 xl:px-10 text-center">
       {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}

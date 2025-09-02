@@ -61,7 +61,7 @@ const QuartzProducts = () => {
           <motion.div
             key={product.id}
             variants={itemVariants}
-            className="bg-white rounded-xl flex shadow-md overflow-hidden relative hover:shadow-lg transition-shadow duration-300"
+            className="bg-white rounded-xl flex md:flex-row flex-col shadow-md overflow-hidden relative hover:shadow-lg transition-shadow duration-300"
           >
             <div>
               {/* Tag badge */}

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CreatingBeautifulSpaces() {
   return (
-    <div className="bg-black text-white py-20 px-6 md:px-20 text-center">
+    <div className="bg-black text-white py-20 xl:px-10 px-4 md:px-6 text-center">
       {/* Heading */}
       <h2 className="text-3xl md:text-5xl font-serif mb-6 leading-snug">
         “CREATING BEAUTIFUL SPACES <br /> SINCE A DECADE.”

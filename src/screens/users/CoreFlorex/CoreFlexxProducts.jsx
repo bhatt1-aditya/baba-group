@@ -62,11 +62,11 @@ const CoreFlexxProducts = () => {
         {products.map((product, index) => (
           <motion.div
             key={product.id}
-            className="bg-white rounded-xl flex shadow-md overflow-hidden relative hover:shadow-lg transition-shadow duration-300"
+            className="bg-white rounded-xl flex md:flex-row flex-col shadow-md overflow-hidden relative hover:shadow-lg transition-shadow duration-300"
             initial="hidden"
             animate={animate ? "visible" : "hidden"}
             variants={fadeUp}
-            custom={0.2 * (index + 1)} // staggered delay
+            custom={0.2 * (index + 1)} 
           >
             <div>
               {/* Tag badge */}
@@ -84,11 +84,11 @@ const CoreFlexxProducts = () => {
                   className="w-full h-52 object-cover p-1 rounded-2xl"
                 />
                 {/* Pagination dots */}
-                <div className="flex justify-center mt-2 space-x-2 absolute bottom-2 w-full">
+                {/* <div className="flex justify-center mt-2 space-x-2 absolute bottom-2 w-full">
                   <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
                   <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
                   <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
-                </div>
+                </div> */}
               </div>
             </div>
 

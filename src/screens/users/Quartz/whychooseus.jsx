@@ -5,7 +5,7 @@ export default function FloorrexPage() {
   return (
     <div className="font-serif text-[#5a4632] bg-white">
       {/* Hero Section */}
-      <section className="px-6 md:px-20 py-10 grid md:grid-cols-2 gap-6 items-start">
+      <section className="px-4 md:px-6 xl:px-10 py-10 grid md:grid-cols-2 gap-6 items-start">
         <div>
           <h2 className="text-lg font-semibold text-[#8b5a2b] uppercase tracking-wide">
             Why Choose
@@ -37,15 +37,15 @@ export default function FloorrexPage() {
       </section>
 
       {/* Stone Polymer Composite */}
-      <section className="px-6 md:px-20 py-10">
+      <section className="md:px-6 px-4 xl:px-10 py-10">
         <div className="relative bg-white shadow-lg rounded-2xl overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="Living Room"
             className="w-full h-80 object-cover"
           />
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-6 text-white text-left">
-            <h3 className="text-2xl font-bold uppercase">STONE POLYMER COMPOSITE</h3>
+          <div className="absolute inset-0 bg-black/50 flex flex-col justify-end md:p-6 p-4 text-white text-left">
+            <h3 className="md:text-2xl text-xl font-bold uppercase">STONE POLYMER COMPOSITE</h3>
             <p className="mt-3 text-sm leading-relaxed max-w-2xl">
               A flooring that combines the look and feel of real wood with the durability of stone. It is a revolutionary solution that eliminates the limitations of traditional laminate and hardwood floors. It gives your space a beautiful makeover without any drawbacks of vinyl and laminate flooring. Plus, it is also easy to install and doesn't create dust, noise, or require a lot of effort.
             </p>
