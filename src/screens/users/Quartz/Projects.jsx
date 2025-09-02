@@ -37,7 +37,7 @@ export default function App() {
       {/* Projects Section */}
       <section className="py-12 text-center">
         <h2 className="text-3xl font-bold text-[#8b5e3c] mb-8">OUR PROJECTS</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:px-6 px-4 xl:px-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}

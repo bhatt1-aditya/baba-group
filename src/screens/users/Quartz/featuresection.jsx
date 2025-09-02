@@ -18,7 +18,7 @@ export default function FeaturesSection() {
       </div>
 
       {/* Quote */}
-      <div className="text-center px-8">
+      <div className="text-center md:px-6 px-4 xl:px-10">
         <h2 className="text-2xl md:text-3xl font-serif text-[#8B5E3C] tracking-wide italic py-4">
           "CREATING BEAUTIFUL SPACES SINCE A DECADE."
         </h2>

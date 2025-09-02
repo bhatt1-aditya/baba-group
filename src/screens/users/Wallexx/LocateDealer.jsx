@@ -87,6 +87,59 @@ const LocateDealer = () => {
     return Math.floor(num) + "+";
   };
 
+  const CircularCTA = () => (
+    <motion.div
+    >
+      <div className="relative mx-auto mt-12 w-40 h-40 md:w-52 md:h-52">
+        {/* Rotating Circular Text */}
+        <motion.svg
+          viewBox="0 0 200 200"
+          className="w-full h-full absolute"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+        >
+          <defs>
+            <path
+              id="circlePath"
+              d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+            />
+          </defs>
+          <text
+            className="fill-white text-[12px] md:text-[14px] tracking-[4px]"
+            style={{ fontFamily: "sans-serif", fontWeight: "bold" }}
+          >
+            <textPath href="#circlePath" startOffset="0%">
+              PROXIMON HOME • EXPLORE MORE • PROXIMON HOME • EXPLORE MORE •
+            </textPath>
+          </text>
+        </motion.svg>
+  
+        {/* Center Button */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg cursor-pointer"
+            animate={{ scale: [1, 1.15, 1] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            whileHover={{ scale: 1.25 }}
+          >
+            <motion.span
+              className="rotate-45 text-teal-900 text-3xl leading-none"
+              animate={{ y: [0, -3, 0] }}
+              transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+            >
+              ↗
+            </motion.span>
+          </motion.div>
+        </div>
+      </div>
+      {/* <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/90 flex items-center justify-center">
+          <span className="rotate-45 text-teal-900 text-xl leading-none">↗</span>
+        </div>
+      </div> */}
+    </motion.div>
+  );
+
   return (
     <div className="bg-[#044d42] md:px-6 lg:px-10 px-4" ref={sectionRef}>
       <motion.div
@@ -121,7 +174,7 @@ const LocateDealer = () => {
 
           {/* Locate a Dealer Section */}
           <motion.div
-            className="relative z-10 mb-8 mt-52"
+            className="relative z-10 mb-8 xl:mt-36 md:mt-24 mt-16"
             variants={fadeUp}
             custom={0.5}
           >
@@ -129,13 +182,14 @@ const LocateDealer = () => {
 }}>
               LOCATE <br /> A DEALER
             </p>
-            <div className="px-8 md:py-6 py-4">
-              <img src={icon} alt="Locate Dealer Icon" className="mx-auto h-20 w-20 md:w-32 md:h-32" />
-            </div>
+            {/* <div className="px-8 md:py-6 py-4"> */}
+              {/* <img src={icon} alt="Locate Dealer Icon" className="mx-auto h-20 w-20 md:w-32 md:h-32" /> */}
+              <CircularCTA/>
+            {/* </div> */}
           </motion.div>
 
           {/* Arrow Icon */}
-          <motion.div
+          {/* <motion.div
             className="absolute md:bottom-6 left-1/2 transform -translate-x-1/2"
             variants={fadeUp}
             custom={0.7}
@@ -156,7 +210,7 @@ const LocateDealer = () => {
                 />
               </svg>
             </a>
-          </motion.div>
+          </motion.div> */}
         </div>
       </motion.div>
     </div>

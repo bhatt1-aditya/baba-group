@@ -83,7 +83,7 @@ const Collections = () => {
         transition={{ duration: 0.8 }}
         className="mx-auto md:px-6 lg:px-10 px-4 max-w-7xl py-16"
       >
-        <ul className="flex justify-between items-center flex-wrap gap-6 text-center md:text-left">
+        <ul className="md:flex grid grid-cols-2 justify-between items-center gap-6 text-center md:text-left">
           <li>
             <h1 className="text-[#ed7326] text-2xl font-semibold">
               <Counter from={0} to={100000} />

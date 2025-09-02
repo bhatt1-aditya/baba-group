@@ -52,6 +52,53 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
+    const CircularCTA = () => (
+      <motion.div
+      >
+        <div className="relative mx-auto mt-12 w-40 h-40 md:w-52 md:h-52">
+          {/* Rotating Circular Text */}
+          <motion.svg
+            viewBox="0 0 200 200"
+            className="w-full h-full absolute"
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+          >
+            <defs>
+              <path
+                id="circlePath"
+                d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+              />
+            </defs>
+            <text
+              className="fill-white text-[12px] md:text-[14px] tracking-[4px]"
+              style={{ fontFamily: "sans-serif", fontWeight: "bold" }}
+            >
+              <textPath href="#circlePath" startOffset="0%">
+                PROXIMON HOME • EXPLORE MORE • PROXIMON HOME • EXPLORE MORE •
+              </textPath>
+            </text>
+          </motion.svg>
+    
+          {/* Center Button */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.div
+              className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg cursor-pointer"
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              whileHover={{ scale: 1.25 }}
+            >
+              <motion.span
+                className="rotate-45 text-teal-900 text-3xl leading-none"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+              >
+                ↗
+              </motion.span>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+    );
   return (
     <div className="" ref={sectionRef}>
       {/* Logo */}
@@ -131,19 +178,7 @@ const Hero = () => {
                     </motion.div>
 
                     {/* Center Circle */}
-                    <motion.div
-                      className="flex flex-col items-center"
-                      initial={{ scale: 0 }}
-                      animate={animate ? { scale: 1 } : { scale: 0 }}
-                      transition={{ duration: 0.8, delay: 0.3 }}
-                    >
-                      <div className="relative scale-125">
-                        <img src={homeBottomImage} className="relative" />
-                        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 inset-4 top-5 mx-auto z-30 text-black font-bold text-3xl">
-                          <FiArrowRight />
-                        </div>
-                      </div>
-                    </motion.div>
+                  <CircularCTA/>
 
                     {/* Right text */}
                     <motion.div

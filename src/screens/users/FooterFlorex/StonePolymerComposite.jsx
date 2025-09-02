@@ -3,7 +3,7 @@ import { ShieldCheck, Droplets, Bug, Timer } from "lucide-react"; // using lucid
 
 export default function StonePolymerComposite() {
   return (
-    <div className="bg-black text-white py-16 px-8 md:px-20 flex flex-col md:flex-row items-center justify-between">
+    <div className="bg-black text-white py-16 md:px-6 px-4 xl:px-10 flex flex-col md:flex-row items-center justify-between">
       
       {/* Left Section - Text */}
       <div className="md:w-1/2 mb-12 md:mb-0">

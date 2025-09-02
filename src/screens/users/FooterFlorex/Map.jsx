@@ -92,7 +92,7 @@ const Map = () => {
   };
 
   return (
-    <div className="text-black p-10 min-h-screen" ref={statsRef}>
+    <div className="text-black xl:p-10 md:p-6 p-4 min-h-screen" ref={statsRef}>
       {/* Counters */}
       <motion.div
         className="w-full bg-white rounded-lg shadow-sm py-6"
@@ -101,7 +101,7 @@ const Map = () => {
         viewport={{ amount: 0.3 }} // ✅ Re-animates every time in view
         variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
       >
-        <ul className="grid grid-cols-4 divide-x divide-gray-900 text-center py-10">
+        <ul className="grid md:grid-cols-4 grid-cols-2 gap-4 divide-x divide-gray-900 text-center py-10">
           {[
             { value: counters.products, type: "products", label: "Products Sold" },
             { value: counters.collections, type: "collections", label: "Collections" },
@@ -122,7 +122,7 @@ const Map = () => {
 
       {/* Dealer / Map / Showroom */}
       <motion.div
-        className="mt-20 grid grid-cols-3 place-items-center"
+        className="mt-20 grid md:grid-cols-3 grid-cols-1 gap-5 place-items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.3 }}

@@ -14,7 +14,7 @@ export default function CoreflexxSection() {
   ];
 
   return (
-    <div className="w-full bg-black text-white py-16 px-6 md:px-12 lg:px-20 text-center">
+    <div className="w-full bg-black text-white py-16 md:px-6 xl:px-10 px-4 text-center">
       {/* Heading */}
       <motion.h3
         initial={{ opacity: 0, y: -20 }}

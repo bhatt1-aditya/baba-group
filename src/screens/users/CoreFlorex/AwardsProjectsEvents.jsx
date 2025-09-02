@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AwardsProjectsEvents() {
   return (
-    <div className="bg-[#f9f9f9] text-center py-12 px-6 md:px-16">
+    <div className="bg-[#f9f9f9] text-center py-12 px-4 xl:px-10 md:px-6">
       
       {/* Top Section - 3 Columns */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">

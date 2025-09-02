@@ -3,7 +3,7 @@ import React from "react";
 const BabaQuartz = () => {
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="relative max-w-5xl w-full bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-10 text-center">
+      <div className="relative max-w-5xl w-full bg-white/60 backdrop-blur-md rounded-2xl shadow-lg xl:p-10 md:p-6 p-4 text-center">
         {/* Title Section */}
         <h3 className="text-lg text-gray-700 mb-2">Why Choose</h3>
         <h2 className="text-2xl font-serif tracking-wide mb-10">BABA QUARTZ ?</h2>
