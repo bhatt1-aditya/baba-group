@@ -68,8 +68,6 @@
 
 
 
-
-
 import React from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
@@ -78,7 +76,6 @@ import image2 from "../../../Assets/Quartz/collections1.png";
 import image3 from "../../../Assets/Quartz/collections2.png";
 import image4 from "../../../Assets/wallex/about/sidebar.png";
 
-// Sample product data
 const products = [
   { id: 1, name: "COREFLEXX", image: image1 },
   { id: 2, name: "WALLEXX", image: image2 },
@@ -86,53 +83,86 @@ const products = [
   { id: 4, name: "CRISTALLOO", image: image4 },
 ];
 
-const CheckOut = () => {
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
+export default function CheckOut() {
   return (
-    <div className="bg-gradient-to-b from-[#faf7f2] to-white py-16 md:px-6 px-4 xl:px-10">
-      {/* Heading */}
-      <div className="text-center mb-12">
-        <p className="text-gray-500 tracking-wide uppercase text-sm mb-2">
+    <div className="relative bg-white py-20 px-4 md:px-8 lg:px-16 overflow-hidden">
+      {/* Floating decorative shapes */}
+      <motion.div
+        className="absolute top-20 left-10 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-40"
+        animate={{ y: [0, 15, 0] }}
+        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-10 w-40 h-40 bg-orange-200 rounded-full blur-3xl opacity-30"
+        animate={{ y: [0, -15, 0] }}
+        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+      />
+
+      {/* Section Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="text-center relative z-10"
+      >
+        <p className="text-orange-500 tracking-widest uppercase text-sm mb-2">
           Explore More
         </p>
-        <h2 className="text-4xl md:text-5xl font-serif tracking-wider text-gray-900">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
           Other Products
         </h2>
-      </div>
+      </motion.div>
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <motion.div
+        className="max-w-7xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {products.map((product, index) => (
           <motion.div
             key={product.id}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
-            whileHover={{ scale: 1.03 }}
-            className="relative group rounded-2xl overflow-hidden shadow-lg bg-white/70 backdrop-blur-md border border-gray-100 hover:shadow-2xl transition"
+            custom={index}
+            variants={fadeUp}
+            whileHover={{ y: -5 }}
+            className="relative group rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
           >
             {/* Product Image */}
             <div className="aspect-square overflow-hidden">
-              <img
+              <motion.img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out"
               />
             </div>
 
-            {/* Overlay on Hover */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-              <div className="flex flex-col items-center text-white">
-                <h3 className="text-lg font-semibold tracking-wide">
-                  {product.name}
-                </h3>
-                <FaArrowRight className="text-xl mt-2 group-hover:translate-x-1 transition-transform" />
-              </div>
+            {/* Bottom Info Bar */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 flex justify-between items-center opacity-0 group-hover:opacity-100 transition duration-500">
+              <h3 className="text-white text-lg font-semibold">
+                {product.name}
+              </h3>
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                className="bg-orange-500 text-white p-2 rounded-full hover:bg-orange-600 transition"
+                onClick={() => alert(`Navigating to ${product.name}`)}
+              >
+                <FaArrowRight />
+              </motion.button>
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
-};
-
-export default CheckOut;
+}

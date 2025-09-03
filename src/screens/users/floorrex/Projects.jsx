@@ -1,5 +1,5 @@
-
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const projects = [
   {
@@ -35,161 +35,85 @@ const projects = [
 ];
 
 export default function Projects() {
-  return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-20 w-full overflow-x-hidden">
-      <h2 className="text-5xl font-extrabold text-center text-gray-900 mb-20 tracking-tight">
-        Inspirations
-      </h2>
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+  return (
+    <section className="relative bg-white py-24 px-6 md:px-12 lg:px-20 w-full overflow-hidden">
+      {/* Section Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-5xl font-extrabold text-gray-900 tracking-tight">
+          Our Inspirations
+        </h2>
+        <p className="text-gray-500 text-lg mt-4 max-w-xl mx-auto">
+          Luxury real estate brands that inspire us to create timeless designs.
+        </p>
+      </motion.div>
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: index * 0.2 }}
-            whileHover={{ scale: 1.08 }}
-            className="relative group rounded-3xl shadow-xl overflow-hidden bg-white cursor-pointer"
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+            whileHover={{ scale: 1.03 }}
+            className="relative group cursor-pointer overflow-hidden rounded-3xl shadow-lg"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
           >
-            {/* Animated Background Image */}
+            {/* Background Image */}
             <motion.img
               src={project.image}
               alt={project.name}
-              className="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+              className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
             />
 
-            {/* Floating Overlay */}
+            {/* Glass Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500"></div>
+
+            {/* Logo + Name */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileHover={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end items-center pb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              initial={{ y: 40, opacity: 0 }}
+              animate={{
+                y: hoveredIndex === index ? 0 : 40,
+                opacity: hoveredIndex === index ? 1 : 0,
+              }}
+              transition={{ duration: 0.4 }}
+              className="absolute bottom-6 left-0 w-full flex flex-col items-center text-center"
             >
-              <img
-                src={project.logo}
-                alt={project.name}
-                className="h-14 mb-4 bg-white rounded-xl p-2 shadow-md"
-              />
-              <h3 className="text-2xl font-semibold text-white drop-shadow-lg">
+              <div className="bg-white/80 backdrop-blur-md rounded-xl p-3 shadow-md">
+                <img
+                  src={project.logo}
+                  alt={project.name}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-white mt-3 drop-shadow-lg">
                 {project.name}
               </h3>
             </motion.div>
           </motion.div>
         ))}
       </div>
+
+      {/* Future Scaling Helper */}
+      <div className="text-center mt-16">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-6 py-3 rounded-full bg-black text-white text-lg font-medium hover:bg-gray-800 transition"
+          onClick={() => alert("Load more projects coming soon!")}
+        >
+          Load More
+        </motion.button>
+      </div>
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { motion } from "framer-motion";
-
-// const projects = [
-//   {
-//     name: "Piramal Realty",
-//     logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/Piramal_Logo.png",
-//     images: [
-//       "https://source.unsplash.com/800x600/?luxury,building",
-//       "https://source.unsplash.com/800x600/?city,architecture",
-//       "https://source.unsplash.com/800x600/?interior,design",
-//     ],
-//   },
-//   {
-//     name: "Adani Realty",
-//     logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Adani_logo.png",
-//     images: [
-//       "https://source.unsplash.com/800x600/?construction",
-//       "https://source.unsplash.com/800x600/?skyscraper",
-//       "https://source.unsplash.com/800x600/?apartment",
-//     ],
-//   },
-//   {
-//     name: "DLF Realty",
-//     logo: "https://upload.wikimedia.org/wikipedia/commons/a/a3/DLF_Logo.png",
-//     images: [
-//       "https://source.unsplash.com/800x600/?tower,building",
-//       "https://source.unsplash.com/800x600/?villa,luxury",
-//       "https://source.unsplash.com/800x600/?residential",
-//     ],
-//   },
-// ];
-
-// export default function Projects() {
-//   return (
-//     <div className="bg-[#f8f5f0] py-16 px-6 md:px-12 lg:px-20 font-serif">
-//       <h2 className="text-4xl font-bold text-center text-[#8b5e3c] mb-12">
-//         Our Projects
-//       </h2>
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-//         {projects.map((project, index) => (
-//           <motion.div
-//             key={index}
-//             initial={{ opacity: 0, y: 40 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             whileHover={{ scale: 1.02 }}
-//             transition={{ duration: 0.6, delay: index * 0.2 }}
-//             className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
-//           >
-//             {/* Hero Image */}
-//             <motion.img
-//               src={project.images[0]}
-//               alt={project.name}
-//               className="w-full h-56 object-cover"
-//               whileHover={{ scale: 1.05 }}
-//               transition={{ duration: 0.4 }}
-//             />
-
-//             {/* Small Thumbnails */}
-//             <div className="flex gap-2 p-3">
-//               {project.images.slice(1).map((img, i) => (
-//                 <motion.img
-//                   key={i}
-//                   src={img}
-//                   alt={`${project.name}-${i}`}
-//                   className="w-1/2 h-28 object-cover rounded-lg"
-//                   whileHover={{ scale: 1.1 }}
-//                   transition={{ type: "spring", stiffness: 200 }}
-//                 />
-//               ))}
-//             </div>
-
-//             {/* Logo + Name */}
-//             <div className="p-4 flex flex-col items-center border-t">
-//               <img
-//                 src={project.logo}
-//                 alt={project.name}
-//                 className="h-12 mb-2 object-contain"
-//               />
-//               <h3 className="text-lg font-semibold text-gray-800">
-//                 {project.name}
-//               </h3>
-//             </div>
-//           </motion.div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }

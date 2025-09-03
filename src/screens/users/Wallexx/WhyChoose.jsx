@@ -1,76 +1,60 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const features = [
+  "Soundproof",
+  "Safe & Better Air Quality",
+  "Warranty",
+  "Endless Options",
+  "Low Cost Installation",
+  "Ultimate Durability",
+  "Termite Resistant",
+  "Eco-friendly",
+  "Waterproof",
+];
+
 const Wallexx = () => {
   return (
-    <div className="w-full min-h-screen flex items-center justify-center  bg-teal-900">
+    <section className="w-full min-h-screen bg-[#044d42] flex items-center justify-center px-4 md:px-0">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative max-w-7xl w-full bg-white rounded-2xl shadow-lg md:mx-0 mx-4 p-16 text-center min-h-[600px]"
+        className="max-w-7xl w-full bg-white rounded-3xl shadow-2xl p-10 md:p-16 text-center"
       >
-        {/* Title Section */}
+        {/* Title */}
         <motion.h3
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-lg text-gray-700 mb-1"
+          className="text-lg text-gray-700 mb-2 font-medium"
         >
           Why Choose
         </motion.h3>
         <motion.h2
-          initial={{ scale: 0.9, opacity: 0 }}
+          initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="text-3xl font-serif tracking-wide mb-10"
+          className="text-4xl md:text-5xl font-serif font-bold tracking-wide mb-12"
         >
-          WALLEXX?
+          WALLEXX
         </motion.h2>
 
-        {/* Content Grid */}
-        <div className="relative grid md:grid-cols-3 grid-cols-1 md:gap-y-20 gap-y-5 text-gray-900 font-light">
-          {/* First Row */}
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Soundproof
-          </motion.p>
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Safe & Better Air Quality
-          </motion.p>
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Warranty
-          </motion.p>
-
-          {/* Horizontal Line */}
-          <div className="absolute top-1/3 left-0 w-full h-px bg-gray-400"></div>
-
-          {/* Second Row */}
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Endless Options
-          </motion.p>
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Low Cost Installation
-          </motion.p>
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Ultimate Durability
-          </motion.p>
-
-          {/* Horizontal Line */}
-          <div className="absolute top-2/3 left-0 w-full h-px bg-gray-400"></div>
-
-          {/* Third Row */}
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Termite Resistant
-          </motion.p>
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Eco-friendly
-          </motion.p>
-          <motion.p whileHover={{ scale: 1.05 }} className="cursor-default">
-            Waterproof
-          </motion.p>
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="bg-white text-gray-800 rounded-2xl shadow-lg p-6 flex items-center justify-center text-center cursor-default hover:shadow-2xl"
+            >
+              <p className="font-semibold text-lg md:text-xl">{feature}</p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

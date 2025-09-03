@@ -1,50 +1,84 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Volume2, Infinity, ShieldCheck, Droplet, Leaf, Hammer } from "lucide-react";
+
+const features = [
+  { title: "Soundproof", icon: <Volume2 className="w-6 h-6" /> },
+  { title: "Endless Options", icon: <Infinity className="w-6 h-6" /> },
+  { title: "Termite Resistant", icon: <ShieldCheck className="w-6 h-6" /> },
+  { title: "Safe & Better Air Quality", icon: <Droplet className="w-6 h-6" /> },
+  { title: "Low Cost Installation", icon: <Hammer className="w-6 h-6" /> },
+  { title: "Eco-friendly", icon: <Leaf className="w-6 h-6" /> },
+  { title: "Warranty", icon: <ShieldCheck className="w-6 h-6" /> },
+  { title: "Ultimate Durability", icon: <Hammer className="w-6 h-6" /> },
+  { title: "Waterproof", icon: <Droplet className="w-6 h-6" /> },
+];
+
+// Animation Variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" },
+  }),
+};
 
 const BabaQuartz = () => {
   return (
-    <div className="w-full min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="relative max-w-5xl w-full bg-white/60 backdrop-blur-md rounded-2xl shadow-lg xl:p-10 md:p-6 p-4 text-center">
+    <div className="w-full min-h-screen flex items-center justify-center bg-gray-50 px-4 py-16">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="max-w-5xl w-full bg-white rounded-2xl shadow-lg p-8 md:p-12"
+      >
         {/* Title Section */}
-        <h3 className="text-lg text-gray-700 mb-2">Why Choose</h3>
-        <h2 className="text-2xl font-serif tracking-wide mb-10">BABA QUARTZ ?</h2>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h3 className="text-sm text-gray-500 uppercase tracking-wide">
+            Why Choose
+          </h3>
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mt-2">
+            BABA <span className="text-[#ed7326]">QUARTZ</span> ?
+          </h2>
+        </motion.div>
 
-        {/* Content Grid */}
-        <div className="relative grid grid-cols-3 gap-y-14 text-gray-900 font-light">
-          {/* Left Column */}
-          <div className="space-y-14">
-            <p>Soundproof</p>
-            <p>Endless Options</p>
-            <p>Termite Resistant</p>
-          </div>
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              custom={index}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center p-4 rounded-lg bg-white hover:bg-gray-50 transition duration-300 shadow-sm hover:shadow-md"
+            >
+              {/* Icon Animation */}
+              <motion.div
+                className="text-[#ed7326] mb-3"
+                whileHover={{ rotate: 10, scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                {feature.icon}
+              </motion.div>
 
-          {/* Middle Column */}
-          <div className="space-y-14 flex flex-col items-center">
-            <p>Safe & Better Air Quality</p>
-            <p>Low Cost Installation</p>
-            <p>Eco-friendly</p>
-          </div>
-
-          {/* Right Column */}
-          <div className="space-y-14">
-            <p>Warranty</p>
-            <p>Ultimate Durability</p>
-            <p>Waterproof</p>
-          </div>
-
-          {/* Perfect Orange Divider Lines */}
-          {/* Main Center Cross */}
-          {/* <div className="absolute inset-y-0 left-1/2 transform -translate-x-1/2 w-px bg-orange-500"></div> */}
-          {/* <div className="absolute top-1/2 left-0 w-full h-px bg-orange-500"></div> */}
-
-          {/* Additional Vertical Lines */}
-          <div className="absolute inset-y-0 left-1/3 transform -translate-x-1/2 w-px bg-orange-500"></div>
-          <div className="absolute inset-y-0 left-2/3 transform -translate-x-1/2 w-px bg-orange-500"></div>
-
-          {/* Additional Horizontal Lines */}
-          {/* <div className="absolute top-1/3 left-0 w-full h-px bg-orange-500"></div> */}
-          {/* <div className="absolute top-2/3 left-0 w-full h-px bg-orange-500"></div> */}
+              {/* Title */}
+              <p className="text-gray-800 text-sm font-medium">
+                {feature.title}
+              </p>
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

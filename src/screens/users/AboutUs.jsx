@@ -1,154 +1,178 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
-const AboutUs = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [activeSection, setActiveSection] = useState(0);
-  // Removed scroll-bound transforms to avoid jank during scroll
+// Features data
+const sections = [
+  {
+    title: "Our Mission",
+    content:
+      "Deliver world-class products with cutting-edge designs and eco-conscious manufacturing while building trust globally.",
+    icon: "🎯",
+  },
+  {
+    title: "Our Vision",
+    content:
+      "Be the leading force in innovative surface solutions, creating spaces that inspire and endure for generations.",
+    icon: "🌟",
+  },
+  {
+    title: "Our Values",
+    content:
+      "Quality, Innovation, Sustainability, and Customer Excellence – pillars that drive every decision.",
+    icon: "💎",
+  },
+];
 
-  // Removed background image list; AboutUs now uses the same animated gradient blobs as Galleria
+const InteractiveCard = ({ section, active }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-  const sections = [
-    {
-      title: "Our Mission",
-      content: "To deliver world-class products with cutting-edge designs and eco-conscious manufacturing, while building trust across global and Indian markets.",
-      icon: "🎯"
-    },
-    {
-      title: "Our Vision",
-      content: "To be the leading force in innovative surface solutions, creating spaces that inspire and endure for generations to come.",
-      icon: "🌟"
-    },
-    {
-      title: "Our Values",
-      content: "Quality, Innovation, Sustainability, and Customer Excellence - the pillars that drive every decision we make.",
-      icon: "💎"
-    }
-  ];
-
-  useEffect(() => {
-    setIsVisible(true);
-    
-    const interval = setInterval(() => {
-      setActiveSection((prev) => (prev + 1) % sections.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [sections.length]);
+  const rotateX = useTransform(y, [-50, 50], [15, -15]);
+  const rotateY = useTransform(x, [-50, 50], [-15, 15]);
+  const shadowX = useTransform(x, [-50, 50], [5, -5]);
+  const shadowY = useTransform(y, [-50, 50], [5, -5]);
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 overflow-hidden">
-      
+    <motion.div
+      className="relative group cursor-pointer"
+      style={{ perspective: 1000 }}
+      whileHover={{ scale: 1.05 }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        x.set(e.clientX - rect.left - rect.width / 2);
+        y.set(e.clientY - rect.top - rect.height / 2);
+      }}
+      onMouseLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
+    >
+      <motion.div
+        className="bg-white rounded-3xl p-8 shadow-lg"
+        style={{
+          rotateX: rotateX,
+          rotateY: rotateY,
+          boxShadow: `${shadowX}px ${shadowY}px 20px rgba(0,0,0,0.15)`,
+        }}
+        transition={{ type: "spring", stiffness: 150, damping: 15 }}
+      >
+        <motion.div
+          className="text-5xl mb-4"
+          animate={{
+            scale: active ? 1.2 : 1,
+            rotate: active ? [0, 10, -10, 0] : 0,
+          }}
+          transition={{ duration: 0.6 }}
+        >
+          {section.icon}
+        </motion.div>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+          {section.title}
+        </h3>
+        <p className="text-gray-700 leading-relaxed">{section.content}</p>
+      </motion.div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
-        <div className="max-w-6xl mx-auto w-full">
-          {/* Hero Section */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <motion.h1
-              className="text-6xl md:text-8xl font-bold text-white mb-6"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-            >
-              ABOUT US
-            </motion.h1>
-            <motion.div
-              className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mb-8"
-              initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.8 }}
-            />
-          </motion.div>
+      {/* Hover glow effect */}
+      <motion.div
+        className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-300/20 to-pink-300/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-300"
+      />
+    </motion.div>
+  );
+};
 
-          {/* Content Sections */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {sections.map((section, index) => (
-              <motion.div
-                key={index}
-                className="relative group"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 + index * 0.2 }}
-                whileHover={{ y: -10 }}
-              >
-                <motion.div
-                  className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20"
-                  whileHover={{ 
-                    backgroundColor: "rgba(255, 255, 255, 0.15)",
-                    borderColor: "rgba(255, 255, 255, 0.3)"
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.div
-                    className="text-4xl mb-4"
-                    animate={{ 
-                      scale: activeSection === index ? 1.2 : 1,
-                      rotate: activeSection === index ? [0, 10, -10, 0] : 0
-                    }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {section.icon}
-                  </motion.div>
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {section.title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {section.content}
-                  </p>
-                </motion.div>
-                
-                {/* Hover effect glow */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100"
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            ))}
-          </div>
+const AboutUs = () => {
+  const [activeSection, setActiveSection] = useState(0);
 
-          {/* Signature Section */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
-          >
-            <motion.div
-              className="inline-block bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg rounded-full px-8 py-4 border border-white/20"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <p className="text-white font-bold text-xl">
-                ~ BABA GROUP
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSection((prev) => (prev + 1) % sections.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="relative w-full min-h-screen bg-white overflow-hidden py-24">
+      {/* Hero Title */}
+      <motion.div
+        className="text-center mb-20 relative z-10"
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <motion.h1
+          className="text-5xl md:text-7xl font-bold text-gray-900 mb-4"
+          initial={{ scale: 0.7, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          ABOUT US
+        </motion.h1>
+        <motion.div
+          className="mx-auto h-1 w-32 md:w-40 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: "128px" }}
+          transition={{ duration: 1, delay: 0.6 }}
+        />
+      </motion.div>
+
+      {/* Feature Cards */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-12">
+        {sections.map((section, index) => (
+          <InteractiveCard
+            key={index}
+            section={section}
+            active={activeSection === index}
+          />
+        ))}
       </div>
 
-      
-
-      {/* Scroll indicator */}
+      {/* CTA Button */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        className="relative z-10 mt-20 flex justify-center"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
       >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <motion.div
-            className="w-1 h-3 bg-white/60 rounded-full mt-2"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </div>
+        <motion.div
+          className="relative w-40 h-40 md:w-52 md:h-52 cursor-pointer"
+          whileHover={{ scale: 1.1 }}
+        >
+          {/* Rotating Circular Text */}
+          <motion.svg
+            viewBox="0 0 200 200"
+            className="w-full h-full absolute"
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+          >
+            <defs>
+              <path
+                id="circlePath"
+                d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+              />
+            </defs>
+            <text
+              className="fill-gray-900 text-[12px] md:text-[14px] tracking-[4px]"
+              style={{ fontFamily: "sans-serif", fontWeight: "bold" }}
+            >
+              <textPath href="#circlePath" startOffset="0%">
+                EXPLORE MORE • ABOUT US • EXPLORE MORE • ABOUT US •
+              </textPath>
+            </text>
+          </motion.svg>
+
+          {/* Center Button */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.div
+              className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gray-900 flex items-center justify-center shadow-lg text-white text-2xl font-bold"
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            >
+              ↗
+            </motion.div>
+          </div>
+        </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

@@ -1,14 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import homeImage from "../../../Assets/core_flexx/about/home.png";
-import buttonIcons from "../../../Assets/core_flexx/about/bottomIcons.svg";
+
+// Import multiple background images
+import bg1 from "../../../Assets/core_flexx/collections/image1.png";
+import bg2 from "../../../Assets/core_flexx/collections/image2.png";
+import bg3 from "../../../Assets/core_flexx/collections/image3.png";
+import bg4 from "../../../Assets/core_flexx/collections/image1.png";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.2 },
+    transition: { duration: 0.8, delay: i * 0.2, ease: "easeInOut" },
   }),
 };
 
@@ -29,6 +34,11 @@ const About = () => {
 
   const sectionRef = useRef(null);
 
+  // Background images array
+  const backgroundImages = [homeImage, bg1, bg2, bg3, bg4];
+  const [currentBg, setCurrentBg] = useState(0);
+
+  // Smooth counters animation
   const startCounters = () => {
     setCounters({ products: 0, ratings: 0, collections: 0, outlets: 0 });
 
@@ -52,6 +62,7 @@ const About = () => {
     });
   };
 
+  // Trigger counters when in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -64,6 +75,14 @@ const About = () => {
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  // Background image auto change
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % backgroundImages.length);
+    }, 6000); // Change every 6 seconds
+    return () => clearInterval(interval);
   }, []);
 
   const formatNumber = (num, type) => {
@@ -82,10 +101,8 @@ const About = () => {
     { key: "outlets", label: "Outlets" },
   ];
 
-
   const CircularCTA = () => (
-    <motion.div
-    >
+    <motion.div>
       <div className="relative mx-auto mt-12 w-40 h-40 md:w-52 md:h-52">
         {/* Rotating Circular Text */}
         <motion.svg
@@ -109,7 +126,7 @@ const About = () => {
             </textPath>
           </text>
         </motion.svg>
-  
+
         {/* Center Button */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
@@ -134,53 +151,69 @@ const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center px-4"
-      style={{
-        backgroundImage: `url(${homeImage})`,
-        fontFamily: "Poppins, sans-serif",
-      }}
+      className="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center px-4 overflow-hidden"
+      style={{ fontFamily: "Poppins, sans-serif" }}
     >
-      {/* Glass Card */}
+      {/* Background Image Slider */}
+      <AnimatePresence>
+        <motion.div
+          key={currentBg}
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: `url(${backgroundImages[currentBg]})` }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        />
+      </AnimatePresence>
+
+      {/* Overlay to darken background slightly */}
+      <div className="absolute inset-0 bg-black/30 z-0" />
+
+      {/* Glass Effect Stats Card */}
       <motion.div
-        className="bg-white/40 md:pt-0 mt-2 backdrop-blur-lg rounded-2xl shadow-lg px-6 py-10 md:px-10 md:py-14 max-w-5xl w-full text-center"
+        className="relative z-10 bg-white/30 backdrop-blur-lg rounded-2xl shadow-2xl px-6 py-10 md:px-10 md:py-14 max-w-5xl w-full text-center border border-white/20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false }}
         variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
       >
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-y-16  md:mt-10 mt-6 md:py-16 gap-x-6 text-white">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8 text-white">
           {stats.map((stat, i) => (
             <motion.div key={i} variants={fadeUp} custom={i}>
-              <p className="text-xl md:text-3xl font-semibold">
+              <motion.p
+                className="text-2xl md:text-4xl font-bold"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
                 {formatNumber(counters[stat.key], stat.key)}
-              </p>
-              <p className="text-xs md:text-base">{stat.label}</p>
+              </motion.p>
+              <p className="text-sm md:text-base mt-2">{stat.label}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
 
-      {/* Links Underneath */}
+      {/* Bottom Section */}
       <motion.div
-        className="flex flex-col md:flex-row items-center justify-center mt-12 gap-6 md:gap-24 text-center text-white"
+        className="relative z-10 flex flex-col md:flex-row items-center justify-center mt-16 gap-10 md:gap-28 text-center text-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false }}
         variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
       >
         <motion.div variants={fadeUp}>
-          <p className="text-xs md:text-sm">Learn More About</p>
-          <p className="text-lg md:text-xl font-serif tracking-wide">
+          <p className="text-xs md:text-sm opacity-80">Learn More About</p>
+          <p className="text-xl md:text-2xl font-semibold tracking-wide">
             COREFLEXX
           </p>
         </motion.div>
 
-        {/* <motion.img src={buttonIcons} alt="Button Icon" variants={fadeUp} /> */}
-        <CircularCTA/>
+        <CircularCTA />
 
         <motion.div variants={fadeUp}>
-          <p className="text-xs md:text-sm">Learn More About</p>
-          <p className="text-lg md:text-xl font-serif tracking-wide">
+          <p className="text-xs md:text-sm opacity-80">Learn More About</p>
+          <p className="text-xl md:text-2xl font-semibold tracking-wide">
             COREFLEXX
           </p>
         </motion.div>
@@ -188,21 +221,25 @@ const About = () => {
 
       {/* Footer Links */}
       <motion.div
-        className="w-full overflow-x-auto"
+        className="relative z-10 w-full overflow-x-auto mt-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false }}
         variants={fadeUp}
         custom={1}
       >
-        <div className="flex gap-6 md:gap-10 mt-10 text-xs md:text-2xl tracking-widest md:pb-5 pb-10 text-white whitespace-nowrap px-4 justify-center">
-          <span className="cursor-pointer hover:underline">BE A DEALER</span>
-          <span className="cursor-pointer hover:underline">
-            FIND A SHOWROOM
-          </span>
-          <span className="cursor-pointer hover:underline">
-            LOCATE A DEALER
-          </span>
+        <div className="flex gap-8 md:gap-16 text-sm md:text-xl tracking-widest text-white whitespace-nowrap px-4 justify-center">
+          {["BE A DEALER", "FIND A SHOWROOM", "LOCATE A DEALER"].map(
+            (link, idx) => (
+              <motion.span
+                key={idx}
+                whileHover={{ scale: 1.1, color: "#d1d5db" }}
+                className="cursor-pointer transition"
+              >
+                {link}
+              </motion.span>
+            )
+          )}
         </div>
       </motion.div>
     </section>

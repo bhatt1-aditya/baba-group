@@ -1,128 +1,111 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import productImg from "../../../Assets/core_flexx/core_flex_products/products.png";
-import { FaRegArrowAltCircleDown } from "react-icons/fa";
 
 const products = [
-  { id: 1, title: "CFX-411", tag: "NEW" },
-  { id: 2, title: "CFX-411" },
-  { id: 3, title: "CFX-411" },
-  { id: 4, title: "CFX-411", tag: "BESTSELLER" },
+  {
+    id: 1,
+    title: "CALCATTA ANGELO",
+    category: "STONA",
+    description: "Luxurious marble tiles with natural veining patterns.",
+    rating: "4.5+ Ratings",
+    img: "https://source.unsplash.com/600x400/?luxury,interior",
+  },
+  {
+    id: 2,
+    title: "CALCATTA ANGELO",
+    category: "STONA",
+    description: "Luxurious marble tiles with natural veining patterns.",
+    rating: "4.5+ Ratings",
+    img: "https://source.unsplash.com/600x400/?bedroom,modern",
+  },
+  {
+    id: 3,
+    title: "CALCATTA ANGELO",
+    category: "STONA",
+    description: "Luxurious marble tiles with natural veining patterns.",
+    rating: "4.5+ Ratings",
+    img: "https://source.unsplash.com/600x400/?livingroom,interior",
+  },
+  {
+    id: 4,
+    title: "CALCATTA ANGELO",
+    category: "STONA",
+    description: "Luxurious marble tiles with natural veining patterns.",
+    rating: "4.5+ Ratings",
+    img: "https://source.unsplash.com/600x400/?sofa,interior",
+  },
 ];
 
-// Animation variants
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay },
-  }),
-};
-
-const CoreFlexxProducts = () => {
-  const [animate, setAnimate] = useState(false);
-  const sectionRef = useRef(null);
-
-  // Detect when section is in view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => setAnimate(entry.isIntersecting));
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
+const InfiniteScrollProducts = () => {
   return (
-    <section
-      ref={sectionRef}
-      className="bg-gray-50 py-16 md:px-6 lg:px-10 px-4"
-      style={{fontFamily: "Poppins, sans-serif"}}
-    >
-      {/* Heading */}
-      <motion.div
-        className="text-center mb-12"
-        initial="hidden"
-        animate={animate ? "visible" : "hidden"}
-        variants={fadeUp}
-        custom={0}
-      >
-        <p className="text-gray-500 text-sm tracking-wide">Explore Coreflexx</p>
-        <h2 className="text-3xl md:text-4xl font-serif tracking-wide">
-          PRODUCTS
+    <section className="bg-white py-12">
+      {/* Section Header */}
+      <div className="text-center mb-10">
+        <h2 className="text-base text-gray-500 uppercase tracking-widest">
+          Explore Floorrex
         </h2>
-      </motion.div>
-
-      {/* Product grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto">
-        {products.map((product, index) => (
-          <motion.div
-            key={product.id}
-            className="bg-white rounded-xl flex md:flex-row flex-col shadow-md overflow-hidden relative hover:shadow-lg transition-shadow duration-300"
-            initial="hidden"
-            animate={animate ? "visible" : "hidden"}
-            variants={fadeUp}
-            custom={0.2 * (index + 1)} 
-          >
-            <div>
-              {/* Tag badge */}
-              {product.tag && (
-                <span className="absolute top-3 bg-[#4e565a] text-white lg:text-lg text-[12px] m-1 font-semibold px-3 py-1 z-10 rounded-r-full">
-                  {product.tag}
-                </span>
-              )}
-
-              {/* Image */}
-              <div className="relative">
-                <img
-                  src={productImg}
-                  alt={product.title}
-                  className="w-full h-52 object-cover p-1 rounded-2xl"
-                />
-                {/* Pagination dots */}
-                {/* <div className="flex justify-center mt-2 space-x-2 absolute bottom-2 w-full">
-                  <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
-                  <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
-                  <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
-                </div> */}
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-4 text-center">
-              <p className="text-gray-500 text-sm">Coreflexx</p>
-              <h3 className="md:text-2xl text-xl font-semibold">
-                {product.title}
-              </h3>
-              <p className="text-gray-500 lg:text-base font-semibold text-sm mt-2">
-                Luxurious marble tiles with natural veining patterns...Read
-                more.
-              </p>
-              <button className="mt-4 px-4 py-1 border border-gray-800 text-white bg-[#4e565a] rounded-full text-sm hover:bg-white hover:text-gray-800 transition">
-                EXPLORE
-              </button>
-            </div>
-          </motion.div>
-        ))}
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-wide">
+          PRODUCTS
+        </h1>
       </div>
 
-      {/* Load more */}
-      <motion.div
-        className="flex justify-center gap-1 mt-12 flex-col items-center animate-bounce"
-        initial="hidden"
-        animate={animate ? "visible" : "hidden"}
-        variants={fadeUp}
-        custom={0.8}
-      >
-        <h1 className="text-black text-center uppercase">Load More</h1>
-        <FaRegArrowAltCircleDown className="text-xl" />
-      </motion.div>
+      {/* Infinite Scroll */}
+      <div className="relative overflow-hidden w-full">
+        <motion.div
+          className="flex gap-4 sm:gap-6"
+          animate={{ x: ["0%", "-100%"] }}
+          transition={{
+            repeat: Infinity,
+            duration: 25,
+            ease: "linear",
+          }}
+        >
+          {[...products, ...products].map((product, index) => (
+            <div
+              key={index}
+              className="min-w-[240px] sm:min-w-[260px] bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex-shrink-0"
+            >
+              {/* Product Image */}
+              <div className="relative">
+                <img
+                  src={product.img}
+                  alt={product.title}
+                  className="w-full h-40 sm:h-44 object-cover"
+                />
+                <span className="absolute top-2 left-2 bg-gray-700 text-white text-xs px-2 py-1 rounded-md">
+                  BESTSELLER
+                </span>
+                <button className="absolute top-2 right-2 bg-white p-1.5 rounded-full shadow hover:scale-110 transition">
+                  🤍
+                </button>
+              </div>
+
+              {/* Product Details */}
+              <div className="p-3 sm:p-4">
+                <h3 className="font-semibold text-lg text-gray-800">
+                  {product.title}
+                </h3>
+                <p className="text-sm text-gray-500 mb-2">{product.category}</p>
+                <p className="text-sm text-gray-600 line-clamp-2">
+                  {product.description}
+                </p>
+                <p className="mt-2 text-gray-700 font-medium">
+                  ⭐ {product.rating}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Button */}
+      <div className="flex justify-center mt-10">
+        <button className="bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition duration-300">
+          DISCOVER MORE ⬇
+        </button>
+      </div>
     </section>
   );
 };
 
-export default CoreFlexxProducts;
+export default InfiniteScrollProducts;

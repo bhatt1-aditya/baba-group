@@ -80,23 +80,28 @@ const Collections = () => {
 
               {/* Buttons */}
               {item.discover ? (
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-                  <button className="flex items-center bg-white rounded-full shadow-lg overflow-hidden">
-                    <span className="px-5 py-2 text-sm font-normal whitespace-nowrap text-gray-800 tracking-wider">
-                      DISCOVER MORE
-                    </span>
-                    <span className="flex items-center justify-center rounded-full m-1 w-10 h-10 bg-black">
-                      <LuArrowRight className="text-white text-xl" />
-                    </span>
-                  </button>
-                </div>
-              ) : (
-                <div className="absolute bottom-6 left-[35%]">
-                  <span className="flex justify-center items-center text-center h-10 w-10 bg-black rounded-full">
-                    <LuArrowRight className="text-2xl" />
-                  </span>
-                </div>
-              )}
+  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="flex items-center bg-white rounded-full shadow-lg overflow-hidden group"
+    >
+      <span className="px-5 py-2 text-sm font-normal whitespace-nowrap text-gray-800 tracking-wider">
+        DISCOVER MORE
+      </span>
+      <span className="flex items-center justify-center rounded-full m-1 w-10 h-10 bg-black overflow-hidden relative">
+        <motion.div
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+          animate={{ x: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 0.8, repeatType: "loop" }}
+        >
+          <LuArrowRight className="text-white text-xl" />
+        </motion.div>
+      </span>
+    </motion.button>
+  </div>
+) : null}
+
 
               {/* Title */}
               <h1 className="uppercase absolute left-1/2 transform -translate-x-1/2 mt-2 whitespace-nowrap" >

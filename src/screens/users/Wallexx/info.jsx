@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe, Users, Lock, Link, Star } from "lucide-react";
+import { Globe, Users, Lock, Link } from "lucide-react";
 
 const features = [
   { icon: Users, text: "Customer Centric" },
@@ -8,41 +8,52 @@ const features = [
   { icon: Lock, text: "Unilin Locking System" },
   { icon: Globe, text: "Since 2 decades" },
   { icon: Link, text: "HOMAG line German Technology" },
-  { icon: Users, text: "Representatives available worldwide" },
-  { icon: Globe, text: "20+Countries Supply chain" },
+  { icon: Users, text: "Representatives worldwide" },
+  { icon: Globe, text: "20+ Countries Supply Chain" },
 ];
 
 export default function WallexxProducts() {
   return (
-    <div className="bg-[#004736] text-white py-14 px-6 flex flex-col items-center">
-      {/* Heading */}
-      <h3 className="text-lg font-light mb-2">Why Choose</h3>
-      <h2 className="text-3xl md:text-4xl font-serif mb-3 text-center">
-        WALLEXX SPC PRODUCTS?
-      </h2>
-      <p className="text-sm md:text-base max-w-2xl text-center mb-10">
-        FLOOREXX is the only SPC producing company in India with an in-house
-        source of raw material (CaCO3) hence attractive Pricing & Quality
-        Standards and uniformity.
-      </p>
+    <section className="relative bg-[#044d42] text-white py-28 px-6 flex flex-col items-center overflow-hidden">
+      {/* Floating Background Shapes */}
+      <div className="absolute -top-48 -left-48 w-96 h-96 bg-gradient-to-r from-white/5 to-white/10 rounded-full filter blur-3xl animate-pulse"></div>
+      <div className="absolute -bottom-48 -right-48 w-[28rem] h-[28rem] bg-gradient-to-r from-white/5 to-white/10 rounded-full filter blur-3xl animate-pulse"></div>
+      <div className="absolute top-1/2 -right-32 w-64 h-64 bg-white/5 rounded-full filter blur-2xl animate-pulse"></div>
 
-      {/* White Box with features */}
-      <div className="bg-white text-[#004736] rounded-xl shadow-lg w-full max-w-5xl p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-          {features.map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex flex-col items-center space-y-2"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <item.icon className="w-8 h-8" />
-              <p className="text-sm md:text-base">{item.text}</p>
-            </motion.div>
-          ))}
-        </div>
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-24 z-10 relative"
+      >
+        <h3 className="text-lg font-light mb-1">Why Choose</h3>
+        <h2 className="text-4xl md:text-5xl font-serif mb-3 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-teal-300">
+          WALLEXX SPC PRODUCTS?
+        </h2>
+        <p className="text-sm md:text-base max-w-2xl mx-auto">
+          FLOOREXX is the only SPC producing company in India with an in-house
+          source of raw material (CaCO3), ensuring attractive pricing, quality,
+          and consistency.
+        </p>
+      </motion.div>
+
+      {/* Features Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 max-w-6xl w-full z-10 relative">
+        {features.map((item, index) => (
+          <motion.div
+            key={index}
+            className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 flex flex-col items-center justify-center shadow-2xl cursor-pointer transition-transform duration-500 hover:scale-110 hover:-translate-y-4 hover:shadow-3xl hover:backdrop-brightness-125"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: index * 0.1 }}
+            whileHover={{ rotateX: 6, rotateY: 6 }}
+          >
+            <item.icon className="w-16 h-16 mb-4 text-white" />
+            <p className="text-center font-semibold text-white text-lg">{item.text}</p>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }

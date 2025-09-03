@@ -132,94 +132,85 @@
 
 
 
-
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
+// Import images
 import hero1 from "../../../Assets/Quartz/hero.png";
 import hero2 from "../../../Assets/floorrex/image1.png";
-import homeBottomImage from "../../../Assets/Quartz/icon.svg";
+import homeImage2 from "../../../Assets/core_flexx/collections/image1.png";
+import homeImage3 from "../../../Assets/core_flexx/collections/image2.png";
+import homeImage4 from "../../../Assets/core_flexx/collections/image3.png";
 
-// Slides config
-const slides = [
-  {
-    type: "grid",
-    image: hero1,
-  },
-  {
-    type: "animated",
-    image: hero2,
-  },
-];
-
-// Animation variants
+// Animation for fade up
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay },
+    transition: { duration: 0.7, delay },
   }),
 };
 
-// Circular CTA Component
-const CircularCTA = () => (
-  <motion.div>
-    <div className="relative mx-auto mt-12 w-40 h-40 md:w-52 md:h-52">
-      {/* Rotating Circular Text */}
-      <motion.svg
-        viewBox="0 0 200 200"
-        className="w-full h-full absolute"
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+const CircularCTA = ({ onClick }) => (
+  <motion.div
+    className="relative mx-auto w-40 h-40 md:w-52 md:h-52 cursor-pointer"
+    onClick={onClick}
+    whileHover={{ scale: 1.1 }}
+  >
+    {/* Rotating Circular Text */}
+    <motion.svg
+      viewBox="0 0 200 200"
+      className="w-full h-full absolute"
+      animate={{ rotate: 360 }}
+      transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+    >
+      <defs>
+        <path
+          id="circlePath"
+          d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+        />
+      </defs>
+      <text
+        className="fill-gray-900 text-[12px] md:text-[14px] tracking-[4px]"
+        style={{ fontFamily: "sans-serif", fontWeight: "bold" }}
       >
-        <defs>
-          <path
-            id="circlePath"
-            d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-          />
-        </defs>
-        <text
-          className="fill-white text-[12px] md:text-[14px] tracking-[4px]"
-          style={{ fontFamily: "sans-serif", fontWeight: "bold" }}
-        >
-          <textPath href="#circlePath" startOffset="0%">
-            PROXIMON HOME • EXPLORE MORE • PROXIMON HOME • EXPLORE MORE •
-          </textPath>
-        </text>
-      </motion.svg>
+        <textPath href="#circlePath" startOffset="0%">
+          EXPLORE MORE • PREMIUM COLLECTION • EXPLORE MORE •
+        </textPath>
+      </text>
+    </motion.svg>
 
-      {/* Center Button */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg cursor-pointer"
-          animate={{ scale: [1, 1.15, 1] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          whileHover={{ scale: 1.25 }}
+    {/* Center button with arrow */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <motion.div
+        className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-black text-white flex items-center justify-center shadow-lg"
+        animate={{ scale: [1, 1.15, 1] }}
+        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+      >
+        <motion.span
+          className="text-2xl"
+          animate={{ y: [0, -3, 0] }}
+          transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
         >
-          <motion.span
-            className="rotate-45 text-teal-900 text-3xl leading-none"
-            animate={{ y: [0, -3, 0] }}
-            transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
-          >
-            ↗
-          </motion.span>
-        </motion.div>
-      </div>
+          ↗
+        </motion.span>
+      </motion.div>
     </div>
   </motion.div>
 );
 
 const Hero = () => {
-  const [animate, setAnimate] = useState(false);
+  const navigate = useNavigate();
   const sectionRef = useRef(null);
+  const [animate, setAnimate] = useState(false);
 
+  // Scroll animation trigger
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -231,152 +222,59 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
+  const slides = [hero1, hero2, homeImage2, homeImage3, homeImage4];
+
   return (
-    <div ref={sectionRef} className="overflow-x-hidden">
-      <div className="w-full h-screen overflow-hidden rounded-3xl">
+    <div ref={sectionRef} className="overflow-hidden">
+      <div className="w-full h-screen rounded-3xl overflow-hidden">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Pagination, Autoplay]}
           slidesPerView={1}
-          navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 4000 }}
-          loop={true}
+          loop
           className="w-full h-full rounded-3xl"
         >
-          {slides.map((slide, index) => (
+          {slides.map((image, index) => (
             <SwiperSlide key={index}>
-              {slide.type === "grid" ? (
-                // ---------- Slide 1: Grid Text + Circular CTA ----------
-                <div
-                  className="relative w-full min-h-screen bg-cover bg-center text-white flex flex-col items-center justify-center px-4 pb-10"
-                  style={{ backgroundImage: `url(${slide.image})` }}
+              <div
+                className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-white"
+                style={{ backgroundImage: `url(${image})` }}
+              >
+                {/* Title */}
+                <motion.div
+                  className="text-center"
+                  initial="hidden"
+                  animate={animate ? "visible" : "hidden"}
+                  variants={{
+                    visible: { transition: { staggerChildren: 0.2 } },
+                  }}
                 >
-                  {/* Text Grid */}
-                  <motion.ul
-                    className="grid md:grid-cols-5 grid-cols-1 items-center justify-between lg:gap-24 gap-16 w-full text-center mb-10"
-                    initial="hidden"
-                    animate={animate ? "visible" : "hidden"}
-                    variants={{
-                      hidden: {},
-                      visible: {
-                        transition: { staggerChildren: 0.3 },
-                      },
-                    }}
-                  >
-                    {[
-                      "POPULAR PICKS",
-                      "Kao\nBULGARI",
-                      "POPULAR PICKS",
-                      "Kao\nBULGARI",
-                      "POPULAR PICKS",
-                    ].map((item, i) => (
-                      <motion.li
-                        key={i}
-                        variants={fadeUp}
-                        className={`text-lg font-semibold text-black ${
-                          item.includes("\n") ? "flex flex-col" : ""
-                        }`}
-                      >
-                        {item.split("\n").map((line, j) => (
-                          <span
-                            key={j}
-                            className={
-                              j === 0 && item.includes("\n")
-                                ? "text-5xl font-semibold"
-                                : ""
-                            }
-                          >
-                            {line}
-                          </span>
-                        ))}
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-
-                  {/* Bottom Circle CTA */}
-                  <motion.div
-                    initial="hidden"
-                    animate={animate ? "visible" : "hidden"}
+                  <motion.h1
+                    className="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg"
                     variants={fadeUp}
-                    className="absolute bottom-20 w-[80%] md:flex hidden justify-center items-center px-10"
                   >
-                    <CircularCTA />
-                  </motion.div>
-                </div>
-              ) : (
-                // ---------- Slide 2: Animated Layout ----------
-                <div
-                  className="relative w-full min-h-screen bg-cover bg-center text-white flex items-center justify-center px-4 pb-10"
-                  style={{ backgroundImage: `url(${slide.image})` }}
+                    PREMIUM COLLECTION
+                  </motion.h1>
+                  <motion.p
+                    className="mt-4 text-lg md:text-xl drop-shadow-md"
+                    variants={fadeUp}
+                    custom={0.2}
+                  >
+                    Discover the elegance of timeless design
+                  </motion.p>
+                </motion.div>
+
+                {/* Circular CTA at Bottom */}
+                <motion.div
+                  initial="hidden"
+                  animate={animate ? "visible" : "hidden"}
+                  variants={fadeUp}
+                  className="absolute bottom-16"
                 >
-                  {/* Title */}
-                  <motion.div
-                    className="text-center z-10"
-                    initial="hidden"
-                    animate={animate ? "visible" : "hidden"}
-                    variants={{
-                      visible: { transition: { staggerChildren: 0.2 } },
-                    }}
-                  >
-                    <motion.h2
-                      className="text-3xl md:text-5xl font-light tracking-widest"
-                      variants={fadeUp}
-                      custom={0}
-                    >
-                      WOODEN SERIES:
-                    </motion.h2>
-                    <motion.h1
-                      className="text-4xl md:text-6xl font-bold mt-2 tracking-wider"
-                      variants={fadeUp}
-                      custom={0.2}
-                    >
-                      ENTANA WALNUT
-                    </motion.h1>
-                  </motion.div>
-
-                  {/* Bottom Row */}
-                  <motion.div
-                    className="absolute bottom-20 md:flex hidden justify-between items-center px-10 gap-10"
-                    initial="hidden"
-                    animate={animate ? "visible" : "hidden"}
-                    variants={{
-                      visible: { transition: { staggerChildren: 0.3 } },
-                    }}
-                  >
-                    {/* Left text */}
-                    <motion.div
-                      className="text-white text-lg md:text-xl text-center"
-                      variants={fadeUp}
-                      custom={0}
-                    >
-                      POPULAR PICKS . POPULAR PICKS . POPULAR PICKS
-                    </motion.div>
-
-                    {/* Center Image Button */}
-                    <motion.div
-                      className="flex flex-col items-center"
-                      variants={fadeUp}
-                      custom={0.3}
-                    >
-                      <div className="relative scale-125">
-                        <img src={homeBottomImage} alt="Explore" />
-                        <div className="absolute inset-0 flex items-center justify-center text-black font-bold text-3xl">
-                          <FiArrowRight />
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    {/* Right text */}
-                    <motion.div
-                      className="text-white text-lg md:text-xl text-center"
-                      variants={fadeUp}
-                      custom={0.6}
-                    >
-                      POPULAR PICKS . POPULAR PICKS . POPULAR PICKS
-                    </motion.div>
-                  </motion.div>
-                </div>
-              )}
+                  <CircularCTA onClick={() => navigate("/explore")} />
+                </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

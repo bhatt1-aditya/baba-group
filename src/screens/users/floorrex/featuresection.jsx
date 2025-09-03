@@ -26,6 +26,7 @@ export default function FeaturesSection() {
         ))}
       </div> */}
 
+
       {/* Quote Section */}
 <motion.section
   className="relative w-full py-20 bg-gradient-to-b from-white via-[#f9f5f2] to-white overflow-hidden"

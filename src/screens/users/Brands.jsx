@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import logo from "../../Assets/brands/backgroundImge.svg";
 import polygon1 from "../../Assets/brands/Polygon 1.svg";
 import polygon2 from "../../Assets/brands/Polygon 2.svg";
@@ -8,8 +9,6 @@ import polygon4 from "../../Assets/brands/Polygon 4.svg";
 import polygon5 from "../../Assets/brands/Polygon 5.svg";
 import polygon6 from "../../Assets/brands/Polygon 6.svg";
 import Arrow from "../../Assets/brands/Arrow up-right.svg";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,109 +43,98 @@ const Brands = () => {
 
     updateScroll();
     window.addEventListener("resize", updateScroll);
-
     return () => {
       window.removeEventListener("resize", updateScroll);
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
+  const brands = [
+    {
+      title: "NATURAL STONE",
+      images: [
+        { img: polygon1, text: "Premium Stone" },
+        { img: polygon2, text: "Elegant Texture" },
+      ],
+    },
+    {
+      title: "CERAMIC TILES",
+      images: [
+        { img: polygon4, text: "Modern Tiles" },
+        { img: polygon3, text: "Stylish Finish" },
+      ],
+    },
+    {
+      title: "GLASS TILES",
+      images: [
+        { img: polygon5, text: "Luxury Glass" },
+        { img: polygon6, text: "Crystal Finish" },
+      ],
+    },
+  ];
+
   return (
     <div
       ref={sectionRef}
-      className="bg-[#171717FC] opacity-95 min-h-screen xl:flex hidden items-center justify-center"
+      className="relative bg-white min-h-screen xl:flex hidden items-center justify-center overflow-hidden"
     >
+      {/* Animated Background Blobs */}
+      <div className="absolute top-20 left-1/4 w-72 h-72 bg-purple-400/20 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute bottom-32 right-1/3 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-0 left-0 w-full h-60 bg-gradient-to-t from-black/80 to-transparent z-0" />
+
+      {/* Background Image */}
       <div
-        className="relative flex items-center justify-center text-white bg-cover bg-no-repeat object-fill min-h-screen w-full"
-        style={{
-          backgroundImage: `url(${logo})`,
-        }}
+        className="absolute inset-0 bg-cover bg-no-repeat object-fill"
+        style={{ backgroundImage: `url(${logo})` }}
+      />
+
+      {/* Horizontal Scroll Container */}
+      <div
+        ref={scrollRef}
+        className="relative z-10 flex flex-row gap-40 w-full px-8 md:px-16 lg:px-24 py-10 items-center"
+        style={{ minHeight: "100vh", fontSize: "1.35rem", willChange: "transform" }}
       >
-        <div className="absolute inset-0 bg-black opacity-50 z-0" />
+        {/* Heading */}
+        <div className="flex flex-col items-center min-w-[350px] max-w-[400px]">
+          <h1 className="text-5xl font-bold tracking-wider mb-8 uppercase text-black">
+            PREMIUM <br /> BRANDS
+          </h1>
+          <div className="h-1 w-32 bg-gradient-to-r from-purple-400 to-blue-400 rounded mb-6" />
+        </div>
 
-        {/* Horizontal Scroll Container */}
-                                   <div
-            ref={scrollRef}
-            className="relative z-10 flex flex-row gap-40 w-full px-8 md:px-16 lg:px-24 py-10 items-center"
-            style={{
-              minHeight: "100vh",
-              fontSize: "1.35rem",
-              willChange: "transform",
-            }}
+        {/* Brand Cards */}
+        {brands.map((brand, i) => (
+          <div key={i} className="flex flex-col min-w-[600px] max-w-[650px] relative">
+            <div className="grid grid-cols-2 gap-12">
+              {brand.images.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col items-center cursor-pointer transition-transform duration-500 hover:scale-110 hover:-rotate-2"
+                >
+                  <img
+                    src={item.img}
+                    alt=""
+                    className={`object-contain ${idx === 0 ? "w-[600px] h-[600px]" : "w-[420px] h-[420px]"}`}
+                  />
+                  <p className="mt-2 text-black font-medium text-lg">{item.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex pl-2 absolute bottom-36">
+              <h1 className="text-4xl font-semibold tracking-wider text-black">{brand.title}</h1>
+            </div>
+          </div>
+        ))}
+
+        {/* Tap to Explore Button */}
+        <div className="flex flex-col gap-4 items-center justify-center min-w-[300px] max-w-[350px] z-10">
+          <button
+            onClick={() => console.log("Explore clicked!")}
+            className="mt-4 px-8 py-4 bg-gradient-to-r from-purple-400 to-blue-400 text-white font-bold rounded-full shadow-lg animate-pulse hover:scale-110 transition-all duration-300"
           >
-          {/* Title */}
-          <div className="flex flex-col items-center min-w-[350px] max-w-[400px]">
-            <h1 className="text-5xl font-bold tracking-wider mb-8">
-              PREMIUM <br /> BRANDS
-            </h1>
-          </div>
-
-                     {/* Brand 1 */}
-           <div className="pl-16 flex flex-col min-w-[600px] max-w-[650px] relative">
-            <div className="pr-14 pt-10 absolute">
-              <p className="text-lg">( 60+ PRODUCTS )</p>
-            </div>
-                         <div className="grid grid-cols-2 gap-12">
-               <img src={polygon1} alt="" className="w-[600px] h-[600px] object-contain" />
-               <img src={polygon2} alt="" className="w-[420px] h-[420px] object-contain" />
-             </div>
-            <div className="flex pl-2 absolute bottom-36">
-              <h1 className="text-4xl font-semibold tracking-wider">
-                NATURAL STONE
-              </h1>
-            </div>
-            <div className="flex justify-end pr-[5rem]">
-              <button className=" text-lg">Explore more →</button>
-            </div>
-          </div>
-
-                     {/* Brand 2 */}
-           <div className="relative top-24 flex flex-col min-w-[600px] max-w-[650px]">
-            <div className="flex justify-end pr-[6rem] pb-1 ">
-              <button className="mt-2 text-lg">Explore more →</button>
-            </div>
-            <div className="flex pl-2 absolute top-28">
-              <h1 className="text-4xl font-semibold tracking-wider">
-                CERAMIC TILES
-              </h1>
-            </div>
-                         <div className="grid grid-cols-2 items-end gap-12">
-               <img src={polygon4} alt="" className="w-[600px] h-[600px] object-contain" />
-               <img src={polygon3} alt="" className="w-[420px] h-[420px] object-contain" />
-             </div>
-            <div className="pr-14 pb-1 absolute bottom-28">
-              <p className="text-lg">( 75+ PRODUCTS )</p>
-            </div>
-          </div>
-
-                     {/* Brand 3 */}
-           <div className="flex flex-col min-w-[600px] max-w-[650px] relative">
-            <div className="pr-14 pb-1 absolute top-28">
-              <p className="text-lg">( 75+ PRODUCTS )</p>
-            </div>
-                         <div className="grid grid-cols-2 gap-12">
-               <img src={polygon5} alt="" className="w-[600px] h-[600px] object-contain" />
-               <img src={polygon6} alt="" className="w-[420px] h-[420px] object-contain" />
-             </div>
-            <div className="flex pl-2 absolute bottom-36">
-              <h1 className="text-4xl font-semibold tracking-wider">
-                Glass TILES
-              </h1>
-            </div>
-            <div className="flex justify-end pr-[10rem]">
-              <button className="mt-2 text-lg">Explore more →</button>
-            </div>
-          </div>
-
-          {/* Explore Arrow */}
-          <div className="flex flex-col gap-4 items-center justify-center min-w-[300px] max-w-[350px]">
-            <div className="bg-[#FCFCFC59] h-[5rem] w-[5rem] rounded-full flex items-center justify-center">
-              <button className="bg-white p-3 rounded-full">
-                <img src={Arrow} alt="" className="w-6 h-6" />
-              </button>
-            </div>
-            <p className="text-lg">(Tap to explore more)</p>
-          </div>
+            Tap to Explore
+          </button>
         </div>
       </div>
     </div>

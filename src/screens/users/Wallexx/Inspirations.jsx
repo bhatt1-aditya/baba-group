@@ -154,31 +154,37 @@
 
 // export default App;
 
-
 import React from "react";
 import { motion } from "framer-motion";
 
-import image from "../../../Assets/wallex/about/image2.png"
+import image from "../../../Assets/wallex/about/image2.png";
+
 const images = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c", // Example interior
-  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6", 
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
   "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
   image
-  // 👉 Add more images here and they will automatically fit in grid
 ];
 
 export default function Inspirations() {
   return (
-    <div className="bg-[#044d42] text-white py-14 px-4 flex flex-col items-center">
+    <section className="bg-[#044d42] text-white py-16 px-4 flex flex-col items-center">
       {/* Title */}
-      <h2 className="text-3xl md:text-4xl font-serif mb-10">INSPIRATIONS</h2>
+      <motion.h2
+        className="text-3xl md:text-5xl font-serif mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        INSPIRATIONS
+      </motion.h2>
 
       {/* Grid of images */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 w-full max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl">
         {images.map((src, index) => (
           <motion.div
             key={index}
-            className="overflow-hidden rounded-lg shadow-lg"
+            className="relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -187,11 +193,20 @@ export default function Inspirations() {
             <img
               src={src}
               alt={`Inspiration ${index + 1}`}
-              className="w-full h-72 object-cover"
+              className="w-full h-72 object-cover rounded-2xl transition-transform duration-500"
             />
+            {/* Overlay on hover */}
+            <motion.div
+              className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+              whileHover={{ opacity: 1 }}
+            >
+              <p className="text-white font-semibold text-lg md:text-xl">
+                {`Inspiration ${index + 1}`}
+              </p>
+            </motion.div>
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

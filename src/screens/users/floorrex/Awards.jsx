@@ -42,44 +42,74 @@ const AwardsSection = () => {
   }, []);
 
   return (
-    <section className="w-full py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 text-center">
-        {/* Heading */}
+    <section className="w-full py-24 bg-white relative overflow-hidden">
+      {/* Section Heading */}
+      <div className="text-center mb-14">
         <motion.h2
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-16 tracking-tight"
-       >
+          className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
+        >
           Awards & Achievements
         </motion.h2>
+        <p className="mt-4 text-gray-500 text-base max-w-xl mx-auto">
+          A glimpse of our journey of excellence and recognition over the years.
+        </p>
+      </div>
 
-        {/* Carousel Style Layout */}
-        <div className="relative w-full flex overflow-x-auto space-x-8 pb-6 no-scrollbar">
-          {awards.map((award) => (
+      {/* Horizontal Scroll Section */}
+      <div className="max-w-7xl mx-auto relative">
+        <div className="flex overflow-x-auto no-scrollbar gap-8 px-6 snap-x snap-mandatory">
+          {awards.map((award, index) => (
             <motion.div
               key={award.id}
-              whileHover={{ scale: 1.1, rotate: 1 }}
-              whileTap={{ scale: 0.95 }}
-              className="min-w-[280px] sm:min-w-[340px] lg:min-w-[400px] bg-gradient-to-br from-gray-100 to-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ scale: 1.05 }}
+              className="min-w-[280px] sm:min-w-[320px] md:min-w-[340px] lg:min-w-[360px] 
+                         bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl 
+                         transition-all duration-500 snap-center cursor-pointer relative overflow-hidden group"
             >
-              <div className="relative">
-                <img
+              {/* Award Image */}
+              <div className="relative overflow-hidden rounded-t-3xl">
+                <motion.img
                   src={award.img}
                   alt={award.title}
-                  className="w-full h-72 object-cover"
+                  className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center text-white">
-                  <h3 className="text-2xl font-semibold">{award.title}</h3>
-                  <p className="mt-2 text-lg">{award.year}</p>
-                </div>
               </div>
+
+              {/* Award Details */}
+              <div className="p-6 text-center">
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-lg font-semibold text-gray-800"
+                >
+                  {award.title}
+                </motion.h3>
+                <p className="mt-2 text-sm text-gray-500">{award.year}</p>
+              </div>
+
+              {/* Hover Overlay with Animation */}
+              <motion.div
+                className="absolute inset-0 bg-white/80 opacity-0 group-hover:opacity-100 
+                           flex flex-col justify-center items-center transition duration-500"
+              >
+                <p className="text-gray-900 text-lg font-medium mb-2">
+                  {award.title}
+                </p>
+                <span className="text-gray-600 text-sm">View Details</span>
+              </motion.div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Custom CSS for hiding scrollbar */}
+      {/* Hide Scrollbar */}
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;

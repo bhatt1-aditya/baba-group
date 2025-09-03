@@ -1,70 +1,91 @@
 import React from "react";
+import { motion } from "framer-motion";
+
+const cards = [
+  {
+    title: "Awards & Achievements",
+    img: "/images/bathroom.jpg", // replace with actual image
+    buttonColor: "white",
+    textColor: "black",
+  },
+  {
+    title: "Our Projects",
+    img: "/images/piramal-logo.png", // replace with actual image/logo
+    buttonColor: "black",
+    textColor: "white",
+  },
+  {
+    title: "Events",
+    img: "/images/bathroom.jpg", // replace with actual image
+    buttonColor: "white",
+    textColor: "black",
+  },
+];
 
 export default function CreatingBeautifulSpaces() {
   return (
-    <div className="bg-black text-white py-20 xl:px-10 px-4 md:px-6 text-center">
+    <section className="bg-black text-white py-24 px-4 md:px-10 xl:px-20 text-center overflow-hidden">
       {/* Heading */}
-      <h2 className="text-3xl md:text-5xl font-serif mb-6 leading-snug">
+      <motion.h2
+        className="text-3xl md:text-5xl font-serif mb-6 leading-snug"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         “CREATING BEAUTIFUL SPACES <br /> SINCE A DECADE.”
-      </h2>
+      </motion.h2>
 
       {/* Paragraphs */}
-      <p className="text-sm md:text-base max-w-3xl mx-auto mb-6 text-gray-300 leading-relaxed">
-        Baba Group has been a leading producer and exporter for over a decade,
-        based in the Rajasthan province of India. We have been into Quartz
-        Powder, Grit and Engineered Quartz Slab with a splendid presence across
-        the Globe. We’re a pioneer in India for the manufacturing and exporting
-        Engineered Quartz Slab.
-      </p>
-      <p className="text-sm md:text-base max-w-3xl mx-auto text-gray-300 leading-relaxed">
-        After creating a very successful legacy in Quartz Powder, Grit &
-        Engineered Quartz Stone, we are overjoyed to launch our New Product -SPC
-        floors by Baba Flooring Pvt Ltd, a subsidiary organization of “BABA
-        QUARTZ” (Baba Super Minerals Pvt Ltd).
-      </p>
+      <motion.div
+        className="max-w-4xl mx-auto text-gray-300 mb-16 space-y-4"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <p className="text-sm md:text-base leading-relaxed">
+          Baba Group has been a leading producer and exporter for over a decade,
+          based in the Rajasthan province of India. We have been into Quartz
+          Powder, Grit and Engineered Quartz Slab with a splendid presence across
+          the Globe. We’re a pioneer in India for the manufacturing and exporting
+          Engineered Quartz Slab.
+        </p>
+        <p className="text-sm md:text-base leading-relaxed">
+          After creating a very successful legacy in Quartz Powder, Grit & Engineered Quartz Stone, we are overjoyed to launch our New Product - SPC floors by Baba Flooring Pvt Ltd, a subsidiary organization of “BABA QUARTZ” (Baba Super Minerals Pvt Ltd).
+        </p>
+      </motion.div>
 
       {/* Cards Section */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* Left Card */}
-        <div className="bg-white/5 rounded-2xl overflow-hidden shadow-lg">
-          <img
-            src="/images/bathroom.jpg" // replace with actual image
-            alt="Awards"
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-6">
-            <button className="bg-white text-black rounded-full px-6 py-2 text-xs tracking-wider uppercase shadow-md">
-              Awards & Achievements
-            </button>
-          </div>
-        </div>
-
-        {/* Middle Card */}
-        <div className="bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center h-full py-16">
-          <img
-            src="/images/piramal-logo.png" // replace with your logo
-            alt="Piramal Realty"
-            className="h-20 mb-6"
-          />
-          <button className="bg-black text-white rounded-full px-8 py-2 text-xs tracking-wider uppercase shadow-md">
-            Our Projects
-          </button>
-        </div>
-
-        {/* Right Card */}
-        <div className="bg-white/5 rounded-2xl overflow-hidden shadow-lg">
-          <img
-            src="/images/bathroom.jpg" // replace with actual image
-            alt="Events"
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-6">
-            <button className="bg-white text-black rounded-full px-10 py-2 text-xs tracking-wider uppercase shadow-md">
-              Events
-            </button>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {cards.map((card, index) => (
+          <motion.div
+            key={index}
+            className="bg-white/5 rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
+            <div className="overflow-hidden rounded-t-3xl">
+              <img
+                src={card.img}
+                alt={card.title}
+                className="w-full h-64 md:h-72 object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+            <div className="p-6 flex flex-col items-center">
+              <button
+                className={`rounded-full px-8 py-2 text-xs tracking-wider shadow-md font-medium transition-colors duration-300`}
+                style={{
+                  backgroundColor: card.buttonColor,
+                  color: card.textColor,
+                }}
+              >
+                {card.title}
+              </button>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }

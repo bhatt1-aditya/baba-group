@@ -1,66 +1,136 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+
+// Animation Variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 export default function AwardsProjectsEvents() {
+  const [animate, setAnimate] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => setAnimate(entry.isIntersecting));
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const sections = [
+    {
+      title: "Awards & Achievements",
+      img: "https://images.unsplash.com/photo-1615873968403-89e6aeb1c4dc?auto=format&fit=crop&w=900&q=80",
+      desc: "Recognizing excellence through prestigious awards and milestones achieved over the years.",
+    },
+    {
+      title: "Our Projects",
+      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+      desc: "Innovative designs brought to life with attention to detail and quality craftsmanship.",
+    },
+    {
+      title: "Events",
+      img: "https://images.unsplash.com/photo-1600607687487-c0e1f7a04c49?auto=format&fit=crop&w=900&q=80",
+      desc: "Memorable moments where creativity and community come together.",
+    },
+  ];
+
   return (
-    <div className="bg-[#f9f9f9] text-center py-12 px-4 xl:px-10 md:px-6">
-      
-      {/* Top Section - 3 Columns */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-        
-        {/* Awards & Achievements */}
-        <div>
-          <h2 className="text-2xl font-serif text-gray-800 mb-4">
-            Awards & <br /> Achievements
-          </h2>
-          <img
-            src="https://images.unsplash.com/photo-1615873968403-89e6aeb1c4dc?auto=format&fit=crop&w=900&q=80"
-            alt="Awards"
-            className="rounded-md shadow-md w-full object-cover"
-          />
-        </div>
+    <section
+      ref={sectionRef}
+      className="relative bg-gray-50 py-20 px-6 overflow-hidden"
+    >
+      {/* Soft background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200 opacity-70"></div>
 
-        {/* Our Projects */}
-        <div>
-          <h2 className="text-2xl font-serif text-gray-800 mb-4">Our Projects</h2>
-          <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
-            alt="Projects"
-            className="rounded-md shadow-md w-full object-cover"
-          />
-        </div>
+      {/* Top Grid Section */}
+      <motion.div
+        className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 max-w-7xl mx-auto"
+        initial="hidden"
+        animate={animate ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        {sections.map((item, index) => (
+          <motion.div
+            key={index}
+            className="group relative bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-500"
+            variants={fadeUp}
+          >
+            {/* Image with subtle zoom on hover */}
+            <div className="overflow-hidden">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
 
-        {/* Events */}
-        <div>
-          <h2 className="text-2xl font-serif text-gray-800 mb-4">Events</h2>
-          <img
-            src="https://images.unsplash.com/photo-1600607687487-c0e1f7a04c49?auto=format&fit=crop&w=900&q=80"
-            alt="Events"
-            className="rounded-md shadow-md w-full object-cover"
-          />
-        </div>
-      </div>
+            {/* Content */}
+            <div className="p-6 text-center">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+                {item.title}
+              </h2>
+              <p className="text-gray-500 text-sm">{item.desc}</p>
+            </div>
 
-      {/* Quote */}
-      <h3 className="text-3xl md:text-4xl font-serif text-gray-800 mb-8">
-        “CREATING BEAUTIFUL SPACES <br /> SINCE A DECADE.”
-      </h3>
+            {/* Decorative Bottom Bar */}
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400"></div>
+          </motion.div>
+        ))}
+      </motion.div>
 
-      {/* Paragraphs */}
-      <div className="max-w-5xl mx-auto text-gray-700 text-sm md:text-base leading-relaxed">
-        <p className="mb-4">
+      {/* Quote Section */}
+      <motion.div
+        className="relative z-10 text-center mb-12"
+        initial="hidden"
+        animate={animate ? "visible" : "hidden"}
+        variants={fadeUp}
+      >
+        <h3 className="text-3xl md:text-4xl font-serif text-gray-800 leading-relaxed">
+          “CREATING BEAUTIFUL SPACES <br /> SINCE A DECADE.”
+        </h3>
+      </motion.div>
+
+      {/* Paragraph Section */}
+      <motion.div
+        className="relative z-10 max-w-5xl mx-auto text-gray-700 text-sm md:text-base leading-relaxed space-y-4"
+        initial="hidden"
+        animate={animate ? "visible" : "hidden"}
+        variants={fadeUp}
+      >
+        <p>
           Baba Group has been a leading producer and exporter for over a decade,
           based in the Rajasthan province of India. We have been into Quartz
-          Powder, Grit and Engineered Quartz Slab with a splendid presence across
+          Powder, Grit, and Engineered Quartz Slab with a splendid presence across
           the Globe. We’re a pioneer in India for the manufacturing and exporting
           Engineered Quartz Slab.
         </p>
         <p>
-          After creating a very successful legacy in Quartz Powder, Grit &
-          Engineered Quartz Stone, we are overjoyed to launch our New Product
-          -SPC floors by Baba Flooring Pvt Ltd, a subsidiary organization of
-          "BABA QUARTZ" (Baba Super Minerals Pvt Ltd).
+          After creating a very successful legacy in Quartz Powder, Grit & Engineered
+          Quartz Stone, we are overjoyed to launch our new product - SPC Floors by
+          Baba Flooring Pvt Ltd, a subsidiary of "BABA QUARTZ" (Baba Super Minerals Pvt Ltd).
         </p>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 }

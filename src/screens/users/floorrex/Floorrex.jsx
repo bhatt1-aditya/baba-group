@@ -21,11 +21,11 @@ const Floorrex = () => {
         <Product/>
         <Map/>
         <CheckOut/>
-        <Inspirations/>
         <WhyChooseUs/>
         <FeaturesSection/>
         <Awards/>
         <FloorrexSection/>
+        <Inspirations/>
         <Projects/>
         <Certificates/>
         <Faq/>

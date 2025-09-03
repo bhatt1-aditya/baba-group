@@ -69,7 +69,6 @@
 
 
 
-
 import React from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
@@ -78,17 +77,17 @@ import image2 from "../../../Assets/Quartz/collections1.png";
 import image3 from "../../../Assets/Quartz/collections2.png";
 import image4 from "../../../Assets/wallex/about/sidebar.png";
 
-// Sample product data
+// Product data
 const products = [
-  { id: 1, name: "COREFLEXX", image: image1 },
-  { id: 2, name: "WALLEXX", image: image2 },
-  { id: 3, name: "BABA-QUARTZ", image: image3 },
-  { id: 4, name: "CRISTALLOO", image: image4 },
+  { id: 1, name: "COREFLEXX", image: image1, link: "/coreflexx" },
+  { id: 2, name: "WALLEXX", image: image2, link: "/wallexx" },
+  { id: 3, name: "BABA-QUARTZ", image: image3, link: "/baba-quartz" },
+  { id: 4, name: "CRISTALLOO", image: image4, link: "/cristalloo" },
 ];
 
 const CheckOut = () => {
   return (
-    <div className="bg-gradient-to-b from-[#faf7f2] to-white py-16 px-6">
+    <div className="bg-white py-16 px-6">
       {/* Heading */}
       <div className="text-center mb-12">
         <p className="text-gray-500 tracking-wide uppercase text-sm mb-2">
@@ -108,25 +107,33 @@ const CheckOut = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
             whileHover={{ scale: 1.03 }}
-            className="relative group rounded-2xl overflow-hidden shadow-lg bg-white/70 backdrop-blur-md border border-gray-100 hover:shadow-2xl transition"
+            className="relative group rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 hover:shadow-2xl transition"
           >
             {/* Product Image */}
             <div className="aspect-square overflow-hidden">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
               />
             </div>
 
-            {/* Overlay on Hover */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-              <div className="flex flex-col items-center text-white">
-                <h3 className="text-lg font-semibold tracking-wide">
-                  {product.name}
-                </h3>
-                <FaArrowRight className="text-xl mt-2 group-hover:translate-x-1 transition-transform" />
-              </div>
+            {/* Product Name + Arrow (Bottom, appears on hover) */}
+            <div
+              className="absolute bottom-0 left-0 w-full bg-white/90 px-4 py-3 border-t border-gray-200
+              opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-between"
+            >
+              <h3 className="text-gray-800 text-lg font-semibold tracking-wide">
+                {product.name}
+              </h3>
+
+              {/* Arrow Button */}
+              <a
+                href={product.link}
+                className="flex items-center justify-center w-8 h-8 rounded-full bg-black text-white hover:bg-gray-800 transition"
+              >
+                <FaArrowRight className="text-lg" />
+              </a>
             </div>
           </motion.div>
         ))}
