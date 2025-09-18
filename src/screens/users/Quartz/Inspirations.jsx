@@ -11,8 +11,8 @@ import { FaRegArrowAltCircleRight } from "react-icons/fa";
 const Inspirations = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration (ms)
-      once: false,    // 🔄 ensures animation triggers every time you scroll back
+      duration: 1000, 
+      once: false,    
       easing: "ease-in-out",
     });
   }, []);

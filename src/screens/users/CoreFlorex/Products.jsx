@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
-
+import image1 from "../../../Assets/core_flexx/products/products2.png"
 const products = [
   {
     id: 1,
@@ -9,7 +9,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?luxury,interior",
+    img:image1,
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?bedroom,modern",
+    img: image1,
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?livingroom,interior",
+    img: image1,
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?sofa,interior",
+    img: image1,
   },
 ];
 
@@ -88,7 +88,7 @@ const InfiniteScrollProducts = () => {
           {[...products, ...products].map((product, index) => (
             <motion.div
               key={index}
-              className="min-w-[280px] max-w-sm bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden flex-shrink-0 border border-gray-100 hover:shadow-2xl transition-shadow duration-300 relative"
+              className="min-w-[280px] max-w-sm bg-white/80 my-10 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden flex-shrink-0 border border-gray-100 hover:shadow-2xl transition-shadow duration-300 relative"
               whileHover={{ scale: 1.05, rotate: 0.5 }}
               transition={{ type: "spring", stiffness: 200 }}
             >

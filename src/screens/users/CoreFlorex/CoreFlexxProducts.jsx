@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import image1 from "../../../Assets/core_flexx/products/products2.png"
 const products = [
   {
     id: 1,
@@ -8,7 +8,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?luxury,interior",
+    img: image1,
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?bedroom,modern",
+    img: image1,
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?livingroom,interior",
+    img: image1,
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?sofa,interior",
+    img: image1,
   },
 ];
 
@@ -63,7 +63,7 @@ const InfiniteScrollProducts = () => {
           {[...products, ...products].map((product, index) => (
             <div
               key={index}
-              className="min-w-[240px] sm:min-w-[260px] bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex-shrink-0"
+              className="min-w-[240px] sm:min-w-[260px] my-10 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex-shrink-0"
             >
               {/* Product Image */}
               <div className="relative">

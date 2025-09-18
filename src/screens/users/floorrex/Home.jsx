@@ -32,10 +32,11 @@ export default function Home() {
   const [animate, setAnimate] = useState(false);
   const swiperRef = useRef(null);
   const sectionRef = useRef(null);
+  
 
-  const handleNext = () => {
-    if (swiperRef.current) swiperRef.current.slideNext();
-  };
+const handleNext = () => {
+  if (swiperRef.current) swiperRef.current.slideNext();
+};
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,12 +50,14 @@ export default function Home() {
   return (
     <section ref={sectionRef} className="relative w-full overflow-hidden">
       <Swiper
-        ref={swiperRef}
         modules={[Pagination, Autoplay]}
         slidesPerView={1}
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
         loop
+         onSwiper={(swiper) => {
+    swiperRef.current = swiper; // <-- this gives you the instance
+  }}
         className="w-full h-screen rounded-3xl"
       >
         {slides.map((slide, index) => (
@@ -75,7 +78,7 @@ export default function Home() {
                 initial="hidden"
                 animate={animate ? "visible" : "hidden"}
                 variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
-                className="relative text-center text-white px-6 md:px-0 z-20"
+                className="relative text-center text-white md:px-6 px-4 lg:px-10 z-20"
               >
                 <motion.h2
                   className="text-4xl md:text-6xl font-serif tracking-wider mb-4"

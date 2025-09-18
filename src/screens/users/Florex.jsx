@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import florexx from "../../Assets/floorrex/image1.png";
+import coreFlex from "../../Assets/core_flexx/core_flex/hero1.png";
+import wallex from "../../Assets/core_flexx/wallexx/home.png";
+import quartz from "../../Assets/Quartz/hero.png";
+import cristaloFlex from "../../Assets/footer_florex/home.png"
 const Florex = () => {
   const navigate = useNavigate();
 
@@ -10,7 +14,7 @@ const Florex = () => {
       title: "FLOREXX",
       subtitle: "Elegant Flooring Solutions",
       description: "Discover refined flooring that blends timeless aesthetics with strength. FLOREXX tiles bring a modern edge to classic design, perfect for open living areas and high-traffic spaces.",
-      image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&h=400&fit=crop",
+      image: florexx,
       path:"/floorrex"
     },
     {
@@ -18,7 +22,7 @@ const Florex = () => {
       title: "CORFLEXX",
       subtitle: "Premium Ceramic Collection",
       description: "CORFLEXX offers artisan-crafted ceramic finishes that combine smooth textures with vibrant tones, designed to elevate bathrooms and kitchens with sophistication.",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop",
+      image:coreFlex,
       path:"/corflexx"
     },
     {
@@ -26,7 +30,7 @@ const Florex = () => {
       title: "WALLEX",
       subtitle: "Luxury Porcelain Series",
       description: "Engineered with precision, WALLEX porcelain tiles deliver seamless surfaces, rich tones, and ultra-modern appeal, redefining interiors with bold architectural presence.",
-      image: "https://images.unsplash.com/photo-1628744443446-6ad2fcd3e99d?w=600&h=400&fit=crop",
+      image: wallex,
       path:"/wallexx"
     },
     {
@@ -34,7 +38,7 @@ const Florex = () => {
       title: "CRISTALO FLEXX",
       subtitle: "Natural Stone Finish",
       description: "Inspired by nature, CRISTALO FLEXX combines the beauty of raw stone with the durability of tile, offering earthy tones and unique textures for both rustic and elegant interiors.",
-      image: "https://images.unsplash.com/photo-1618221195691-47fd0bff2c3a?w=600&h=400&fit=crop",
+      image: cristaloFlex,
       path:"/cristalo-flexx"
     },
     {
@@ -42,7 +46,7 @@ const Florex = () => {
       title: "QUARTZ",
       subtitle: "Radiant Stone Surfaces",
       description: "QUARTZ tiles bring a luminous, crystalline sheen that enhances light-filled rooms. Known for their resilience and sparkle, they are perfect for luxury floors and countertops.",
-      image: "https://images.unsplash.com/photo-1600585153934-843c2a3b1d5b?w=600&h=400&fit=crop",
+      image: quartz,
       path:"/quartz"
     }
   ];
@@ -90,7 +94,7 @@ const Florex = () => {
   const toggleAutoPlay = () => setIsAutoPlay(!isAutoPlay);
 
   return (
-    <div className="relative w-full min-h-screen bg-white flex items-center justify-center p-6 overflow-hidden">
+    <div className="relative w-full min-h-screen bg-white flex items-center justify-center md:p-6 p-4 lg:-10 overflow-hidden">
       {/* Background Floating Blobs */}
       <div className="absolute top-10 left-1/4 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl animate-float-slow" />
       <div className="absolute bottom-20 right-1/3 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl animate-float" />
@@ -119,7 +123,7 @@ const Florex = () => {
           {/* Explore Button with Pulse */}
           <button
             onClick={() => { navigate(currentData.path); window.scrollTo({ top:0, behavior:'smooth' }); }}
-            className="mt-4 px-8 py-4 bg-gradient-to-r from-purple-400 to-blue-400 text-white font-bold rounded-full shadow-lg animate-pulse hover:scale-110 transition-all duration-300"
+            className="mt-4 md:px-6 lg:px-10 px-4 py-4 bg-gradient-to-r from-purple-400 to-blue-400 text-white font-bold rounded-full shadow-lg animate-pulse hover:scale-110 transition-all duration-300"
           >
             Explore more
           </button>

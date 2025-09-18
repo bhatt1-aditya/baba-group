@@ -1,36 +1,41 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-
+import project1 from "../../../Assets/floorrex/project1.png";
+import project2 from "../../../Assets/floorrex/project2.png";
+import project3 from "../../../Assets/floorrex/project3.png";
+import logo1 from "../../../Assets/floorrex/logo1.png";
+import logo2 from "../../../Assets/floorrex/logo2.png";
+import logo3 from "../../../Assets/floorrex/logo3.png";
 const projects = [
   {
     name: "Piramal Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/Piramal_Logo.png",
-    image: "https://source.unsplash.com/800x600/?luxury,building",
+    logo: logo1,
+    image: project1,
   },
   {
     name: "Adani Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Adani_logo.png",
-    image: "https://source.unsplash.com/800x600/?skyscraper",
+    logo: logo2,
+    image: project2,
   },
   {
     name: "DLF Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a3/DLF_Logo.png",
-    image: "https://source.unsplash.com/800x600/?villa,luxury",
+    logo: logo3,
+    image: project3,
   },
   {
     name: "Godrej Properties",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/Godrej_Logo.svg",
-    image: "https://source.unsplash.com/800x600/?modern,apartment",
+    logo: logo1,
+    image: project3,
   },
   {
     name: "Tata Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Tata_logo.svg",
-    image: "https://source.unsplash.com/800x600/?residential,building",
+    logo: logo2,
+    image: project2,
   },
   {
     name: "Sobha Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Sobha_Developers_logo.png",
-    image: "https://source.unsplash.com/800x600/?house,interior",
+    logo: logo3,
+    image: project1,
   },
 ];
 
@@ -38,7 +43,7 @@ export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative bg-white py-24 px-6 md:px-12 lg:px-20 w-full overflow-hidden">
+    <section className="relative bg-white py-24 md:px-6 px-4 lg:px-10 w-full overflow-hidden">
       {/* Section Heading */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
@@ -46,7 +51,7 @@ export default function Projects() {
         transition={{ duration: 0.8 }}
         className="text-center mb-16"
       >
-        <h2 className="text-5xl font-extrabold text-gray-900 tracking-tight">
+        <h2 className=" text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
           Our Inspirations
         </h2>
         <p className="text-gray-500 text-lg mt-4 max-w-xl mx-auto">

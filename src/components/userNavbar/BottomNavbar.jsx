@@ -5,11 +5,13 @@ import { IoChevronUp, IoChevronDown } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 
 const BottomNavbar = () => {
+   const location = useLocation();
+  const permission = location.state?.permission;
+  console.log("permission",permission)
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
   const [showNavbar, setShowNavbar] = useState(true);
   const navigate = useNavigate();
-  const location = useLocation();
   const menuRef = useRef(null);
   const lastScrollY = useRef(0);
 
@@ -22,42 +24,106 @@ const BottomNavbar = () => {
     { title: "Testimonials", id: "testimonials" },
   ];
 
-  const mobileMenuItems = [
-    { title: "About Baba Group", id: "about" },
-    { title: "Group History", id: "history" },
-    {
-      title: "Partnering with Baba Group",
+  const mobileMenuItems = 
+  permission==="florexx"?
+  [
+    { title: "Home", id: "/" },
+    { title: "About BF", id: "/" },
+    { title: "Product Collection", id: "/" },
+    { title: "Why Florex", id: "/" },
+    { title: "Become a distributor", id: "/" },
+    { title: "Sample Request", id: "/" },
+    { title: "E-catelogue", id: "/" },
+    { title: "Contact Us", id: "/" },
+    { title: "Carrerrs", id: "/" },
+    { title: "Resources", id: "/" },
+  ]
+:permission==="wallex"? [
+    { title: "About Wallex", id: "about" },
+    { title: "Wallex Story", id: "story" },
+    { title: "Technology", id: "technology" },
+    { title: "Applications", id: "applications" },
+    { title: "Projects", id: "projects" },
+    { title: "Contact Wallex", id: "contact" },
+  ]
+  :permission==="coreflexx"?
+  [
+    { title: "Home", id: "/" },
+    { title: "About BF", id: "/" },
+    { title: "Product Collection", id: "/" },
+    { title: "Why Coreflexx", id: "/" },
+    { title: "Become a Distrubuter", id: "/" },
+    { title: "Distributor Locater", id: "/" },
+    { title: "Sample Request", id: "/" },
+    { title: "E-Catelogue", id: "/" },
+    { title: "Contact Us", id: "/" },
+    { title: "Carrers", id: "/" },
+    { title: "Resources", id: "/" },
+  ]:
+  permission==="quartz"? [
+    { title: "Home", id: "/" },
+    { title: "About Baba Quartz", id: "/" },
+    { title: "Product Collection", id: "/" },
+    { title: "Why Baba Quartz", id: "/" },
+    { title: "Bio Quartz", id: "/" },
+    { title: "Become a Dealer", id: "/" },
+    { title: "Sample Request", id: "/" },
+      {
+      title: "E-Cateloge",
       children: [
-        { title: "Become an authorized fabricator", id: "fabricator" },
-        { title: "Become a distributor", id: "distributor" },
-        { title: "Become a dealer", id: "dealer" },
+        { title: "Baba Quartz", id: "/" },
+        { title: "Cristallo Overseas", id: "/" },
+        { title: "-----------", id: "/" },
+        { title: "-------", id: "/" },
+        { title: "--------", id: "/" },
+        { title: "--------", id: "/" },
       ],
     },
-    { title: "Our Core Responsibilities", id: "responsibilities" },
-    {
-      title: "Resources",
+    { title: "Mineral's", id: "/" },
+    { title: "Contact Us", id: "/" },
+    { title: "----------", id: "/" },
+  ]:permission==="cristalo"? [
+    { title: "Home", id: "/" },
+    { title: "About Cristallo", id: "/" },
+    { title: "Product Collection", id: "/" },
+    { title: "Why Choose Cristallo", id: "/" },
+    { title: "Become a dealer", id: "/" },
+    { title: "Sample Request", id: "/" },
+     {
+      title: "E-catelogue",
       children: [
-        { title: "Visualizers", id: "visualizers" },
-        { title: "Brand Videos", id: "brand-videos" },
-        { title: "Catalogues", id: "catalogues" },
-        { title: "Installation Videos", id: "installation-videos" },
-        { title: "Brand Images", id: "brand-images" },
-        { title: "Why Choose Us?", id: "why-choose-us" },
-        { title: "Order Samples", id: "order-samples" },
+        { title: "Cristallo Demostic Collection", id: "/" },
       ],
     },
-    { title: "Contact Us - Location", id: "contact" },
-    { title: "Our Network", id: "network" },
+    { title: "Contact Us", id: "/" },
+    { title: "Resources", id: "/" },
+  ]:[
+    { title: "Home", id: "/" },
+    { title: "Promoters", id: "/Promoters" },
+    { title: "Projects", id: "/projects-page" },
+    { title: "Inspiration's", id: "/inspirations" },
+    { title: "Awards & Achievement's", id: "/awards-achievements" },
+    { title: "Career's", id:"/carrers" },
+    { title: "Global Presence", id: "/global-presence" },
+    { title: "Our Care Responsibilitie's", id: "/core-responsibilities" },
+    { title: "Trade shows", id: "/" },
+    { title: "Contact Us", id: "/contact-us" },
     {
-      title: "News",
+      title: "Resource's",
       children: [
-        { title: "Event", id: "event" },
-        { title: "Press Releases", id: "press" },
-        { title: "In the News", id: "in-the-news" },
+        { title: "Baba Group", id: "/" },
+        { title: "Baba Quartz Overseas", id: "/" },
+        { title: "Baba Quartz Minearls", id: "/" },
+        { title: "Florexx", id: "/" },
+        { title: "Coreflexx", id: "/" },
+        { title: "Wallexx Spc wall Panels", id: "/" },
+        { title: "Wallexx Spc Shower Panels", id: "/" },
       ],
     },
-    { title: "Sitemap", id: "sitemap" },
-    { title: "Career", id: "career" },
+    { title: "Environmental Commitment", id: "/environmental-commitment" },
+    { title: "New's & Events", id: "/news-event-section" },
+    { title: "Our Publication's", id: "/publications-section" },
+    { title: "Sitemap", id: "/" },
   ];
 
   // Detect scroll direction
@@ -90,14 +156,27 @@ const BottomNavbar = () => {
   }, [menuOpen]);
 
   const handleScrollToSection = (id) => {
+  if (!id) return;
+
+  // if id starts with "/" → treat it as route
+  if (id.startsWith("/")) {
+    navigate(id);
+    setMenuOpen(false);
+  } else {
+    // smooth scroll inside same page
     if (location.pathname !== "/") {
       navigate("/", { replace: true });
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 100);
+      setTimeout(
+        () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }),
+        100
+      );
     } else {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
     setMenuOpen(false);
-  };
+  }
+};
+
 
   const toggleExpanded = (index) => {
     setExpandedItems((prev) => ({ ...prev, [index]: !prev[index] }));
@@ -109,7 +188,12 @@ const BottomNavbar = () => {
       <motion.div
         animate={{ y: showNavbar ? 0 : -150 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="flex items-center justify-between left-20 fixed top-4  transform -translate-x-1/2 w-[95%] lg:w-[90%] text-white z-50 px-8 py-3 backdrop-blur-md bg-white/10 rounded-3xl shadow-lg transition-all duration-500"
+         className="flex items-center justify-between 
+             fixed top-4 left-0 right-0 
+           w-[91%] md:w-[93.5%] lg:w-[92.4%] xl:w-[95%] mx-4 md:mx-6 lg:mx-10 
+             text-white z-50 px-8 py-3 
+             backdrop-blur-md bg-white/10 
+             rounded-3xl shadow-lg transition-all duration-500"
       >
         {/* Logo */}
         <motion.div
@@ -122,7 +206,7 @@ const BottomNavbar = () => {
 
         {/* Middle Navigation */}
         <motion.div
-          className="flex gap-12 items-center text-base"
+          className="xl:flex hidden gap-12 items-center text-base"
           initial={{ y: -20, opacity: 0 }}
           animate={showNavbar ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -230,7 +314,7 @@ const BottomNavbar = () => {
 
               {/* Footer */}
               <div className="px-6 py-4 text-center text-xs text-gray-700 border-t border-gray-300">
-                © 2024 Baba Group. All rights reserved.
+                © 2025 Baba Group. All rights reserved.
               </div>
             </motion.div>
           </>

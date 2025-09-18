@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import productImage from "../../../Assets/floorrex/productImage.png"
 const products = [
   {
     id: 1,
@@ -8,7 +8,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?luxury,interior",
+    img: productImage
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?bedroom,modern",
+    img: productImage
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?livingroom,interior",
+    img: productImage
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const products = [
     category: "STONA",
     description: "Luxurious marble tiles with natural veining patterns.",
     rating: "4.5+ Ratings",
-    img: "https://source.unsplash.com/600x400/?sofa,interior",
+    img: productImage
   },
 ];
 
@@ -58,15 +58,15 @@ const InfiniteScrollProducts = () => {
           {[...products, ...products].map((product, index) => (
             <div
               key={index}
-              className="min-w-[280px] bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0"
+              className="min-w-[280px] bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0 mb-10"
             >
               <div className="relative">
                 <img
                   src={product.img}
                   alt={product.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-52 object-cover"
                 />
-                <span className="absolute top-2 left-2 bg-yellow-800 text-white px-2 py-1 text-xs rounded">
+                <span className="absolute top-2 left-2 bg-yellow-800 text-white px-4 md:px-6 lg:px-10 py-1 text-xs rounded">
                   BESTSELLER
                 </span>
                 <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow">
@@ -85,7 +85,7 @@ const InfiniteScrollProducts = () => {
       </div>
 
       <div className="flex justify-center mt-8">
-        <button className="bg-yellow-800 text-white px-6 py-3 rounded-full hover:bg-yellow-700 transition">
+        <button className="bg-yellow-800 text-white md:px-6 px-4 lg:px-10 py-3 rounded-full hover:bg-yellow-700 transition">
           DISCOVER MORE ⬇
         </button>
       </div>

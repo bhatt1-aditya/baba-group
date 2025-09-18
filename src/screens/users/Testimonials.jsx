@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
-
+import testimonial1 from "../../Assets/home/testimonials1.png"
 const testimonialsData = [
   {
     id: 1,
     name: "KRSTY JONAS",
     position: "Interior Designer",
     testimonial: "Premium natural stone tiles and countertops that bring timeless elegance to every space. The quality and craftsmanship exceeded all our expectations.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&face",
-    bgImage: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=800&fit=crop"
+    image: testimonial1,
   },
   {
     id: 2,
@@ -16,7 +15,6 @@ const testimonialsData = [
     position: "Architect",
     testimonial: "Outstanding ceramic collection with innovative designs. Perfect for creating stunning modern interiors that combine functionality with aesthetic appeal.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&face",
-    bgImage: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1200&h=800&fit=crop"
   },
   {
     id: 3,
@@ -24,7 +22,6 @@ const testimonialsData = [
     position: "Homeowner",
     testimonial: "The porcelain tiles transformed our home completely. Exceptional durability and the luxurious finish makes every room feel like a premium space.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&face",
-    bgImage: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1200&h=800&fit=crop"
   }
 ];
 
@@ -96,7 +93,7 @@ const Testimonials = () => {
       <motion.div className="absolute bottom-10 right-1/4 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl animate-floatSlow delay-5000"></motion.div>
 
       {/* Heading */}
-      <motion.h2 className="text-5xl font-bold text-gray-800 mb-12 relative z-10 uppercase tracking-wider">
+      <motion.h2 className="md:text-5xl text-4xl font-bold text-gray-800 mb-12 relative z-10 uppercase tracking-wider">
         Testimonials
         <motion.div className="h-1 w-32 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto mt-2 rounded" initial={{ width: 0 }} animate={{ width: 128 }} transition={{ duration: 1 }} />
       </motion.h2>

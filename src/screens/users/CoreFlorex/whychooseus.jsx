@@ -9,7 +9,7 @@ export default function StonePolymerComposite() {
   ];
 
   return (
-    <div className="w-full bg-gray-50 text-gray-800 py-16 px-4 md:px-8 lg:px-12">
+    <div className="w-full bg-gray-50 text-gray-800 py-16 px-4 md:px-6 lg:px-10">
       {/* Heading Section */}
       <div className="text-center mb-12">
         <motion.h1

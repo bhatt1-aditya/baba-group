@@ -1,31 +1,31 @@
 import { motion } from "framer-motion";
+import project1 from "../../../Assets/Quartz/project1.png"
+import project2 from "../../../Assets/Quartz/project2.png"
 
+import logo1 from "../../../Assets/Quartz/logo1.png"
+import logo2 from "../../../Assets/Quartz/logo2.png"
 const projects = [
   {
-    img: "https://source.unsplash.com/800x600/?building,city",
+    img:project1,
     name: "Piramal Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/Piramal_Logo.png",
+    logo: logo1,
   },
   {
-    img: "https://source.unsplash.com/800x600/?industry,factory",
+    img: project2,
     name: "Adani Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Adani_logo.png",
+    logo: logo2,
   },
   {
-    img: "https://source.unsplash.com/800x600/?skyscraper,city",
+    img: project1,
     name: "DLF Builders",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/6/62/DLF_Logo.png",
+    logo:logo1,
   },
   {
-    img: "https://source.unsplash.com/800x600/?modern,architecture",
+    img: project2,
     name: "Tata Realty",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Tata_logo.svg",
+    logo: logo2,
   },
-  // {
-  //   img: "https://source.unsplash.com/800x600/?construction,site",
-  //   name: "Godrej Properties",
-  //   logo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Godrej_Logo.svg",
-  // },
+  
 ];
 
 export default function ProjectsSection() {

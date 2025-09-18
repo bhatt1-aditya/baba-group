@@ -1,23 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import event from "../../../Assets/core_flexx/wallexx/event.png"
 // Example events array (you can replace images and titles accordingly)
 const events = [
   {
     title: "Product Launch 2023",
-    image: "https://source.unsplash.com/random/400x300?product",
+    image: event,
   },
   {
     title: "Global Distributor Meet",
-    image: "https://source.unsplash.com/random/400x300?conference",
+    image: event,
   },
   {
     title: "Innovation Award 2022",
-    image: "https://source.unsplash.com/random/400x300?award",
+    image: event,
   },
   {
     title: "Sustainability Event",
-    image: "https://source.unsplash.com/random/400x300?eco",
+    image: event,
   },
 ];
 

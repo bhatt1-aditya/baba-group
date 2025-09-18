@@ -11,6 +11,8 @@ import {
   Bug,
   Wrench,
 } from "lucide-react";
+import image from "../../../Assets/floorrex/chooseus.png"
+import stoneImage from "../../../Assets/floorrex/stoneImage.png"
 
 /**
  * Modern, responsive, animated redesign of your Floorrex/FLOORREX section.
@@ -55,7 +57,7 @@ function Hero() {
   }
 
   return (
-    <section className="px-6 md:px-20 py-12 grid md:grid-cols-2 gap-8 items-start">
+    <section className="md:px-6 px-4 lg:px-10 py-12 grid md:grid-cols-2 gap-8 items-start">
       {/* LEFT - Text */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -148,7 +150,7 @@ function Hero() {
           className="relative w-full max-w-md"
         >
           <motion.img
-            src="https://images.unsplash.com/photo-1600607686163-1be1ebf3a1e5?auto=format&fit=crop&w=900&q=80"
+            src={image}
             alt="Floor Example"
             className="rounded-2xl shadow-2xl w-full h-auto object-cover"
             animate={{
@@ -217,12 +219,12 @@ function StonePolymer() {
   ];
 
   return (
-    <section className="px-6 md:px-20 py-12">
+    <section className="px-4 md:px-6 lg:px-10 py-12">
       <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-white shadow-xl">
         {/* big hero image */}
         <div className="relative">
           <motion.img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
+            src={stoneImage}
             alt="Living Room"
             className="w-full h-96 object-cover"
             initial={{ scale: 1.02 }}
@@ -237,7 +239,7 @@ function StonePolymer() {
             className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6"
           >
             <div className="max-w-3xl text-white">
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-wide">
+              <h3 className="text-2xl md:text-xl font-bold uppercase tracking-wide">
                 STONE POLYMER COMPOSITE
               </h3>
               <p className="mt-3 text-sm md:text-base leading-relaxed">

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import AOS from "aos";
 import { motion, useScroll, useTransform } from "framer-motion";
-
+import productImage from "../../Assets/products/product1.png"
 const product = [
   {
     title: "Premium Marble Tiles",
@@ -11,7 +11,7 @@ const product = [
     position: "flex md:items-start items-center flex-col ",
     animation: "fade-right",
     delay: 0.2,
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image: productImage,
   },
   {
     title: "Premium Marble Tiles",
@@ -21,7 +21,7 @@ const product = [
     position: "flex md:items-end items-center flex-col ",
     animation: "fade-up",
     delay: 0.4,
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image:productImage
   },
   {
     title: "Premium Marble Tiles",
@@ -31,7 +31,7 @@ const product = [
     position: "flex md:items-start items-center flex-col ",
     animation: "fade-left",
     delay: 0.6,
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image: productImage
   },
      {
     title: "Premium Marble Tiles",
@@ -41,7 +41,7 @@ const product = [
     position: "flex md:items-end items-center flex-col ",
     animation: "fade-right",
     delay: 0.8,
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image: productImage
   },
   {
     title: "Premium Marble Tiles",
@@ -51,7 +51,7 @@ const product = [
     position: "flex md:items-start items-center flex-col ",
     animation: "fade-up",
     delay: 1.0,
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image: productImage
   },
 ];
 
@@ -397,7 +397,7 @@ const card5Scale = useTransform(
                   
                   {/* Hover effect button */}
                   <motion.button
-                    className="mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 relative z-10 shadow-lg"
+                    className="mt-4 px-4 lg:px-10 md:px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 relative z-10 shadow-lg"
                     initial={{ opacity: 0, y: 20, scale: 0.8 }}
                     whileInView={{ 
                       opacity: 0, 

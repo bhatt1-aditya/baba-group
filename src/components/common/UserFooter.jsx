@@ -11,11 +11,11 @@ const UserFooter = () => {
   const navigate = useNavigate();
 
   const items = [
-    { name: "Florexx", path: "/floorrex" },
-    { name: "Corflexx", path: "/corflexx" },
-    { name: "Wallex", path: "/wallexx" },
-    { name: "Cristalo flexx", path: "/cristalo-flexx" },
-    { name: "Quartz", path: "/quartz" },
+    { name: "Florexx", path: "/floorrex" ,permission:"florexx"},
+    { name: "Corflexx", path: "/corflexx",permission:"coreflexx" },
+    { name: "Wallex", path: "/wallexx",permission:"wallex" },
+    { name: "Cristalo flexx", path: "/cristalo-flexx", permission:"cristalo" },
+    { name: "Quartz", path: "/quartz",permission:"quartz" },
   ];
 
   return (
@@ -63,7 +63,8 @@ const UserFooter = () => {
               <div
                 key={i}
                 onClick={() => {
-                  navigate(item.path);
+                  navigate(item.path, { state: { permission: item.permission } });
+
                   window.scrollTo({ top: 0, behavior: "smooth" }); 
                 }}
                 className="flex justify-between items-center border-b border-white/30 py-1 hover:underline cursor-pointer"

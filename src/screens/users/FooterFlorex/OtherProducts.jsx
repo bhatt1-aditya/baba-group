@@ -5,16 +5,18 @@ import image1 from "../../../Assets/Quartz/product1.png";
 import image2 from "../../../Assets/Quartz/collections1.png";
 import image3 from "../../../Assets/Quartz/collections2.png";
 import image4 from "../../../Assets/wallex/about/sidebar.png";
+import { useNavigate } from "react-router-dom";
 
 // Product data
 const products = [
-  { id: 1, name: "COREFLEXX", image: image1, link: "/coreflexx" },
+  { id: 1, name: "COREFLEXX", image: image1, link: "/corflexx" },
   { id: 2, name: "WALLEXX", image: image2, link: "/wallexx" },
-  { id: 3, name: "FLOOREXX", image: image3, link: "/floorexx" },
-  { id: 4, name: "CRISTALLOO", image: image4, link: "/cristalloo" },
+  { id: 3, name: "FLOOREXX", image: image3, link: "/floorrex" },
+  { id: 4, name: "CRISTALLOO", image: image4, link: "/cristalo-flexx" },
 ];
 
 const CheckOut = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black py-16 md:px-6 xl:px-10 px-4 text-white">
       {/* Heading */}
@@ -57,12 +59,14 @@ const CheckOut = () => {
               </h3>
 
               {/* Arrow button */}
-              <a
-                href={product.link}
-                className="flex items-center justify-center w-8 h-8 rounded-full bg-white text-black hover:bg-gray-300 transition"
-              >
-                <FaArrowRight className="text-lg" />
-              </a>
+
+              <FaArrowRight
+                className="text-lg cursor-pointer"
+                onClick={() => {
+                  navigate(`${product.link}`);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              />
             </div>
           </motion.div>
         ))}

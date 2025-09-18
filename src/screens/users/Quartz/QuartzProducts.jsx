@@ -68,7 +68,7 @@ const QuartzProducts = () => {
               key={product.id}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="flex-none w-64 bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition relative group"
+              className="flex-none w-64 bg-white rounded-2xl my-10 overflow-hidden shadow-md hover:shadow-2xl transition relative group"
             >
               {/* Tag Badge */}
               {product.tag && (

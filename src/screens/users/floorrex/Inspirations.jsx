@@ -1,24 +1,28 @@
 import { useState } from "react";
-
+import image1 from "../../../Assets/floorrex/inspiration1.png"
+import image2 from "../../../Assets/floorrex/inspiration2.png"
+import image3 from "../../../Assets/floorrex/inspiration3.png"
+import image4 from "../../../Assets/floorrex/inspiration4.png"
+import image5 from "../../../Assets/floorrex/inspiration5.png"
 const images = [
   {
-    src: "https://source.unsplash.com/random/1600x900?tech",
+    src: image1,
     title: "Innovative Tech",
   },
   {
-    src: "https://source.unsplash.com/random/1600x900?design",
+    src: image2,
     title: "Modern Design",
   },
   {
-    src: "https://source.unsplash.com/random/1600x900?business",
+    src: image3,
     title: "Business Growth",
   },
   {
-    src: "https://source.unsplash.com/random/1600x900?startup",
+    src: image4,
     title: "Startup Ideas",
   },
   {
-    src: "https://source.unsplash.com/random/1600x900?future",
+    src: image5,
     title: "Future Vision",
   },
 ];
@@ -28,7 +32,7 @@ export default function CreativeImageShowcase() {
 
   return (
     <section className="w-full bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 lg:px-10 md:px-6">
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl font-bold text-center mb-16 text-gray-900">
           Inspirations
@@ -60,7 +64,7 @@ export default function CreativeImageShowcase() {
 
               {/* Text and Button */}
               <div
-                className={`absolute bottom-0 w-full px-5 py-4 flex items-center justify-between 
+                className={`absolute bottom-0 w-full md:px-6 px-4 lg:px-10 py-4 flex items-center justify-between 
                   transition-all duration-500 transform
                   ${
                     hoverIndex === index

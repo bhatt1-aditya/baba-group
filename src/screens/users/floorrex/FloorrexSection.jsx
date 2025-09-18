@@ -4,7 +4,7 @@ import floorImage from "../../../Assets/core_flexx/wallexx/home.png";
 
 const FloorrexSection = () => {
   return (
-    <div className="bg-white py-12 px-6 md:px-16 text-center">
+    <div className="bg-white py-12  px-4 md:px-6 lg:px-10 text-center">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}

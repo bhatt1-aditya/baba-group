@@ -12,8 +12,31 @@ import Wallexx from "../screens/users/Wallexx/Wallexx";
 import Quartz from "../screens/users/Quartz/Quartz";
 import BabaQuartz from "../screens/users/Quartz/BabaQuartz";
 import Floorrex from "../screens/users/floorrex/Floorrex";
-
-
+import Careers from "../components/menubar/Carrers";
+import ContactUs from "../components/menubar/ContactUs";
+import EnvironmentalCommitment from "../components/menubar/EnvironmentalCommitment";
+import PublicationsSection from "../components/menubar/PublicationsSection";
+import PartnerWithUsForm from "../components/menubar/PartnerWithUsForm";
+import GlobalPresence from "../components/menubar/GlobalPresence";
+import SampleRequest from "../components/menubar/SampleRequest";
+import ECatalogues from "../components/menubar/ECatalogues";
+import NewsEvents from "../components/menubar/NewsEvents";
+import ResourcesSection from "../components/menubar/ResourcesSection";
+import NewsEventSection from "../components/menubar/NewsEventSection";
+import ProjectsPage from "../components/menubar/ProjectsPage";
+import CoreResponsibilities from "../components/menubar/CoreResponsibilities";
+import AwardsAchievements from "../components/menubar/AwardsAchievements";
+import Inspirations from "../components/menubar/Inspirations";
+import Promoters from "../components/menubar/Promoters"
+import MainHome from "../screens/new_home/home/MainHome";
+import AboutSection from "../screens/new_home/home/AboutSection";
+import Home2 from "../screens/new_home/home/Home"
+import Floorexx from "../screens/new_home/floorexx/Floorexx";
+import NewWallexx from "../screens/new_home/wallexx/NewWallexx";
+import WallPannel from "../screens/new_home/wallPannel/WallPannel";
+import ShowerPannel from "../screens/new_home/showerPannel/ShowerPannel";
+import Cristalloo from "../screens/new_home/cristalloo/Cristalloo";
+import Coreflexx from "../screens/new_home/coreflexx/Coreflexx";
 export const userRoutes = [
   {
     path: "/",
@@ -71,5 +94,104 @@ export const userRoutes = [
   {
     path:"/floorrex",
     component:<Floorrex/>
+  },
+  {
+    path:"/carrers",
+    component:<Careers/>
+  },
+  {
+    path:"/contact-us",
+    component:<ContactUs/>
+  },
+  {
+    path:"/environmental-commitment",
+    component:<EnvironmentalCommitment/>
+  },
+  {
+    path:"/publications-section",
+    component:<PublicationsSection/>
+  },
+  {
+    path:"/partner-with-us-form",
+    component:<PartnerWithUsForm/>
+  },
+  {
+    path:"/global-presence",
+    component:<GlobalPresence/>
+  },
+  {
+    path:"/sample-request",
+    component:<SampleRequest/>
+  },
+  {
+    path:"/e-catalogues",
+    component:<ECatalogues />
+  },
+  {
+    path:"/news-events",
+    component:<NewsEvents />
+  },
+  {
+    path:"/resources-section",
+    component:<ResourcesSection />
+  },
+  {
+    path:"/news-event-section",
+    component:<NewsEventSection />
+  },
+  {
+    path:"/projects-page",
+    component:<ProjectsPage />
+  },
+  {
+    path:"/core-responsibilities",
+    component:<CoreResponsibilities  />
+  },
+  {
+    path:"/awards-achievements",
+    component:<AwardsAchievements   />
+  },
+  {
+    path:"/inspirations",
+    component:<Inspirations />
+  },
+  {
+    path:"/promoters",
+    component:<Promoters />
+  },
+
+
+
+
+  //New Home component
+    {
+    path:"/new-Home",
+    component:<Home2/>
+  },
+    {
+    path:"/new-floorexx",
+    component:<Floorexx/>
   }
+  ,
+    {
+    path:"/new-wallexx",
+    component:<NewWallexx/>
+  },
+    {
+    path:"/wall-pannel",
+    component:<WallPannel/>
+  },
+    {
+    path:"/shower-pannel",
+    component:<ShowerPannel/>
+  },
+    {
+    path:"/cristalloo-pannel",
+    component:<Cristalloo/>
+  },
+    {
+    path:"/coreflexx-pannel",
+    component:<Coreflexx/>
+  },
+  
 ];

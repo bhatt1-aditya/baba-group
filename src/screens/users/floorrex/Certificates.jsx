@@ -20,7 +20,7 @@ const certificates = [
 
 const Certificates = () => {
   return (
-    <div className="bg-[#fafafa] py-16 px-6">
+    <div className="bg-[#fafafa] py-16 px-4 lg:px-10 md:px-6">
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-serif font-semibold text-gray-900">

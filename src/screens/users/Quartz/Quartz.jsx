@@ -16,7 +16,7 @@ import Projects from './Projects'
 
 const Quartz = () => {
   return (
-    <div>
+    <div className=" overflow-x-hidden">
         <Hero/>
         <Collections/>
         <BabaQuartz/>

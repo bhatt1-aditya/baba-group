@@ -66,9 +66,6 @@
 
 // export default CheckOut;
 
-
-
-
 import React from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
@@ -76,18 +73,20 @@ import image1 from "../../../Assets/Quartz/product1.png";
 import image2 from "../../../Assets/Quartz/collections1.png";
 import image3 from "../../../Assets/Quartz/collections2.png";
 import image4 from "../../../Assets/wallex/about/sidebar.png";
+import { useNavigate } from "react-router-dom";
 
 // Product data
 const products = [
-  { id: 1, name: "COREFLEXX", image: image1, link: "/coreflexx" },
+  { id: 1, name: "COREFLEXX", image: image1, link: "/corflexx" },
   { id: 2, name: "WALLEXX", image: image2, link: "/wallexx" },
-  { id: 3, name: "BABA-QUARTZ", image: image3, link: "/baba-quartz" },
-  { id: 4, name: "CRISTALLOO", image: image4, link: "/cristalloo" },
+  { id: 3, name: "BABA-QUARTZ", image: image3, link: "/quartz" },
+  { id: 4, name: "CRISTALLOO", image: image4, link: "/cristalo-flexx" },
 ];
 
 const CheckOut = () => {
+  const navigate = useNavigate();
   return (
-    <div className="bg-white py-16 px-6">
+    <div className="bg-white py-16 md:px-6 px-4 lg:px-10">
       {/* Heading */}
       <div className="text-center mb-12">
         <p className="text-gray-500 tracking-wide uppercase text-sm mb-2">
@@ -128,12 +127,18 @@ const CheckOut = () => {
               </h3>
 
               {/* Arrow Button */}
-              <a
+              {/* <a
                 href={product.link}
                 className="flex items-center justify-center w-8 h-8 rounded-full bg-black text-white hover:bg-gray-800 transition"
-              >
-                <FaArrowRight className="text-lg" />
-              </a>
+              > */}
+              <FaArrowRight
+                className="text-lg p-1 cursor-pointer w-8 h-8 rounded-full bg-black text-white hover:bg-gray-800 transition"
+                onClick={() => {
+                  navigate(`${product.link}`);
+                   window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              />
+              {/* </a> */}
             </div>
           </motion.div>
         ))}

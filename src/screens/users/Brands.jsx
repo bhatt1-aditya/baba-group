@@ -8,7 +8,6 @@ import polygon3 from "../../Assets/brands/Polygon 3.svg";
 import polygon4 from "../../Assets/brands/Polygon 4.svg";
 import polygon5 from "../../Assets/brands/Polygon 5.svg";
 import polygon6 from "../../Assets/brands/Polygon 6.svg";
-import Arrow from "../../Assets/brands/Arrow up-right.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -2,37 +2,38 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion } from "framer-motion";
-
+import award1 from "../../../Assets/floorrex/award1.png"
+import award2 from "../../../Assets/floorrex/award2.png"
 const awards = [
   {
     id: 1,
     title: "Best Innovation Award",
     year: "2024",
-    img: "https://source.unsplash.com/800x800/?trophy,award",
+    img: award1
   },
   {
     id: 2,
     title: "Global Excellence",
     year: "2023",
-    img: "https://source.unsplash.com/800x800/?medal,award",
+    img: award2
   },
   {
     id: 3,
     title: "Top 100 Companies",
     year: "2022",
-    img: "https://source.unsplash.com/800x800/?certificate,achievement",
+    img:award1,
   },
   {
     id: 4,
     title: "Leadership Recognition",
     year: "2021",
-    img: "https://source.unsplash.com/800x800/?success,award",
+    img: award2,
   },
   {
     id: 5,
     title: "Customer Choice",
     year: "2020",
-    img: "https://source.unsplash.com/800x800/?gold,award",
+    img: award1
   },
 ];
 
@@ -44,7 +45,7 @@ const AwardsSection = () => {
   return (
     <section className="w-full py-24 bg-white relative overflow-hidden">
       {/* Section Heading */}
-      <div className="text-center mb-14">
+      <div className="text-center mb-14 px-4 md:px-6 lg:px-10">
         <motion.h2
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -60,7 +61,7 @@ const AwardsSection = () => {
 
       {/* Horizontal Scroll Section */}
       <div className="max-w-7xl mx-auto relative">
-        <div className="flex overflow-x-auto no-scrollbar gap-8 px-6 snap-x snap-mandatory">
+        <div className="flex overflow-x-auto no-scrollbar gap-8 px-4 md:px-6 lg:px-10 snap-x snap-mandatory">
           {awards.map((award, index) => (
             <motion.div
               key={award.id}

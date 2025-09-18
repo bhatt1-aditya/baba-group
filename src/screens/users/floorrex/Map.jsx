@@ -5,7 +5,7 @@ import { FiMapPin } from "react-icons/fi";
 
 const Map = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between bg-[#fdf9f6] px-6 md:px-16 py-12">
+    <div className="flex flex-col md:flex-row items-center justify-between bg-[#fdf9f6] md:px-6 px-4 lg:px-10 py-12">
       {/* Left Text Section */}
       <div className="text-center md:text-left mb-6 md:mb-0 md:px-6 lg:px-10 px-4 flex flex-col items-center">
         <h1 className="text-4xl md:text-5xl font-light text-[#7a4a24]">

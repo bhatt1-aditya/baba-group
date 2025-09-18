@@ -1,22 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import image1 from "../../../Assets/cristalo-flex/image1.png"
+import image2 from "../../../Assets/cristalo-flex/image2.png"
 const cards = [
   {
     title: "Awards & Achievements",
-    img: "/images/bathroom.jpg", // replace with actual image
+    img: image1,
     buttonColor: "white",
     textColor: "black",
   },
   {
     title: "Our Projects",
-    img: "/images/piramal-logo.png", // replace with actual image/logo
+    img: image2,
     buttonColor: "black",
     textColor: "white",
   },
   {
     title: "Events",
-    img: "/images/bathroom.jpg", // replace with actual image
+    img:image1,
     buttonColor: "white",
     textColor: "black",
   },

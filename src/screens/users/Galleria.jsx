@@ -60,7 +60,7 @@ const InteractiveCard = ({ image, likedImages, handleLike, onClick }) => {
           className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"
         >
           <div className="flex items-center justify-between mb-3">
-            <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">{image.category}</span>
+            <span className="bg-white/20 backdrop-blur-sm md:px-6 px-4 lg:px-10 py-1 rounded-full text-xs font-semibold">{image.category}</span>
             <div className="flex items-center gap-2">
               <motion.button
                 className="bg-white/20 backdrop-blur-sm p-2 rounded-full hover:bg-white/30 transition-all duration-300"

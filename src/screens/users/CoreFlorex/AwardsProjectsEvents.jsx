@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
+import image1 from "../../../Assets/core_flexx/events/project1.png"
+import image2 from "../../../Assets/core_flexx/events/project2.png"
+import image3 from "../../../Assets/core_flexx/events/project3.png"
 // Animation Variants
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -40,17 +42,17 @@ export default function AwardsProjectsEvents() {
   const sections = [
     {
       title: "Awards & Achievements",
-      img: "https://images.unsplash.com/photo-1615873968403-89e6aeb1c4dc?auto=format&fit=crop&w=900&q=80",
+      img: image1,
       desc: "Recognizing excellence through prestigious awards and milestones achieved over the years.",
     },
     {
       title: "Our Projects",
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+      img: image2,
       desc: "Innovative designs brought to life with attention to detail and quality craftsmanship.",
     },
     {
       title: "Events",
-      img: "https://images.unsplash.com/photo-1600607687487-c0e1f7a04c49?auto=format&fit=crop&w=900&q=80",
+      img: image3,
       desc: "Memorable moments where creativity and community come together.",
     },
   ];

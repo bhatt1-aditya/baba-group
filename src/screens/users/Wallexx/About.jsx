@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import image1 from "../../../Assets/core_flexx/wallexx/home.png"
+import image2 from "../../../Assets/core_flexx/wallexx/home2.png"
+import image3 from "../../../Assets/core_flexx/wallexx/home3.png"
+import image4 from "../../../Assets/core_flexx/wallexx/home4.png"
 const products = [
-  { name: "COREFLEXX", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
-  { name: "BABA QUARTZ", image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed" },
-  { name: "CRISTALLOO", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" },
-  { name: "FLOOREXX", image: "https://images.unsplash.com/photo-1616047006789-bf8b0c6a58d6" },
+  { name: "COREFLEXX", image: image1 },
+  { name: "BABA QUARTZ", image: image2 },
+  { name: "CRISTALLOO", image: image3 },
+  { name: "FLOOREXX", image: image4},
 ];
 
 export default function ProductShowcase() {

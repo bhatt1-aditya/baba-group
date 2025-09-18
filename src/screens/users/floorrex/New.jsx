@@ -30,7 +30,7 @@ const New = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto bg-white px-6 md:px-16 py-10 overflow-hidden">
+    <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto bg-white px-4 md:px-6 lg:px-10 py-10 overflow-hidden">
       {/* Left Text Section */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}

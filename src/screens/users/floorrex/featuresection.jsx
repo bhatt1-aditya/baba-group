@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Star, ShieldCheck, Wind, Layers } from "lucide-react";
-
+import stoneImage from "../../../Assets/floorrex/speciaImage.png"
 export default function FeaturesSection() {
   const features = [
     { icon: <ShieldCheck size={32} />, title: "Scratch Resistant" },
@@ -13,20 +13,6 @@ export default function FeaturesSection() {
 
   return (
     <div className="bg-gradient-to-b from-white via-[#faf7f5] to-[#f1ebe6]">
-      {/* Top Section with Floating Images */}
-      {/* <div className="flex justify-center gap-6 py-12 flex-wrap">
-        {(["living-room", "sofa"]).map((query, idx) => (
-          <motion.img
-            key={idx}
-            src={`https://source.unsplash.com/600x400/?${query},modern`}
-            alt={query}
-            className="rounded-2xl shadow-xl w-[300px] h-[200px] object-cover hover:scale-105 transition-transform"
-            whileHover={{ rotate: 2, scale: 1.05 }}
-          />
-        ))}
-      </div> */}
-
-
       {/* Quote Section */}
 <motion.section
   className="relative w-full py-20 bg-gradient-to-b from-white via-[#f9f5f2] to-white overflow-hidden"
@@ -41,7 +27,7 @@ export default function FeaturesSection() {
   </div>
 
   {/* Content Card */}
-  <div className="max-w-5xl mx-auto text-center bg-white shadow-2xl rounded-3xl px-8 md:px-16 py-14 relative z-10 border border-[#e7e1dc]">
+  <div className="max-w-5xl mx-auto text-center bg-white shadow-2xl rounded-3xl px-4 md:px-6 lg:px-10 py-14 relative z-10 border border-[#e7e1dc]">
     <motion.h2
       className="text-3xl md:text-5xl font-serif italic text-[#8B5E3C] mb-8"
       initial={{ opacity: 0, scale: 0.9 }}
@@ -82,7 +68,7 @@ export default function FeaturesSection() {
       <div className="relative w-full h-[75vh] overflow-hidden flex items-center justify-center">
         {/* Background */}
         <motion.img
-          src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1920&q=80"
+          src={stoneImage}
           alt="floor background"
           className="absolute inset-0 w-full h-full object-cover brightness-75"
           initial={{ scale: 1.1 }}
@@ -105,7 +91,7 @@ export default function FeaturesSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-widest drop-shadow-lg animate-bounce">
+          <h2 className="text-4xl md:text-7xl font-extrabold text-white tracking-widest drop-shadow-lg animate-bounce">
             SPECIAL FEATURES
           </h2>
           <motion.div
@@ -130,7 +116,7 @@ export default function FeaturesSection() {
       </div>
 
       {/* Feature Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 px-6 md:px-16 py-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 px-4 md:px-6 lg:px-10 py-16">
         {features.map((feature, idx) => (
           <motion.div
             key={idx}
