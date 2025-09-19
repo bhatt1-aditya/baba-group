@@ -1,6 +1,72 @@
-# Getting Started with Create React App
+# Baba Group - React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React application for Baba Group, built with Create React App and optimized for Vercel deployment.
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+```bash
+npm install
+```
+
+### Development
+```bash
+npm start
+```
+Opens [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Build
+```bash
+npm run build
+```
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
+## 🌐 Vercel Deployment
+
+This project is configured for seamless deployment on Vercel.
+
+### Automatic Deployment
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect this as a React app
+3. The build settings are pre-configured in `vercel.json`
+4. Deploy with zero configuration!
+
+### Manual Deployment
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy to Vercel
+vercel
+
+# For production deployment
+vercel --prod
+```
+
+### Environment Variables
+1. Copy `.env.example` to `.env.local`
+2. Update the values as needed
+3. Add environment variables in Vercel dashboard if required
+
+### Build Configuration
+- **Build Command**: `npm run vercel-build`
+- **Output Directory**: `build`
+- **Install Command**: `npm install`
+
+### Features
+- ✅ Single Page Application (SPA) routing
+- ✅ Static asset optimization
+- ✅ Security headers
+- ✅ Cache optimization
+- ✅ Environment variable support
 
 ## Available Scripts
 
