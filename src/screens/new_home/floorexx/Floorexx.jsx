@@ -10,6 +10,7 @@ import Products from "./Products";
 import Certificates from "./Certificates";
 import Brand from "./Brand";
 import Gallery from "../../../components/common/Gallery";
+import FAQSection from "./FAQSection";
 
 const Floorexx = () => {
   return (
@@ -25,6 +26,7 @@ const Floorexx = () => {
       <Certificates/>
       <Brand/>
       <Gallery/>
+      <FAQSection/>
     </div>
   );
 };

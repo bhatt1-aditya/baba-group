@@ -1,7 +1,7 @@
 import image from "../../../Assets/new_home/floorexx/floorexxing.png"
 const WhySPCSection = () => {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 items-center">
+    <section className="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 md:py-12 py-1 grid md:grid-cols-2 gap-10 items-center">
       {/* Left Content */}
       <div>
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">

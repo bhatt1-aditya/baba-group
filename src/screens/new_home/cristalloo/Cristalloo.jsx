@@ -10,6 +10,7 @@ import ExploreCristallooProduct from './ExploreCristallooProduct'
 import OtherBrands from './OtherBrands'
 import Certificates from './Certificates'
 import Gallery from '../../../components/common/Gallery'
+import FAQSection from './FAQSecction'
 
 const Cristalloo = () => {
   return (
@@ -25,6 +26,7 @@ const Cristalloo = () => {
         <OtherBrands/>
         <Certificates/>
         <Gallery/>
+        <FAQSection/>
     </div>
   )
 }

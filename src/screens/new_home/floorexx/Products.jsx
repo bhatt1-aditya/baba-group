@@ -26,7 +26,7 @@ const products = [
 
 const Products = () => {
   return (
-    <section className="px-4 md:px-10 lg:px-20 py-16 text-center">
+    <section className="px-4 md:px-6 lg:px-10 md:py-12 py-4 text-center">
       {/* Heading */}
       <h2 className="text-3xl md:text-4xl font-light text-gray-800">
         Explore <span className="text-orange-500 font-semibold">FLOOREXX</span>{" "}

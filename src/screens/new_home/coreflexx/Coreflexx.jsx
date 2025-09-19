@@ -9,6 +9,7 @@ import CoreflexxFeatures from './CoreflexxFeatures'
 import ExploreCoreflexx from './ExploreCoreflexx'
 import Certificates from './Certificates'
 import Gallery from '../../../components/common/Gallery'
+import FAQSection from './FAQSection'
 
 const Coreflexx = () => {
   return (
@@ -23,6 +24,7 @@ const Coreflexx = () => {
         <ExploreCoreflexx/>
         <Certificates/>
         <Gallery/>
+        <FAQSection/>
     </div>
   )
 }
