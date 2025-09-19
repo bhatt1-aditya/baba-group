@@ -13,7 +13,7 @@ const WhySPC = () => {
   ];
 
   return (
-    <section className="px-4 md:px-10 lg:px-20 py-16">
+    <section className="px-4 md:px-10 lg:px-20 py-12">
       <div className="grid md:grid-cols-2 max-w-6xl mx-auto grid-cols-1 gap-10 items-center">
 
         {/* LEFT - Title and Tags */}

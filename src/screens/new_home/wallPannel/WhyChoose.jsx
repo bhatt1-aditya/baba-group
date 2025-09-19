@@ -14,7 +14,7 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="py-16 px-4 md:px-6 lg:px-10 bg-white text-center">
+    <section className="md:py-12 px-4 md:px-6 lg:px-10 bg-white text-center">
       {/* Heading */}
       <h2 className="text-3xl font-semibold text-gray-900">
         Why Choose <span className="text-teal-700"><br/>WALLEX</span> panels ?

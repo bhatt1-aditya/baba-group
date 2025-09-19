@@ -33,7 +33,7 @@ const brands = [
 
 const BrandCards = () => {
   return (
-    <div className="px-4 lg:px-10 md:px-6 py-12 max-w-6xl mx-auto">
+    <div className="px-4 lg:px-10 md:px-6 md:py-12 max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max">
         {brands.map((brand, index) => (
           <div

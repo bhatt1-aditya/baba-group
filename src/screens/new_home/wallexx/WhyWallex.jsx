@@ -14,7 +14,7 @@ const WhyWallex = () => {
   ];
 
   return (
-    <section className="px-4 md:px-6 lg:px-10 py-16">
+    <section className="px-4 md:px-6 lg:px-10 md:py-12">
       <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
         {/* LEFT SIDE */}
         <div className="space-y-6">

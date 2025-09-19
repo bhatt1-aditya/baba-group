@@ -37,6 +37,11 @@ import WallPannel from "../screens/new_home/wallPannel/WallPannel";
 import ShowerPannel from "../screens/new_home/showerPannel/ShowerPannel";
 import Cristalloo from "../screens/new_home/cristalloo/Cristalloo";
 import Coreflexx from "../screens/new_home/coreflexx/Coreflexx";
+import Minerals from "../screens/new_home/minerals/Minerals";
+import Calcite from "../screens/new_home/calcite/Calcite";
+import QuartzMinerals from "../screens/new_home/quartz_minerals/QuartzMinerals";
+import FeldSpar from "../screens/new_home/feldspar/FeldSpar";
+import BabaGroup from "../screens/new_home/baba_group/BabaGroup";
 export const userRoutes = [
   {
     path: "/",
@@ -165,7 +170,7 @@ export const userRoutes = [
 
   //New Home component
     {
-    path:"/new-Home",
+    path:"/new-quartz",
     component:<Home2/>
   },
     {
@@ -192,6 +197,27 @@ export const userRoutes = [
     {
     path:"/coreflexx-pannel",
     component:<Coreflexx/>
+  },
+    {
+    path:"/minerals-pannel",
+    component:<Minerals/>
+  },
+    {
+    path:"/calcite",
+    component:<Calcite/>
+  },
+  
+    {
+    path:"/quartz-minerals",
+    component:<QuartzMinerals/>
+  },
+    {
+    path:"/feldspar-minerals",
+    component:<FeldSpar/>
+  },
+    {
+    path:"/baba-group",
+    component:<BabaGroup/>
   },
   
 ];

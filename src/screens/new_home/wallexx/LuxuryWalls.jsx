@@ -3,7 +3,7 @@ import luxuryImg from "../../../Assets/new_home/wallexx/luxury.png";
 
 const LuxuryWalls = () => {
   return (
-    <section className="px-4 md:px-6 lg:px-10 pb-16">
+    <section className="px-4 md:px-6 lg:px-10 md:pb-12">
       <div className="grid md:grid-cols-2 max-w-6xl mx-auto grid-cols-1 gap-10 items-center">
 
         {/* LEFT - Image */}
@@ -19,10 +19,10 @@ const LuxuryWalls = () => {
         <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-light text-gray-800 leading-snug">
             Walls That Speak <br />
-            <span className="text-green-600 font-semibold">Luxury.</span>
+            <span className="text-green-800 font-semibold">Luxury.</span>
           </h2>
 
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-green-700 leading-relaxed">
             Watch how Baba Group blends innovation, craftsmanship, and
             sustainability to deliver world-class surfaces.
           </p>

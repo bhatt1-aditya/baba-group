@@ -17,21 +17,21 @@ const MainHome = () => {
           {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
         </div>
 
-        <div className="text-white z-50 absolute px-4 md:gap-0 gap-10 md:px-6 lg:px-10 flex md:flex-row flex-col justify-between items-center w-full md:bottom-44 bottom-20">
-          <div className="text-white md:text-5xl text-3xl font-bold ">
-            <h1>
-              Pure <span className="text-[#ff9000]">Quartz. </span>
-              <br />
-              Global Quality.
-            </h1>
-          </div>
-          <div className="">
-            <img src={image2} />
+        <div className="text-white text-center z-50 absolute px-4 md:gap-5 gap-10 md:px-6 lg:px-10 flex  flex-col justify-between items-center w-full md:bottom-44 bottom-20">
+          <div className="flex gap-1 md:flex-row flex-col">
+            <img src={image2} className="border-r"/>
             <p className="">
-              “Global leaders in premium quartz <br /> surfaces and flooring
-              solutions.”
+              “Transform your walls with durable,<br/> stylish, and effortless solutions.”
             </p>
           </div>
+          <div className="text-white md:text-5xl text-3xl font-bold ">
+            <h1>
+              Luxury SPC Wall<span className="text-[#ff9000]"> &  </span>
+              
+               Shower Panels
+            </h1>
+          </div>
+          
         </div>
       </section>
     </div>

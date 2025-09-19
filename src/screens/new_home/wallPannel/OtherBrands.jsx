@@ -3,7 +3,7 @@ import { CheckCircle } from "lucide-react";
 import brand from "../../../Assets/new_home/wallex-pannel/brandImage.png"
 const OtherBrands = () => {
   return (
-    <section className="py-16 bg-white text-center">
+    <section className="md:py-12 bg-white text-center">
       {/* Section Heading */}
       <h2 className="text-3xl font-semibold text-gray-900">
         Explore Our Other <span className="text-teal-700">BRANDS.</span>

@@ -5,7 +5,7 @@ import image3 from "../../../Assets/new_home/sample3.png";
 
 const WhatsNewSection = () => {
   return (
-    <section className="py-16 px-4 md:px-6 lg:px-10 overflow-hidden ">
+    <section className="md:py-12 px-4 md:px-6 lg:px-10 overflow-hidden ">
       <div className="max-w-7xl mx-auto grid grid-cols-2 gap-2">
         <div className="relative ml-4 md:md-6">
           {" "}

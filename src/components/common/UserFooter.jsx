@@ -11,11 +11,11 @@ const UserFooter = () => {
   const navigate = useNavigate();
 
   const items = [
-    { name: "Florexx", path: "/floorrex" ,permission:"florexx"},
-    { name: "Corflexx", path: "/corflexx",permission:"coreflexx" },
-    { name: "Wallex", path: "/wallexx",permission:"wallex" },
-    { name: "Cristalo flexx", path: "/cristalo-flexx", permission:"cristalo" },
-    { name: "Quartz", path: "/quartz",permission:"quartz" },
+    { name: "Florexx", path: "/new-floorexx" ,permission:"florexx"},
+    { name: "Corflexx", path: "/coreflexx-pannel",permission:"coreflexx" },
+    { name: "Wallex", path: "/new-wallexx",permission:"wallex" },
+    { name: "Cristalo flexx", path: "/cristalloo-pannel", permission:"cristalo" },
+    { name: "Quartz", path: "/new-quartz",permission:"quartz" },
   ];
 
   return (

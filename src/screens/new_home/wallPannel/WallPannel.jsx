@@ -9,6 +9,7 @@ import ExplorePanel from "./ExplorePanel";
 import OtherBrands from "./OtherBrands";
 import Certificates from "./Certificates";
 import Gallery from "../../../components/common/Gallery";
+import FAQSection from "./FAQSection";
 
 const WallPannel = () => {
   return (
@@ -23,6 +24,7 @@ const WallPannel = () => {
     <OtherBrands />
     <Certificates/>
     <Gallery/>
+    <FAQSection/>
     </div>
   );
 };

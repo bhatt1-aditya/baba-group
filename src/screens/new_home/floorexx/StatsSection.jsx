@@ -4,9 +4,9 @@ import factoryImage from "../../../Assets/new_home/homeimage5.png"; // replace w
 
 const StatsSection = () => {
   return (
-    <section className="px-4 md:px-6 lg:px-10 pb-16 text-center ">
+    <section className="px-4 md:px-6 lg:px-10 md:pb-16 pb-6 text-center ">
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:mb-12 mb-4">
         <div>
           <p className="text-orange-500 text-2xl font-bold">100+</p>
           <p className="text-gray-600 text-sm">Current Clients</p>

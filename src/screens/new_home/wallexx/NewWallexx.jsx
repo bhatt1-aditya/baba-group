@@ -10,6 +10,7 @@ import OtherBrands from "./OtherBrands";
 import BrandCards from "./BrandCards";
 import Certificates from "./Certificates";
 import Gallery from "../../../components/common/Gallery";
+import FAQSection from "./FAQSection";
 
 const NewWallexx = () => {
   return (
@@ -25,6 +26,7 @@ const NewWallexx = () => {
       <BrandCards />
       <Certificates/>
       <Gallery/>
+      <FAQSection/>
     </div>
   );
 };
