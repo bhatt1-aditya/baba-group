@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
@@ -32,42 +33,53 @@ const FAQSection = () => {
   return (
     <section className="py-12 bg-white text-center">
       {/* Heading */}
-      <p className="text-orange-500 font-medium">FAQS</p>
-      <h2 className="text-2xl md:text-3xl font-semibold">
-        Frequently Asked <span className="text-orange-500">Ques.</span>
+      <p className="text-amber-700 font-medium">FAQS</p>
+      <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+        Frequently Asked <span className="text-amber-700">Ques.</span>
         <br />
-        <span className="text-orange-500">Everything</span> you Need to Know !
+        <span className="text-amber-700">Everything</span> you Need to Know!
       </h2>
 
       {/* FAQ List */}
-      <div className="mt-10 px-4 md:px-6 lg:px-10 space-y-4 text-left">
+      <div className="mt-10 px-4 md:px-6 lg:px-10 space-y-4 text-left max-w-3xl mx-auto">
         {faqs.map((faq) => (
-          <div
+          <motion.div
             key={faq.id}
-            className="border rounded-lg shadow-sm hover:shadow-md transition"
+            className="border rounded-lg overflow-hidden cursor-pointer"
+            whileHover={{ backgroundColor: "#FFF4E6", boxShadow: "0 8px 20px rgba(0,0,0,0.1)" }}
+            transition={{ duration: 0.3 }}
           >
             {/* Question */}
             <button
               onClick={() => toggleFAQ(faq.id)}
-              className={`w-full flex justify-between items-center px-4 py-3 text-sm md:text-base font-medium ${
-                openId === faq.id ? "text-orange-500" : "text-gray-800"
-              }`}
+              className={`w-full flex justify-between items-center px-4 py-3 text-sm md:text-base font-medium text-gray-800`}
             >
-              {`Q${faq.id}: ${faq.question}`}
+              <span className={openId === faq.id ? "text-amber-700 font-semibold" : ""}>
+                {`Q${faq.id}: ${faq.question}`}
+              </span>
               <FiChevronDown
-                className={`transform transition ${
-                  openId === faq.id ? "rotate-180 text-orange-500" : ""
+                className={`transform transition-all duration-300 ${
+                  openId === faq.id ? "rotate-180 text-amber-700" : ""
                 }`}
               />
             </button>
 
             {/* Answer */}
-            {openId === faq.id && (
-              <div className="px-4 pb-4 text-gray-600 text-sm md:text-base">
-                {faq.answer}
-              </div>
-            )}
-          </div>
+            <AnimatePresence>
+              {openId === faq.id && (
+                <motion.div
+                  key="content"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="px-4 pb-4 text-gray-700 text-sm md:text-base"
+                >
+                  {faq.answer}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
       </div>
     </section>
