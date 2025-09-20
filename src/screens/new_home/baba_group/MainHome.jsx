@@ -36,7 +36,7 @@ const MainHome = () => {
           </p>
 
           {/* Thumbnail Row */}
-          <div className="grid md:grid-cols-5 grid-cols-3 gap-2 mb-8">
+          <div className="flex flex-wrap gap-2 mb-8">
             {thumbnails.map((thumb, idx) => (
               <img
                 key={idx}
