@@ -8,7 +8,7 @@ const FeldsparSection = () => {
   const images = [image1, image2, image3, image4, image5];
 
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-4 md:px-6 lg:px-10 bg-white text-center">
+    <div className="flex flex-col items-center justify-center md:py-12 py-6 px-4 md:px-6 lg:px-10 bg-white text-center">
       {/* Small Description */}
       <p className="text-gray-600 text-sm md:text-base max-w-2xl mb-4">
         Essential mineral for innovative materials.

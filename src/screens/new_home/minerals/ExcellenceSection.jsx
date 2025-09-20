@@ -2,7 +2,7 @@ import React from "react";
 import excellence from "../../../Assets/new_home/minerals/excellence.png"
 const ExcellenceSection = () => {
   return (
-    <section className="max-w-5xl mx-auto px-4 md:px-6 lg:px-10 py-16 text-center">
+    <section className="max-w-5xl mx-auto px-4 md:px-6 lg:px-10 md:py-12 py-6 text-center">
       {/* Heading */}
       <h2 className="text-3xl md:text-4xl font-semibold leading-snug mb-6">
         From Earth’s Heart to <br /> Global Excellence.

@@ -8,6 +8,7 @@ import WatchNowSection from "./WatchNowSection";
 import ShowerPannelProduct from "./ShowerPannelProduct";
 import OtherBrands from "./OtherBrands";
 import Gallery from "../../../components/common/Gallery";
+import FAQSection from "./FAQSection";
 
 const ShowerPannel = () => {
   return (
@@ -21,7 +22,7 @@ const ShowerPannel = () => {
       <ShowerPannelProduct/>
       <OtherBrands/>
       <Gallery/>
-      
+      <FAQSection/>
     </div>
   );
 };

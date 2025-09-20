@@ -9,9 +9,9 @@ const ImageGallery = () => {
         Industrial Operations
       </h1>
 
-      <div className="grid grid-cols-1 max-w-5xl mx-auto md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 max-w-5xl  mx-auto md:grid-cols-3 md:gap-6">
         {/* Left Image */}
-        <div className=" rounded-2xl overflow-hidden p-2">
+        <div className=" rounded-2xl overflow-hidden md:p-6 p-4">
           <img
             src={image1}
             alt="Bagging process"
@@ -20,16 +20,16 @@ const ImageGallery = () => {
         </div>
 
         {/* Center Image */}
-        <div className=" rounded-2xl overflow-hidden p-2">
+        <div className=" rounded-2xl overflow-hidden md:p-6 p-4">
           <img
             src={image2}
             alt="Workers on conveyor belt"
-            className="rounded-lg mt-20"
+            className="rounded-lg md:mt-20"
           />
         </div>
 
         {/* Right Image */}
-        <div className=" rounded-2xl overflow-hidden p-2">
+        <div className=" rounded-2xl overflow-hidden md:p-6 p-4">
           <img
             src={image3}
             alt="Worker monitoring conveyor"

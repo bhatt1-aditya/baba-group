@@ -110,7 +110,7 @@ const Specifications = () => {
       <div className="overflow-x-auto">
         <table className="table-auto border border-gray-300 w-full text-sm">
           <thead className="bg-gray-100">
-            <tr>
+            <tr className="whitespace-nowrap">
               <th className="border px-3 py-2">Product Name</th>
               <th className="border px-3 py-2">Country</th>
               <th className="border px-3 py-2">Particle D97</th>

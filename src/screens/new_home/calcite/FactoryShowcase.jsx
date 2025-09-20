@@ -4,7 +4,7 @@ import image2 from "../../../Assets/new_home/calcite/image6.png"
 import image3 from "../../../Assets/new_home/calcite/image7.png"
 const FactoryShowcase = () => {
   return (
-    <div className="w-full bg-white py-12 px-6 flex flex-col items-center">
+    <div className="w-full bg-white md:py-12 px-6 flex flex-col items-center">
       {/* Section Title */}
       <h2 className="text-2xl font-semibold text-gray-800 mb-8">
         Our Facilities

@@ -6,7 +6,7 @@ const QuartzSection = () => {
   return (
     <div>
 
-    <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <section className="max-w-6xl mx-auto px-4 lg:px-10 md:px-6 md:py-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       {/* Left Image */}
       <div>
         <img
@@ -35,7 +35,7 @@ const QuartzSection = () => {
         </button>
       </div>
     </section>
-    <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <section className="max-w-6xl mx-auto px-4 lg:px-10 md:px-6 md:py-12 py-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       {/* Left Image */}
       <div className="text-center md:text-left">
         {/* Title */}
@@ -65,7 +65,7 @@ const QuartzSection = () => {
       </div>
       
     </section>
-    <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <section className="max-w-6xl mx-auto px-4 lg:px-10 md:px-6 md:py-12 py-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       {/* Left Image */}
       <div>
         <img
