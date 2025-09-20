@@ -24,7 +24,7 @@ const SpecificationsTable = () => {
   ];
 
   return (
-    <div className="py-16 md:px-6 px-4 lg:px-10 bg-white">
+    <div className="md:py-12 py-5 md:px-6 px-4 lg:px-10 bg-white">
       <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-10">
         Specifications.
       </h2>

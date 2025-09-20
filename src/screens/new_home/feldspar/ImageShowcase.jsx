@@ -10,13 +10,13 @@ const ImageShowcase = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center md:py-16 py-0 md:px-6 px-4 lg:px-10 bg-white">
+    <div className="flex flex-col items-center justify-center md:py-12 py-0 md:px-6 px-4 lg:px-10 bg-white">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
          {images.map((src, index) => (
           <div
             key={index}
             className={` overflow-hidden ${
-              index === 0 || index === images.length - 1 ? "mt-10" : ""
+              index === 0 || index === images.length - 1 ? "md:mt-10 mt-5" : ""
             }`}
           >
             <img

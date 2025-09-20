@@ -4,7 +4,7 @@ import image2 from "../../../Assets/new_home/coreflexx/coreflexx2.png"
 import image3 from "../../../Assets/new_home/coreflexx/coreflexx3.png"
 const WalleexSection = () => {
   return (
-      <section className="text-center pb-16 bg-white">
+      <section className="text-center md:pb-16 bg-white">
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-10">
         <p className="text-gray-600 text-sm mb-6">
           Walleex is a premium brand under the Baba Group, delivering next-generation SPC wall and shower panel solutions. 

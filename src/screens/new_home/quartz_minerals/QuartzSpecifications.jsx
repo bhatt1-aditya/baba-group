@@ -104,7 +104,7 @@ const QuartzSpecifications = () => {
   ];
 
   return (
-    <div className="w-full bg-white py-10 md:px-6 px-4 lg:px-10">
+    <div className="w-full bg-white md:py-10 md:px-6 px-4 lg:px-10">
       <h2 className="text-center text-2xl font-semibold text-orange-600 mb-6">
         Specification of 1st Grade
       </h2>
@@ -112,7 +112,7 @@ const QuartzSpecifications = () => {
       <div className="overflow-x-auto">
         <table className="table-auto border border-gray-300 w-full text-sm text-center">
           <thead className="bg-orange-500 text-white">
-            <tr>
+            <tr className="whitespace-nowrap">
               <th className="border px-3 py-2">Baba Quartz Size Grade</th>
               <th className="border px-3 py-2">Oversize in Range</th>
               <th className="border px-3 py-2">Lower</th>
