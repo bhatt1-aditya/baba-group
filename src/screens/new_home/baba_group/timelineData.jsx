@@ -1,234 +1,158 @@
-// import React from "react";
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-// const timelineData = [
-//   {
-//     year: "1964",
-//     title: "Baba Factory",
-//     text: "With a strong presence in development, Mr. Mohamed Hussein Baba set up the first factory, laying the foundation for Baba Group's legacy...",
-//     img: "https://via.placeholder.com/200x150",
-//   },
-//   {
-//     year: "2007",
-//     title: "Studio Mosaic",
-//     text: "Later, Baba Group launched the brand of Floor & wall décor solutions, Studio Mosaic...",
-//     img: "https://via.placeholder.com/200x150",
-//   },
-//   {
-//     year: "2008",
-//     title: "Terrazzo Micro & Quartz LUXE",
-//     text: "In 2008, Baba Group expanded into engineered quartz surfaces and terrazzo flooring...",
-//     img: "https://via.placeholder.com/200x150",
-//   },
-//   {
-//     year: "2011",
-//     title: "Baba Export House Pvt. Ltd.",
-//     text: "Baba Group further strengthened its presence with international export operations...",
-//     img: "https://via.placeholder.com/200x150",
-//   },
-//   {
-//     year: "2017-18",
-//     title: "Baba Quartz",
-//     text: "Baba Quartz was established as a leading engineered quartz manufacturing brand...",
-//     img: "https://via.placeholder.com/200x150",
-//   },
-//   {
-//     year: "2022-23",
-//     title: "Pioneers",
-//     text: "Baba Group continued its global journey by expanding operations and enhancing facilities...",
-//     img: "https://via.placeholder.com/200x150",
-//   },
-// ];
+import image1 from "../../../Assets/new_home/baba_group/image1.png";
+import image2 from "../../../Assets/new_home/baba_group/image3.png";
+import image3 from "../../../Assets/new_home/baba_group/image4.png";
+import image4 from "../../../Assets/new_home/baba_group/image5.png";
+import image5 from "../../../Assets/new_home/baba_group/image6.png";
+import image6 from "../../../Assets/new_home/baba_group/image7.png";
+import image7 from "../../../Assets/new_home/baba_group/image8.png";
 
-// const Timeline = () => {
-//   return (
-//     <section className="px-6 md:px-16 py-16">
-//       {/* Heading */}
-//       <h2 className="text-3xl font-semibold text-center text-gray-900">
-//         Our <span className="text-sky-500">Journey.</span>
-//       </h2>
+const gradientStyle = {
+  backgroundImage: "linear-gradient(90deg,#ff9b21,#ad5bff,#0e77ca)",
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  color: "transparent",
+};
 
-//       {/* Timeline Container */}
-//       <div className="relative mt-12 border-l border-gray-300">
-//         {timelineData.map((item, index) => (
-//           <div
-//             key={index}
-//             className="mb-12 ml-6 flex flex-col md:flex-row md:items-center"
-//           >
-//             {/* Dot on the line */}
-//             <div className="absolute -left-2 w-4 h-4 bg-sky-500 rounded-full border-2 border-white"></div>
+const OurJourney = () => {
+  const reduceMotion = useReducedMotion();
 
-//             {/* Content */}
-//             <div
-//               className={`md:w-1/2 ${
-//                 index % 2 === 0 ? "md:pr-8" : "md:pl-8 md:ml-auto"
-//               }`}
-//             >
-//               <h3 className="text-xl font-bold text-orange-500">{item.year}</h3>
-//               <h4 className="mt-1 text-lg font-semibold text-gray-800">
-//                 {item.title}
-//               </h4>
-//               <p className="mt-2 text-gray-600 text-sm md:text-base">
-//                 {item.text}
-//               </p>
-//               <img
-//                 src={item.img}
-//                 alt={item.title}
-//                 className="mt-4 rounded-lg shadow-md w-64"
-//               />
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Timeline;
-
-
-
-
-
-import React from 'react';
-import image1 from "../../../Assets/new_home/baba_group/image1.png"
-import image2 from "../../../Assets/new_home/baba_group/image3.png"
-import image3 from "../../../Assets/new_home/baba_group/image4.png"
-import image4 from "../../../Assets/new_home/baba_group/image5.png"
-import image5 from "../../../Assets/new_home/baba_group/image6.png"
-import image6 from "../../../Assets/new_home/baba_group/image7.png"
-import image7 from "../../../Assets/new_home/baba_group/image8.png"
-
-const Timeline = () => {
-  const timelineData = [
-    {
-      year: "1964",
-      title: "Robert Bosch",
-      image: image1,
-      description: "In 1964, a company named 'Aktiengesellschaft Thermostaat Bosch' was a start-up that became active in selling automobile parts to vehicle fleets and car traders. Over time they expanded their products and eventually grew to become a leader in the way they manufacture and distribute their products.",
-      side: "left"
-    },
-    {
-      year: "2007",
-      title: "Robert Bosch Ltd",
-      image: image2, 
-      description: "In year 2007 Robert group entered the world of Real high-tech/Hi-tech applications under the heading of breakthrough Diagnostics and hence a new brand was introduced in the market by the name of Robert Bosch Ltd.",
-      side: "right"
-    },
-    {
-      year: "2008",
-      title: "Ronald Morris Industries Pvt. Ltd.",
-      image: image3,
-      description: "As they decided the overall continuously expanding the floor from 3 corners gallery, filling more area than the previous one. The previous one was around 20 thousand square feet while the new expanded area was around 30 thousand square feet so that they could enhance development in not because of it but expansion as a plant that has the same benefits as the 'old' process of a new one out in 2008 as.",
-      side: "left"
-    },
-    {
-      year: "2011",
-      title: "Bolex Super Plus India Pvt. Ltd.",
-      image: image4,
-      description: "Diversification of their markets, company became superlative. Boschian Chromatix as a processing unit for making. Thetas and then Aliphatic mounts measurements where the company proceeded for large scale manufacturing. Manufacturing company with Bolex superlative and Boley plate chromatix devices.",
-      side: "right"
-    },
-    {
-      year: "2017-18",
-      title: "Best Quality",
-      image: image5,
-      description: "As the modernisation of business manufacturing was highly characteristic of our national BUILDING equipment Company the World with Stainless Pvt. Ltd. and Robert Morris Industries Pvt. Ltd. Combination businesses for making large scale and commercial buildings. Nowadays for the companies GFRC (Glass Fiber Reinforced Concrete), GRC (Glassfibre GFRC) Roofing and GFRC 2008 etc GFRC Pvt is essential tool GRC they provide.",
-      side: "left"
-    },
-    {
-      year: "2022-23",
-      title: "Present",
-      image: image6,
-      description: "Currently operating with advanced manufacturing capabilities and continuing to expand our market presence with innovative solutions and cutting-edge technology.",
-      side: "right"
-    }
+  const items = [
+    { year: "1964", title: "Baba Fabrics", text: `In 1964, a visionary person in Kishangarh Mr. Ramakishan Goyal, had a vision for the business potential of textile technology, started "Baba Fabrics" with very few customers and some handful of employees which developed & grew day by day with time.`, img: image1, left: true },
+    { year: "2007", title: "Shakti Minerals", text: `As the requirement of business diversification, Baba Group started "Baba Minerals Pvt. Ltd." as a new Mining product processing/grinding unit at Nasirabad for the Domestic Glass and Ceramics market. Because of the increasing demand, Baba Group started "Shakti Minerals" in 2007 and a next plant in 2008 named "Tanush Micro Mineral Pvt. Ltd." for Calcium Carbonate minerals.`, img: image2, left: false },
+    { year: "2008", title: "Tanush Micro Minerals Pvt. Ltd.", text: `In year 2009 Baba group marked the arrival of four fully automatic hi-tech production units at Shrinagar (Kishangarh); their selling market in India & abroad grew due to modern systematic & quality production.`, img: image3, left: true },
+    { year: "2011", title: "Baba Super Minerals Pvt. Ltd.", text: `As the demand increased continuously throughout the Asia & Europe regions, Baba group was defined as a symbol of quality in this processing field in the world market, so in 2011 Baba group established four more state of art production units at Shrinagar (Kishangarh) and because of the huge production & export they were awarded the “Top Exporter of North India” by India Govt. in 2014-15.`, img: image4, left: false },
+    { year: "2017-18", title: "Baba Quartz", text: `As the requirement of business diversification and huge requirement of raw material Baba Group registered a new factory "Baba Super Minerals Pvt. Ltd." with Brand Name "BABA QUARTZ" in 2017-18. After establishing in Quartz market, Baba Group entered a new field in FY 2022-23 and registered "Baba Flooring Pvt. Ltd." with Brand Name "FLOORREX" to manufacture Stone Plastic Composite (SPC) Flooring and in F.Y. 2024-25 "WALLEX" to manufacture SPC Wall Panels.`, img: image5, left: true },
+    { year: "2022-23", title: "Floorrex", text: `In FY 2022-23 Baba Group registered "Baba Flooring Pvt. Ltd." under the brand "FLOORREX" for SPC flooring manufacturing; the company also planned "WALLEX" in FY 2024-25 to manufacture SPC wall panels.`, img: image6, left: false },
   ];
 
+  const itemVariants = (fromLeft) => ({
+    hidden: { opacity: 0, x: reduceMotion ? 0 : fromLeft ? -50 : 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+  });
+
+  const imgVariants = {
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+    hover: reduceMotion ? {} : { scale: 1.05, rotate: 2, filter: "brightness(1.1)", transition: { duration: 0.4 } },
+  };
+
+  const textVariants = (fromLeft) => ({
+    hidden: { opacity: 0, x: reduceMotion ? 0 : fromLeft ? -30 : 30 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  });
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 md:px-6 lg:px-10">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-light text-gray-800 mb-2">
-            Our <span className="text-yellow-500 font-normal">Journey</span>.
-          </h1>
-        </div>
+    <div className="w-full bg-white px-4 md:px-20 py-16 font-sans">
+      {/* Animated Heading */}
+      <motion.h2
+        className="text-center text-5xl md:text-6xl font-extralight tracking-wider mb-16"
+        style={gradientStyle}
+        initial={{ opacity: 0, y: -50, scale: 0.8 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        whileHover={{ scale: 1.05, textShadow: "0px 0px 20px rgba(173,91,255,0.8)" }}
+      >
+        Our <span style={gradientStyle}>Journey</span>
+      </motion.h2>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Central line */}
-          <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gray-300 md:flex hidden"></div>
+      {/* Timeline container */}
+      <div className="relative max-w-6xl mx-auto">
+        {/* Slim Vertical line */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[1.5px] bg-gradient-to-b from-orange-500 via-purple-500 to-blue-500 rounded" />
 
-          {timelineData.map((item, index) => (
-            <div key={index} className={`relative flex items-center mb-16 md:flex-row flex-col ${
-              item.side === 'left' ? 'justify-start' : 'justify-end'
-            }`}>
-              
-              {/* Timeline dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-500 rounded-full border-4 border-white shadow-lg z-10 md:flex hidden"></div>
+        {/* Timeline items */}
+        {items.map((item, idx) => (
+          <motion.section
+            key={idx}
+            className="relative mb-24 flex flex-col md:flex-row items-center md:items-start"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={itemVariants(item.left)}
+          >
+            {/* Left image */}
+            {item.left && (
+              <motion.div className="md:w-1/2 pr-6 flex justify-center" variants={imgVariants}>
+                <motion.img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-[400px] h-[250px] object-cover rounded-xl shadow-lg"
+                  whileHover={!reduceMotion ? { scale: 1.05, rotate: 2, filter: "brightness(1.1)" } : {}}
+                />
+              </motion.div>
+            )}
 
-              {/* Content container */}
-              <div className={`md:w-5/12 w-full ${item.side === 'left' ? 'md:pr-12' : 'md:pl-12'}`}>
-                <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                  {/* Year badge */}
-                  <div className={`inline-block px-4 py-2 m-6 mb-4 rounded-full text-sm font-medium ${
-                    item.side === 'left' 
-                      ? 'bg-yellow-100 text-yellow-700' 
-                      : 'bg-blue-100 text-blue-700'
-                  }`}>
-                    {item.year}
-                  </div>
+            {/* Text content */}
+            <div className="md:w-1/2 pl-6 mt-8 md:mt-0">
+              {/* Year */}
+              <motion.p
+                className="text-5xl md:text-6xl font-bold leading-none mb-2"
+                style={gradientStyle}
+                initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 120, damping: 12 }}
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                {item.year}
+              </motion.p>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-semibold text-gray-800 mx-6 mb-4">
-                    {item.title}
-                  </h3>
+              {/* Title */}
+              <motion.p
+                className="mt-2 text-xl font-semibold text-gray-800"
+                variants={textVariants(true)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                {item.title}
+              </motion.p>
 
-                  {/* Image */}
-                  <div className="mx-6 mb-4">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-45 object-cover rounded-lg"
-                    />
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-gray-600 leading-relaxed mx-6 mb-6">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Year label on opposite side */}
-              <div className={`absolute ${
-                item.side === 'left' ? 'right-0 pr-6' : 'left-0 pl-6'
-              } w-5/12 md:flex hidden`}>
-                <div className={`${
-                  item.side === 'left' ? 'text-right' : 'text-left'
-                }`}>
-                  <span className="text-3xl font-light text-yellow-500">
-                    {item.year}
-                  </span>
-                  <div className="text-sm text-gray-500 mt-1">
-                    {item.title}
-                  </div>
-                </div>
-              </div>
+              {/* Paragraph */}
+              <motion.p
+                className="mt-4 text-gray-700 leading-relaxed"
+                variants={textVariants(false)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                {item.text}
+              </motion.p>
             </div>
-          ))}
-        </div>
 
-        {/* Bottom decoration */}
-        <div className="text-center mt-16">
-          <div className=" flex flex-col justify-center items-center mx-auto">
-            <img src={image7}/>
-            <p1 className="text-center mt-4 max-w-3xl">From our humble beginnings to becoming an international name in surface solutions – the milestones that define Baba Group.</p1>
-          </div>
-        </div>
+            {/* Right image */}
+            {!item.left && (
+              <motion.div className="md:w-1/2 pl-6 flex justify-center" variants={imgVariants}>
+                <motion.img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-[400px] h-[250px] object-cover rounded-xl shadow-lg"
+                  whileHover={!reduceMotion ? { scale: 1.05, rotate: 2, filter: "brightness(1.1)" } : {}}
+                />
+              </motion.div>
+            )}
+          </motion.section>
+        ))}
+
+        {/* Centered extra image */}
+        <motion.section className="relative mb-8 flex justify-center" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={imgVariants}>
+          <motion.img
+            src={image7}
+            alt="extra"
+            className="max-w-full h-auto object-cover rounded-xl shadow-lg"
+            whileHover={!reduceMotion ? { scale: 1.03, rotate: 2, filter: "brightness(1.1)" } : {}}
+          />
+        </motion.section>
       </div>
+
+      {/* Footer */}
+      <p className="text-center text-gray-600 mt-12 text-lg">
+        From our humble beginnings to becoming an international name in surface solutions – the milestones that define Baba Group.
+      </p>
     </div>
   );
 };
 
-export default Timeline;
+export default OurJourney;

@@ -2,6 +2,8 @@ import React from "react";
 import image1 from "../../../Assets/new_home/baba_group/designing1.png"
 import image2 from "../../../Assets/new_home/baba_group/designing2.png"
 import image3 from "../../../Assets/new_home/baba_group/designing3.png"
+import { motion } from "framer-motion";
+
 const AboutSection2 = () => {
   return (
     <section className="md:px-6 px-4 lg:px-10 py-12">
@@ -26,28 +28,39 @@ const AboutSection2 = () => {
 
         {/* Right - Heading */}
         <div className="flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl font-semibold leading-snug">
+          <motion.h2
+            className="text-5xl md:text-6xl font-light leading-snug mb-4"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             Designing Excellence. <br /> Delivering Trust.
-          </h2>
+          </motion.h2>
         </div>
       </div>
 
       {/* Bottom - Image Gallery */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <img
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <motion.img
           src={image1}
           alt="Factory"
           className="w-full h-72 object-cover rounded-lg shadow"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
         />
-        <img
+        <motion.img
           src={image2}
           alt="Production"
           className="w-full h-96 object-cover rounded-lg shadow"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
         />
-        <img
+        <motion.img
           src={image3}
           alt="Plant"
           className="w-full h-60 object-cover rounded-lg shadow"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
         />
       </div>
     </section>
