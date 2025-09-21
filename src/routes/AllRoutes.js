@@ -4,6 +4,7 @@ import Products from "../screens/users/Products";
 import Galleria from "../screens/users/Galleria";
 import Tesimonials from "../screens/users/Testimonials";
 import AboutUs from "../screens/users/AboutUs";
+import About_Us from "../components/menubar/AboutUs";
 import Florex from "../screens/users/Florex";
 import CristaloFlexx from "../screens/users/FooterFlorex/CristaloFlexx";
 // import CoreFlexx from "../screens/users/CoreFlexx/CoreFlexx";
@@ -42,6 +43,26 @@ import Calcite from "../screens/new_home/calcite/Calcite";
 import QuartzMinerals from "../screens/new_home/quartz_minerals/QuartzMinerals";
 import FeldSpar from "../screens/new_home/feldspar/FeldSpar";
 import BabaGroup from "../screens/new_home/baba_group/BabaGroup";
+import ProductDetail from "../components/menubar/ProductDetail";
+import ManufacturingProcess from "../components/menubar/ManufacturingProcess";
+import CareAndMaintenance from "../components/menubar/CareAndMaintenance";
+import TechnicalSpecifications from "../components/menubar/TechnicalSpecifications";
+import AdvantagesAndUses from "../components/menubar/AdvantagesAndUses";
+import QuartzFinishes from "../components/menubar/QuartzFinishes";
+import SimilarCristalloAbout from "../components/menubar/SimilarCistalloAbout";
+import SimilarCristalloProductDetails from "../components/menubar/SimilarCristalloProductDetails";
+import SimilarCristalloManufacturingProcess from "../components/menubar/SimilarCristalloManufacturingProcess";
+import SimilarCristalloCareAndMaintenance from "../components/menubar/SimilarCristalloCareAndMaintenance";
+import SimilarCristalloAdvantagesAndUses from "../components/menubar/SimilarCristalloAdvantagesAndUses";
+import SimilarFloorexx from "../components/menubar/SimilarFloorexx";
+import SimilarFloorexxProductDetail from "../components/menubar/SimilarFloorexxProductDetails";
+import SimilarFloorexxInstaliationGuideline from "../components/menubar/SimilarFloorexxInstaliationGuideline";
+import SimilarFloorexxCareAndMaintenance from "../components/menubar/SimilarFloorexxCareMaintenance";
+import SimilarFloorrexAdvantages from "../components/menubar/SimilarFloorexxAdvantages";
+import SimilarFloorrexAccessories from "../components/menubar/SimilarFloorexxAccessories";
+import SimilarWallex from "../components/menubar/SimilarWallex";
+import SimilarWallexProductDetail from "../components/menubar/SimilarWallexProductDetails";
+import WallexInstallationGuide from "../components/menubar/WallexInstallationGuide";
 export const userRoutes = [
   {
     path: "/",
@@ -65,7 +86,7 @@ export const userRoutes = [
   },
   {
     path: "/aboutus",
-    component: <AboutUs />,
+    component: <About_Us/>,
   },
   {
     path: "/florex",
@@ -164,6 +185,100 @@ export const userRoutes = [
     path:"/promoters",
     component:<Promoters />
   },
+  {
+    path:"/aboutus",
+    component:<AboutUs />
+  },
+  {
+    path:"/productdetails",
+    component:<ProductDetail />
+  },
+  {
+    path:"/manufacturing-process",
+    component:<ManufacturingProcess />
+  },
+  
+  {
+    path:"/care-and-maintenance",
+    component:<CareAndMaintenance />
+  },
+  
+  {
+    path:"/rechnical-specifications",
+    component:<TechnicalSpecifications  />
+  },
+  
+  {
+    path:"/advantages-and-uses",
+    component:<AdvantagesAndUses />
+  },
+  
+  {
+    path:"/quartz-finishes",
+    component:<QuartzFinishes />
+  },
+  
+  {
+    path:"/similar-cristallo-about",
+    component:<SimilarCristalloAbout />
+  },
+  {
+    path:"/similar-cristallo-product-details",
+    component:<SimilarCristalloProductDetails />
+  },
+  {
+    path:"/similar-cristallo-manufacturing-process",
+    component:<SimilarCristalloManufacturingProcess />
+  },
+  {
+    path:"/similar-cristallo-care-and-maintenance",
+    component:<SimilarCristalloCareAndMaintenance />
+  },
+  {
+    path:"/similar-cristallo-advantages-and-uses",
+    component:<SimilarCristalloAdvantagesAndUses />
+  },
+  
+  {
+    path:"/similar-floorexx",
+    component:<SimilarFloorexx />
+  },
+  
+  {
+    path:"/similar-floorexx-product-detail",
+    component:<SimilarFloorexxProductDetail />
+  },
+  {
+    path:"/similar-floorexx-instaliation-guideline",
+    component:<SimilarFloorexxInstaliationGuideline />
+  },
+  
+  {
+    path:"/similar-floorexx-care-maintenance",
+    component:<SimilarFloorexxCareAndMaintenance />
+  },
+  {
+    path:"/similar-floorexx-advantages",
+    component:<SimilarFloorrexAdvantages />
+  },
+  {
+    path:"/similar-floorexx-accessories",
+    component:<SimilarFloorrexAccessories />
+  },
+  {
+    path:"/similar-wallex",
+    component:<SimilarWallex />
+  },
+  {
+    path:"/similar-wallex-product-detail",
+    component:<SimilarWallexProductDetail />
+  },
+  
+  {
+    path:"/wallex-installation-guide",
+    component:<WallexInstallationGuide />
+  },
+  
 
 
 
