@@ -1,6 +1,6 @@
 // App.jsx
 import React from "react";
-import mainImage from "../../../Assets/new_home/home.png";
+import mainImage from "../../../Assets/new_home/feldspar/mainImage.png";
 import image2 from "../../../Assets/new_home/homeimage2.png";
 const MainHome = () => {
   return (
@@ -17,21 +17,23 @@ const MainHome = () => {
           {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
         </div>
 
-        <div className="text-white z-50 absolute px-4 md:gap-0 gap-10 md:px-6 lg:px-10 flex md:flex-row flex-col justify-between items-center w-full md:bottom-44 bottom-20">
-          <div className="text-white md:text-5xl text-3xl font-bold ">
-            <h1>
-              Pure <span className="text-[#ff9000]">Quartz. </span>
+        <div className="text-white z-50 absolute px-4 md:gap-0 gap-10 md:px-6 lg:px-10 flex md:flex-row flex-col md:justify-between justify-center items-center w-full md:bottom-44 bottom-20">
+          <div className="mx-auto text-center">
+            <h1 className="text-white md:text-5xl text-3xl font-bold "> 
+              Feldspar
               <br />
-              Global Quality.
             </h1>
+              <span className="md:text-2xl text-xl">The essential mineral powering durable, innovative materials.</span>
           </div>
-          <div className="">
+          {/* <div className="">
             <img src={image2} />
             <p className="">
-              “Global leaders in premium quartz <br /> surfaces and flooring
-              solutions.”
+              Premium designs.
+              <br />
+              Long-lasting strength.
+              <br /> Sustainable performance.
             </p>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

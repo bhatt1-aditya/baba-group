@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
@@ -42,9 +43,10 @@ const FAQSection = () => {
       {/* FAQ List */}
       <div className="mt-10 px-4 md:px-6 lg:px-10 space-y-4 text-left">
         {faqs.map((faq) => (
-          <div
+          <motion.div
             key={faq.id}
-            className="border rounded-lg shadow-sm hover:shadow-md transition"
+            className="border rounded-lg shadow-sm hover:shadow-md transition-all"
+            whileHover={{ scale: 1.02 }}
           >
             {/* Question */}
             <button
@@ -54,20 +56,30 @@ const FAQSection = () => {
               }`}
             >
               {`Q${faq.id}: ${faq.question}`}
-              <FiChevronDown
-                className={`transform transition ${
-                  openId === faq.id ? "rotate-180 text-orange-500" : ""
-                }`}
-              />
+              <motion.div
+                animate={{ rotate: openId === faq.id ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FiChevronDown className="text-xl" />
+              </motion.div>
             </button>
 
             {/* Answer */}
-            {openId === faq.id && (
-              <div className="px-4 pb-4 text-gray-600 text-sm md:text-base">
-                {faq.answer}
-              </div>
-            )}
-          </div>
+            <AnimatePresence>
+              {openId === faq.id && (
+                <motion.div
+                  key="content"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="px-4 pb-4 text-gray-600 text-sm md:text-base overflow-hidden"
+                >
+                  {faq.answer}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
       </div>
     </section>

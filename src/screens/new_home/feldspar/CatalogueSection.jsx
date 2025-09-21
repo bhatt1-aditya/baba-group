@@ -2,7 +2,7 @@ import React from "react";
 
 const CatalogueSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center text-center py-16 md:px-6 px-4 lg:px-10">
+    <section className="flex flex-col items-center justify-center text-center md:py-12 py-6 md:px-6 px-4 lg:px-10">
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
         Browse Our E-Catalogue & Resources

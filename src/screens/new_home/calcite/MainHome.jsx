@@ -18,12 +18,12 @@ const MainHome = () => {
         </div>
 
         <div className="text-white z-50 absolute px-4 md:gap-0 gap-10 md:px-6 lg:px-10 flex md:flex-row flex-col md:justify-between justify-center items-center w-full md:bottom-44 bottom-20">
-          <div className="text-white md:text-5xl text-3xl font-bold ">
-            <h1>
-              Redefining SPC Flooring
+          <div className="mx-auto text-center">
+            <h1 className="text-white md:text-5xl text-3xl font-bold "> 
+              Calcite
               <br />
-              <span className="md:text-2xl text-xl">Floors that inspires.</span>
             </h1>
+              <span className="md:text-2xl text-xl">Natural brightness that elevates quality and performance.</span>
           </div>
           {/* <div className="">
             <img src={image2} />

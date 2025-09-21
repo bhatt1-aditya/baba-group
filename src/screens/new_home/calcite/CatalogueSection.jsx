@@ -2,16 +2,16 @@ import React from "react";
 
 const CatalogueSection = () => {
   return (
-    <div className="w-full bg-white py-16 md:px-6 px-4 lg:px-10 flex flex-col items-center text-center">
+    <div className="w-full bg-white py-12 md:px-6 px-4 lg:px-10 flex flex-col items-center text-center">
       {/* Heading */}
-      <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">
+      <h2 className="text-3xl md:text-4xl max-w-3xl font-semibold text-gray-800 mb-4">
         Browse Our{" "}
         <span className="text-blue-600">E-Catalogue</span> &{" "}
         <span className="text-blue-600">Resources</span>
       </h2>
 
       {/* Subtitle */}
-      <p className="text-gray-600 max-w-2xl mb-8 leading-relaxed">
+      <p className="text-gray-600 md:w-[90%] mb-8 leading-relaxed">
         Discover the full range of Baba Group products, specifications, and
         designs at your fingertips. Our interactive e-catalogue makes it easy to
         explore our collections, download details, and choose the right solution

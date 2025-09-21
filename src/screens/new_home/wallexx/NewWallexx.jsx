@@ -11,6 +11,7 @@ import BrandCards from "./BrandCards";
 import Certificates from "./Certificates";
 import Gallery from "../../../components/common/Gallery";
 import FAQSection from "./FAQSection";
+import WhatsNew from "./Whatsnew";
 
 const NewWallexx = () => {
   return (
@@ -20,6 +21,7 @@ const NewWallexx = () => {
       <StatsSection/>
       <LuxuryWalls />
       <WhySPC />
+      <WhatsNew/>
       <WhyWallex />
       <Categories />
       <OtherBrands />

@@ -15,7 +15,7 @@ const CoreflexxFeatures = () => {
 
   return (
     <section className="pb-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Image Section */}
         <div>
           <img

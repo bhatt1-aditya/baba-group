@@ -9,20 +9,20 @@ const StatsSection = () => {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:mb-12 mb-6">
         <div>
-          <p className="text-orange-500 text-2xl font-bold">100+</p>
-          <p className="text-gray-600 text-sm">Current Clients</p>
+          <p className="text-black text-2xl font-bold">100+</p>
+          <p className="text-black text-sm">Current Clients</p>
         </div>
         <div>
-          <p className="text-orange-500 text-2xl font-bold">20+</p>
-          <p className="text-gray-600 text-sm">Years of Experience</p>
+          <p className="text-black text-2xl font-bold">20+</p>
+          <p className="text-black text-sm">Years of Experience</p>
         </div>
         <div>
-          <p className="text-orange-500 text-2xl font-bold">25+</p>
-          <p className="text-gray-600 text-sm">Awards Won</p>
+          <p className="text-black text-2xl font-bold">25+</p>
+          <p className="text-black text-sm">Awards Won</p>
         </div>
         <div>
-          <p className="text-orange-500 text-2xl font-bold">15+</p>
-          <p className="text-gray-600 text-sm">Availability Worldwide</p>
+          <p className="text-black text-2xl font-bold">15+</p>
+          <p className="text-black text-sm">Availability Worldwide</p>
         </div>
       </div>
      
